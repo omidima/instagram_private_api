@@ -23,12 +23,12 @@ class MediaRepository extends InstaRepository {
       await client.request.get('/api/v1/media/blocked/'));
 
   Future<StatusResponse> seen(
-          {Map<String, dynamic> reels,
-          Map<String, dynamic> reelMediaSkipped,
-          Map<String, dynamic> liveVods,
-          Map<String, dynamic> liveVodsSkipped,
-          Map<String, dynamic> nuxes,
-          Map<String, dynamic> nuxesSkipped,
+          {Map<String, dynamic>? reels,
+          Map<String, dynamic>? reelMediaSkipped,
+          Map<String, dynamic>? liveVods,
+          Map<String, dynamic>? liveVodsSkipped,
+          Map<String, dynamic>? nuxes,
+          Map<String, dynamic>? nuxesSkipped,
           InstaModule module = InstaModule.feedTimeline}) async =>
       StatusResponse.fromJson(await client.request.post('/api/v2/media/seen/',
           query: {
@@ -39,7 +39,7 @@ class MediaRepository extends InstaRepository {
           form: client.request.sign({
             '_csrftoken': client.state.cookieCsrfToken,
             '_uid': client.state.cookieUserId,
-            '_uuid': client.state.device.uuid,
+            '_uuid': client.state.device?.uuid,
             'live_vods_skipped': liveVodsSkipped ?? {},
             'nuxes_skipped': nuxesSkipped ?? {},
             'nuxes': nuxes ?? {},
@@ -49,15 +49,15 @@ class MediaRepository extends InstaRepository {
           })));
 
   Future<MediaConfigureResponse> configure({
-    @required String uploadId,
-    @required int width,
-    @required int height,
+    required String uploadId,
+    required int width,
+    required int height,
     String caption = '',
-    List<double> cropCenter,
+    List<double>? cropCenter,
     double cropZoom = 1.0,
-    String mediaFolder,
-    MediaLocation location,
-    Usertags usertags,
+    String? mediaFolder,
+    MediaLocation? location,
+    Usertags? usertags,
   }) async =>
       MediaConfigureResponse.fromJson(
           await client.request.post('/api/v1/media/configure/',
@@ -66,10 +66,10 @@ class MediaRepository extends InstaRepository {
                 '_csrftoken': client.state.cookieCsrfToken,
                 'source_type': mediaFolder != null ? '4' : '3',
                 '_uid': client.state.cookieUserId,
-                'device_id': client.state.device.deviceId,
+                'device_id': client.state.device?.deviceId,
                 'caption': caption,
                 'upload_id': uploadId,
-                'device': client.state.device.devicePayload,
+                'device': client.state.device?.devicePayload,
                 'edits': {
                   'crop_original_size': [width.toDouble(), height.toDouble()],
                   'crop_center': cropCenter ?? [0.0, -0.0],
@@ -99,11 +99,11 @@ class MediaRepository extends InstaRepository {
               })));
 
   Future<MediaConfigureVideoResponse> configureVideo({
-    @required String uploadId,
-    @required VideoData video,
+    required String uploadId,
+    required VideoData video,
     String caption = '',
-    MediaLocation location,
-    Usertags usertags,
+    MediaLocation? location,
+    Usertags? usertags,
     bool audioMuted = false,
     int posterFrameIndex = 0,
   }) async =>
@@ -115,10 +115,10 @@ class MediaRepository extends InstaRepository {
                 '_csrftoken': client.state.cookieCsrfToken,
                 'source_type': '4',
                 '_uid': client.state.cookieUserId,
-                'device_id': client.state.device.deviceId,
+                'device_id': client.state.device?.deviceId,
                 'caption': caption,
                 'upload_id': uploadId,
-                'device': client.state.device.devicePayload,
+                'device': client.state.device?.devicePayload,
                 'extra': {
                   'source_width': video.width,
                   'source_height': video.height,
@@ -143,18 +143,18 @@ class MediaRepository extends InstaRepository {
               })));
 
   Future<MediaConfigureToStoryResponse> configureToStory({
-    @required String uploadId,
-    @required int width,
-    @required int height,
-    List<double> cropCenter,
+    required String uploadId,
+    required int width,
+    required int height,
+    List<double>? cropCenter,
     double cropZoom = 1.0,
     String configureMode = '1',
     String sourceType = '3',
     String creationSurface = 'camera',
     String captureType = 'normal',
-    List<String> recipientUsers,
-    List<String> threadIds,
-    Map<String, dynamic> additional,
+    List<String>? recipientUsers,
+    List<String>? threadIds,
+    Map<String, dynamic>? additional,
   }) async =>
       MediaConfigureToStoryResponse.fromJson(
           await client.request.post('/api/v1/media/configure_to_story/',
@@ -168,13 +168,13 @@ class MediaRepository extends InstaRepository {
                 'configure_mode': configureMode,
                 'source_type': sourceType,
                 '_uid': client.state.cookieUserId,
-                'device_id': client.state.device.deviceId,
-                '_uuid': client.state.device.uuid,
+                'device_id': client.state.device?.deviceId,
+                '_uuid': client.state.device?.uuid,
                 'creation_surface': creationSurface,
                 'capture_type': captureType,
                 'upload_id': uploadId,
                 'client_timestamp': utcNow().floor().toString(),
-                'device': client.state.device.devicePayload,
+                'device': client.state.device?.devicePayload,
                 'edits': {
                   'crop_original_size': [width.toDouble(), height.toDouble()],
                   'crop_center': cropCenter ?? [0.0, -0.0],
@@ -190,17 +190,17 @@ class MediaRepository extends InstaRepository {
               })));
 
   Future<MediaConfigureToVideoStoryResponse> configureToVideoStory({
-    @required String uploadId,
-    @required VideoData videoData,
+    required String uploadId,
+    required VideoData videoData,
     bool audioMuted = false,
     String configureMode = '1',
     String sourceType = '3',
     String creationSurface = 'camera',
     String captureType = 'normal',
     String cameraPosition = 'front',
-    List<String> recipientUsers,
-    List<String> threadIds,
-    Map<String, dynamic> additional,
+    List<String>? recipientUsers,
+    List<String>? threadIds,
+    Map<String, dynamic>? additional,
   }) async =>
       MediaConfigureToVideoStoryResponse.fromJson(
           await client.request.post('/api/v1/media/configure_to_story/',
@@ -217,13 +217,13 @@ class MediaRepository extends InstaRepository {
                 'configure_mode': configureMode,
                 'source_type': sourceType,
                 '_uid': client.state.cookieUserId,
-                'device_id': client.state.device.deviceId,
-                '_uuid': client.state.device.uuid,
+                'device_id': client.state.device?.deviceId,
+                '_uuid': client.state.device?.uuid,
                 'creation_surface': creationSurface,
                 'capture_type': captureType,
                 'upload_id': uploadId,
                 'client_timestamp': utcNow().floor().toString(),
-                'device': client.state.device.devicePayload,
+                'device': client.state.device?.devicePayload,
                 'length': videoData.duration / 1000.0,
                 'clips': [
                   {
@@ -244,10 +244,10 @@ class MediaRepository extends InstaRepository {
               })));
 
   Future<MediaUploadFinishResponse> uploadFinish(
-          {@required String uploadId,
-          @required int width,
-          @required int height,
-          double videoLength,
+          {required String uploadId,
+          required int width,
+          required int height,
+          double? videoLength,
           bool audioMuted = false,
           int posterFrameIndex = 0,
           String sourceType = '4',
@@ -263,11 +263,11 @@ class MediaRepository extends InstaRepository {
                 '_csrftoken': client.state.cookieCsrfToken,
                 'source_type': sourceType,
                 '_uid': client.state.cookieUserId,
-                'device_id': client.state.device.deviceId,
-                '_uuid': client.state.device.uuid,
+                'device_id': client.state.device?.deviceId,
+                '_uuid': client.state.device?.uuid,
                 'caption': caption,
                 'upload_id': uploadId,
-                'device': client.state.device.devicePayload,
+                'device': client.state.device?.devicePayload,
                 'extra': {
                   'source_width': width,
                   'source_height': height,

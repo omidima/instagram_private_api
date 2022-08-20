@@ -7,13 +7,12 @@ part of 'direct_thread_response.dart';
 // **************************************************************************
 
 FeedDirectThreadResponse _$FeedDirectThreadResponseFromJson(
-    Map<String, dynamic> json) {
-  return FeedDirectThreadResponse()
-    ..thread = (json['thread'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(k, e as List),
-    )
-    ..status = json['status'] as String;
-}
+        Map<String, dynamic> json) =>
+    FeedDirectThreadResponse()
+      ..thread = (json['thread'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as List<dynamic>),
+      )
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$FeedDirectThreadResponseToJson(
         FeedDirectThreadResponse instance) =>

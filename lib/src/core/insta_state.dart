@@ -13,37 +13,37 @@ part 'insta_state.g.dart';
 
 /// This class holds all information about the current user
 class InstaState {
-  Uuid _uuid;
-  Uuid _seededUuid;
-  Random _seededRandom;
-  int _seed;
-  InstaCookieJar cookies;
-  String appVersion = Constants.appVersion;
-  String appVersionCode = Constants.appVersionCode;
-  String capabilities = Constants.capabilities;
-  String signatureKey = Constants.signatureKey;
-  String signatureVersion = Constants.signatureVersion;
-  String breadcrumbKey = Constants.breadcrumbKey;
-  String experiments = Constants.experiments;
-  String loginExperiments = Constants.loginExperiments;
-  String facebookAnalyticsAppId = Constants.facebookAnalyticsAppId;
-  String facebookOtaFields = Constants.facebookOtaFields;
-  String facebookOrcaAppId = Constants.facebookOrcaAppId;
-  String supportedCapabilities = Constants.supportedCapabilities;
-  List<String> devices = Constants.devices;
-  List<String> builds = Constants.builds;
-  String igBaseUrl = Constants.igBaseUrl;
+  late Uuid _uuid;
+  late Uuid _seededUuid;
+  late Random _seededRandom;
+  late int _seed;
+  late InstaCookieJar cookies;
+  late String appVersion = Constants.appVersion;
+  late String appVersionCode = Constants.appVersionCode;
+  late String capabilities = Constants.capabilities;
+  late String signatureKey = Constants.signatureKey;
+  late String signatureVersion = Constants.signatureVersion;
+  late String breadcrumbKey = Constants.breadcrumbKey;
+  late String experiments = Constants.experiments;
+  late String loginExperiments = Constants.loginExperiments;
+  late String facebookAnalyticsAppId = Constants.facebookAnalyticsAppId;
+  late String facebookOtaFields = Constants.facebookOtaFields;
+  late String facebookOrcaAppId = Constants.facebookOrcaAppId;
+  late String supportedCapabilities = Constants.supportedCapabilities;
+  late List<String> devices = Constants.devices;
+  late List<String> builds = Constants.builds;
+  late String igBaseUrl = Constants.igBaseUrl;
 
   String language = 'en_US';
   String timezoneOffset = DateTime.now().timeZoneOffset.inSeconds.toString();
   String radioType = 'wifi-none';
   String connectionType = 'WIFI';
-  InstaDevice device;
+  InstaDevice? device;
 
   /// generates a brand new instance
-  InstaState({this.cookies, int seed = -1, this.device}) {
-    cookies ??= InstaCookieJar();
-    _uuid = Uuid();
+  InstaState({InstaCookieJar? cookie, int seed = -1, this.device})
+      : cookies = cookie ?? InstaCookieJar() {
+    _uuid = const Uuid();
     _seed = seed;
     _seededUuid = Uuid(options: {'grng': () => UuidUtil.mathRNG(seed: seed)});
     _seededRandom = _seed == -1 ? Random() : Random(_seed);
@@ -51,14 +51,14 @@ class InstaState {
 
   /// reads the cookies
   factory InstaState.fromJson(Map<String, dynamic> json) => InstaState(
-      cookies: InstaCookieJar.fromJson(json['cookies']),
+      cookie: InstaCookieJar.fromJson(json['cookies']),
       seed: json['seed'] ?? -1,
       device: InstaDevice.fromJson(json['device']));
 
   Map<String, dynamic> toJson() => {
         'cookies': cookies.toJson(),
         'seed': _seed,
-        'device': device.toJson(),
+        'device': device?.toJson(),
       };
 
   /// this should be called after all modifications to the instance
@@ -67,7 +67,7 @@ class InstaState {
   }
 
   String get appUserAgent =>
-      'Instagram $appVersion Android (${device.deviceString}; '
+      'Instagram $appVersion Android (${device?.deviceString}; '
       '$language; $appVersionCode)';
 
   String get pigeonSessionId =>
@@ -77,21 +77,22 @@ class InstaState {
       generateUuidWithLifetime('client'.hashCode, 1200000);
 
   InstaDevice _generateDevice() => InstaDevice(
-      devices[_seededRandom.nextInt(devices.length)],
-      builds[_seededRandom.nextInt(builds.length)],
-      generateSeededUuid(),
-      generateSeededUuid(),
-      generateSeededUuid(),
+      deviceString: devices[_seededRandom.nextInt(devices.length)],
+      build: builds[_seededRandom.nextInt(builds.length)],
+      uuid: generateSeededUuid(),
+      adid: generateSeededUuid(),
+      phoneId: generateSeededUuid(),
       // ignore: lines_longer_than_80_chars
-      'android-${HEX.encode(Iterable.generate(8).map((_) => _seededRandom.nextInt(255)).toList())}');
+      deviceId:
+          'android-${HEX.encode(Iterable.generate(8).map((_) => _seededRandom.nextInt(255)).toList())}');
 
   String get cookieCsrfToken => extractCookie('csrftoken', orElse: 'missing');
   String get cookieUserId => extractCookie('ds_user_id');
 
-  String extractCookie(String name, {String orElse}) => cookies
+  String extractCookie(String name, {String? orElse}) => cookies
       .loadForRequest(Uri.parse(igBaseUrl))
       .firstWhere((cookie) => cookie.name == name,
-          orElse: () => Cookie('', orElse))
+          orElse: () => Cookie('', orElse ?? ''))
       .value;
 
   /// generates a uuid based on an given seed
@@ -111,16 +112,21 @@ class InstaState {
 /// Holds all information about a device
 @JsonSerializable()
 class InstaDevice {
-  String deviceString;
-  String build;
-  String uuid;
-  String phoneId;
-  String adid;
-  String deviceId;
+  String? deviceString;
+  String? build;
+  String? uuid;
+  String? phoneId;
+  String? adid;
+  String? deviceId;
 
   /// generate instance
-  InstaDevice(this.deviceString, this.build, this.uuid, this.phoneId, this.adid,
-      this.deviceId);
+  InstaDevice(
+      {this.deviceString,
+      this.build,
+      this.uuid,
+      this.phoneId,
+      this.adid,
+      this.deviceId});
 
   factory InstaDevice.fromJson(Map<String, dynamic> json) =>
       _$InstaDeviceFromJson(json);
@@ -128,15 +134,15 @@ class InstaDevice {
   Map<String, dynamic> toJson() => _$InstaDeviceToJson(this);
 
   Map<String, dynamic> get devicePayload {
-    final deviceParts = deviceString.split(';');
-    final android = deviceParts[0].split('/');
-    final manufacturer = deviceParts[3].split('/')[0];
-    final model = deviceParts[4];
+    final deviceParts = deviceString?.split(';');
+    final android = deviceParts?[0].split('/');
+    final manufacturer = deviceParts?[3].split('/')[0];
+    final model = deviceParts?[4];
     return {
-      'android_version': android[0].trim(),
-      'android_release': android[1].trim(),
-      'manufacturer': manufacturer.trim(),
-      'model': model.trim(),
+      'android_version': android?[0].trim(),
+      'android_release': android?[1].trim(),
+      'manufacturer': manufacturer?.trim(),
+      'model': model?.trim(),
     };
   }
 }

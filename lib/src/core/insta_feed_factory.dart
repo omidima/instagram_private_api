@@ -35,12 +35,12 @@ class InstaFeedFactory {
       DirectInboxFeed(_client, path: '/api/v1/direct_v2/pending_inbox/');
 
   DirectThreadFeed directThread(
-          {@required String id, String cursor, int seqId}) =>
-      DirectThreadFeed(_client, id, cursor, seqId);
+          {required String id, String? cursor, int? seqId}) =>
+      DirectThreadFeed(_client, id, cursor?? "", seqId);
 
   DirectThreadFeed directThreadFromInbox(
           DirectInboxFeedResponseThreadsItem thread,
-          [int seqId]) =>
+          [int seqId = 0]) =>
       directThread(
-          id: thread.threadId, cursor: thread.oldestCursor, seqId: seqId);
+          id: thread.threadId ?? "0", cursor: thread.oldestCursor, seqId: seqId);
 }

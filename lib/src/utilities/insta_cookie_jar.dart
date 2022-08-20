@@ -2,10 +2,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:cookie_jar/cookie_jar.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:instagram_private_api/src/core/constants.dart';
 import 'package:instagram_private_api/src/utilities/insta_cookie.dart';
 
-class InstaCookieJar implements CookieJar {
+class InstaCookieJar {
   /// using this to avoid the validation
 
   /// [ignoreExpires]: save/load even cookies that have expired.
@@ -74,9 +75,9 @@ class InstaCookieJar implements CookieJar {
     // Load cookies without "domain" attribute, include port.
     for (final String domain in domains[0].keys) {
       if (Constants.igHostUrl == domain) {
-        var cookies = domains[0][Constants.igHostUrl]['/'];
-        cookies.forEach((key, value) {
-          list.add(value.cookie);
+        var cookies = domains[0][Constants.igHostUrl]?['/'];
+        cookies?.forEach((key, value) {
+          list.add(value.cookie!);
         });
       }
     }
@@ -87,7 +88,7 @@ class InstaCookieJar implements CookieJar {
           if (Constants.igHostUrl.toLowerCase().contains(path)) {
             values.forEach((key, v) {
               if (_check(uri.scheme, v)) {
-                list.add(v.cookie);
+                list.add(v.cookie!);
               }
             });
           }
@@ -100,7 +101,7 @@ class InstaCookieJar implements CookieJar {
   @override
   void saveFromResponse(Uri uri, List<Cookie> cookies) {
     for (final Cookie cookie in cookies) {
-      String domain = cookie.domain;
+      String domain = cookie.domain?? Constants.igHostUrl;
       String path;
       int index = 0;
       // Save cookies with "domain" attribute
@@ -153,7 +154,7 @@ class InstaCookieJar implements CookieJar {
       ignoreExpires ? false : cookie.isExpired();
 
   bool _check(String scheme, SerializableInstaCookie cookie) =>
-      cookie.cookie.secure && scheme == 'https' || !_isExpired(cookie);
+      cookie.cookie!.secure && scheme == 'https' || !_isExpired(cookie);
 
   @override
   final bool ignoreExpires;

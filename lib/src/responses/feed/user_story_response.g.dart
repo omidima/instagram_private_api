@@ -7,15 +7,14 @@ part of 'user_story_response.dart';
 // **************************************************************************
 
 FeedUserStoryResponse _$FeedUserStoryResponseFromJson(
-    Map<String, dynamic> json) {
-  return FeedUserStoryResponse()
-    ..broadcast = json['broadcast']
-    ..reel = json['reel'] == null
-        ? null
-        : FeedUserStoryResponseReel.fromJson(
-            json['reel'] as Map<String, dynamic>)
-    ..status = json['status'] as String;
-}
+        Map<String, dynamic> json) =>
+    FeedUserStoryResponse()
+      ..broadcast = json['broadcast']
+      ..reel = json['reel'] == null
+          ? null
+          : FeedUserStoryResponseReel.fromJson(
+              json['reel'] as Map<String, dynamic>)
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$FeedUserStoryResponseToJson(
         FeedUserStoryResponse instance) =>
@@ -27,18 +26,17 @@ Map<String, dynamic> _$FeedUserStoryResponseToJson(
 
 FeedUserStoryResponseReelUserFriendshipStatus
     _$FeedUserStoryResponseReelUserFriendshipStatusFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelUserFriendshipStatus()
-    ..following = json['following'] as bool
-    ..followedBy = json['followed_by'] as bool
-    ..blocking = json['blocking'] as bool
-    ..muting = json['muting'] as bool
-    ..isPrivate = json['is_private'] as bool
-    ..incomingRequest = json['incoming_request'] as bool
-    ..outgoingRequest = json['outgoing_request'] as bool
-    ..isBestie = json['is_bestie'] as bool
-    ..isRestricted = json['is_restricted'] as bool;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelUserFriendshipStatus()
+          ..following = json['following'] as bool?
+          ..followedBy = json['followed_by'] as bool?
+          ..blocking = json['blocking'] as bool?
+          ..muting = json['muting'] as bool?
+          ..isPrivate = json['is_private'] as bool?
+          ..incomingRequest = json['incoming_request'] as bool?
+          ..outgoingRequest = json['outgoing_request'] as bool?
+          ..isBestie = json['is_bestie'] as bool?
+          ..isRestricted = json['is_restricted'] as bool?;
 
 Map<String, dynamic> _$FeedUserStoryResponseReelUserFriendshipStatusToJson(
         FeedUserStoryResponseReelUserFriendshipStatus instance) =>
@@ -55,20 +53,19 @@ Map<String, dynamic> _$FeedUserStoryResponseReelUserFriendshipStatusToJson(
     };
 
 FeedUserStoryResponseReelUser _$FeedUserStoryResponseReelUserFromJson(
-    Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelUser()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..friendshipStatus = json['friendship_status'] == null
-        ? null
-        : FeedUserStoryResponseReelUserFriendshipStatus.fromJson(
-            json['friendship_status'] as Map<String, dynamic>)
-    ..isVerified = json['is_verified'] as bool;
-}
+        Map<String, dynamic> json) =>
+    FeedUserStoryResponseReelUser()
+      ..pk = json['pk'] as int?
+      ..username = json['username'] as String?
+      ..fullName = json['full_name'] as String?
+      ..isPrivate = json['is_private'] as bool?
+      ..profilePicUrl = json['profile_pic_url'] as String?
+      ..profilePicId = json['profile_pic_id'] as String?
+      ..friendshipStatus = json['friendship_status'] == null
+          ? null
+          : FeedUserStoryResponseReelUserFriendshipStatus.fromJson(
+              json['friendship_status'] as Map<String, dynamic>)
+      ..isVerified = json['is_verified'] as bool?;
 
 Map<String, dynamic> _$FeedUserStoryResponseReelUserToJson(
         FeedUserStoryResponseReelUser instance) =>
@@ -85,14 +82,15 @@ Map<String, dynamic> _$FeedUserStoryResponseReelUserToJson(
 
 FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem
     _$FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItemFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem()
-    ..width = json['width'] as int
-    ..height = json['height'] as int
-    ..url = json['url'] as String
-    ..estimatedScansSizes =
-        (json['estimated_scans_sizes'] as List)?.map((e) => e as int)?.toList();
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem()
+          ..width = json['width'] as int?
+          ..height = json['height'] as int?
+          ..url = json['url'] as String?
+          ..estimatedScansSizes =
+              (json['estimated_scans_sizes'] as List<dynamic>?)
+                  ?.map((e) => e as int)
+                  .toList();
 
 Map<String, dynamic>
     _$FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItemToJson(
@@ -107,15 +105,13 @@ Map<String, dynamic>
 
 FeedUserStoryResponseReelItemsItemImageVersions2
     _$FeedUserStoryResponseReelItemsItemImageVersions2FromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemImageVersions2()
-    ..candidates = (json['candidates'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem
-                .fromJson(e as Map<String, dynamic>))
-        ?.toList();
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemImageVersions2()
+          ..candidates = (json['candidates'] as List<dynamic>?)
+              ?.map((e) =>
+                  FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
 
 Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemImageVersions2ToJson(
         FeedUserStoryResponseReelItemsItemImageVersions2 instance) =>
@@ -125,19 +121,19 @@ Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemImageVersions2ToJson(
 
 FeedUserStoryResponseReelItemsItemUser
     _$FeedUserStoryResponseReelItemsItemUserFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemUser()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..isVerified = json['is_verified'] as bool
-    ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
-    ..isUnpublished = json['is_unpublished'] as bool
-    ..isFavorite = json['is_favorite'] as bool;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemUser()
+          ..pk = json['pk'] as int?
+          ..username = json['username'] as String?
+          ..fullName = json['full_name'] as String?
+          ..isPrivate = json['is_private'] as bool?
+          ..profilePicUrl = json['profile_pic_url'] as String?
+          ..profilePicId = json['profile_pic_id'] as String?
+          ..isVerified = json['is_verified'] as bool?
+          ..hasAnonymousProfilePicture =
+              json['has_anonymous_profile_picture'] as bool?
+          ..isUnpublished = json['is_unpublished'] as bool?
+          ..isFavorite = json['is_favorite'] as bool?;
 
 Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemUserToJson(
         FeedUserStoryResponseReelItemsItemUser instance) =>
@@ -156,16 +152,15 @@ Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemUserToJson(
 
 FeedUserStoryResponseReelItemsItemReelMentionsItemUser
     _$FeedUserStoryResponseReelItemsItemReelMentionsItemUserFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemReelMentionsItemUser()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..isVerified = json['is_verified'] as bool;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemReelMentionsItemUser()
+          ..pk = json['pk'] as int?
+          ..username = json['username'] as String?
+          ..fullName = json['full_name'] as String?
+          ..isPrivate = json['is_private'] as bool?
+          ..profilePicUrl = json['profile_pic_url'] as String?
+          ..profilePicId = json['profile_pic_id'] as String?
+          ..isVerified = json['is_verified'] as bool?;
 
 Map<String, dynamic>
     _$FeedUserStoryResponseReelItemsItemReelMentionsItemUserToJson(
@@ -182,23 +177,22 @@ Map<String, dynamic>
 
 FeedUserStoryResponseReelItemsItemReelMentionsItem
     _$FeedUserStoryResponseReelItemsItemReelMentionsItemFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemReelMentionsItem()
-    ..x = (json['x'] as num)?.toDouble()
-    ..y = (json['y'] as num)?.toDouble()
-    ..z = json['z'] as int
-    ..width = (json['width'] as num)?.toDouble()
-    ..height = (json['height'] as num)?.toDouble()
-    ..rotation = (json['rotation'] as num)?.toDouble()
-    ..isPinned = json['is_pinned'] as int
-    ..isHidden = json['is_hidden'] as int
-    ..displayType = json['display_type'] as String
-    ..isSticker = json['is_sticker'] as int
-    ..user = json['user'] == null
-        ? null
-        : FeedUserStoryResponseReelItemsItemReelMentionsItemUser.fromJson(
-            json['user'] as Map<String, dynamic>);
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemReelMentionsItem()
+          ..x = (json['x'] as num?)?.toDouble()
+          ..y = (json['y'] as num?)?.toDouble()
+          ..z = json['z'] as int?
+          ..width = (json['width'] as num?)?.toDouble()
+          ..height = (json['height'] as num?)?.toDouble()
+          ..rotation = (json['rotation'] as num?)?.toDouble()
+          ..isPinned = json['is_pinned'] as int?
+          ..isHidden = json['is_hidden'] as int?
+          ..displayType = json['display_type'] as String?
+          ..isSticker = json['is_sticker'] as int?
+          ..user = json['user'] == null
+              ? null
+              : FeedUserStoryResponseReelItemsItemReelMentionsItemUser.fromJson(
+                  json['user'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemReelMentionsItemToJson(
         FeedUserStoryResponseReelItemsItemReelMentionsItem instance) =>
@@ -218,14 +212,13 @@ Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemReelMentionsItemToJson(
 
 FeedUserStoryResponseReelItemsItemVideoVersionsItem
     _$FeedUserStoryResponseReelItemsItemVideoVersionsItemFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemVideoVersionsItem()
-    ..type = json['type'] as int
-    ..width = json['width'] as int
-    ..height = json['height'] as int
-    ..url = json['url'] as String
-    ..id = json['id'] as String;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemVideoVersionsItem()
+          ..type = json['type'] as int?
+          ..width = json['width'] as int?
+          ..height = json['height'] as int?
+          ..url = json['url'] as String?
+          ..id = json['id'] as String?;
 
 Map<String, dynamic>
     _$FeedUserStoryResponseReelItemsItemVideoVersionsItemToJson(
@@ -240,11 +233,10 @@ Map<String, dynamic>
 
 FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem
     _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItemFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem()
-    ..text = json['text'] as String
-    ..count = json['count'] as int;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem()
+          ..text = json['text'] as String?
+          ..count = json['count'] as int?;
 
 Map<String, dynamic>
     _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItemToJson(
@@ -257,24 +249,22 @@ Map<String, dynamic>
 
 FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker
     _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker()
-    ..id = json['id'] as String
-    ..quizId = json['quiz_id'] as int
-    ..question = json['question'] as String
-    ..tallies = (json['tallies'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem
-                .fromJson(e as Map<String, dynamic>))
-        ?.toList()
-    ..correctAnswer = json['correct_answer'] as int
-    ..viewerCanAnswer = json['viewer_can_answer'] as bool
-    ..finished = json['finished'] as bool
-    ..textColor = json['text_color'] as String
-    ..startBackgroundColor = json['start_background_color'] as String
-    ..endBackgroundColor = json['end_background_color'] as String;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker()
+          ..id = json['id'] as String?
+          ..quizId = json['quiz_id'] as int?
+          ..question = json['question'] as String?
+          ..tallies = (json['tallies'] as List<dynamic>?)
+              ?.map((e) =>
+                  FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..correctAnswer = json['correct_answer'] as int?
+          ..viewerCanAnswer = json['viewer_can_answer'] as bool?
+          ..finished = json['finished'] as bool?
+          ..textColor = json['text_color'] as String?
+          ..startBackgroundColor = json['start_background_color'] as String?
+          ..endBackgroundColor = json['end_background_color'] as String?;
 
 Map<String, dynamic>
     _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerToJson(
@@ -295,22 +285,21 @@ Map<String, dynamic>
 
 FeedUserStoryResponseReelItemsItemStoryQuizsItem
     _$FeedUserStoryResponseReelItemsItemStoryQuizsItemFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemStoryQuizsItem()
-    ..x = (json['x'] as num)?.toDouble()
-    ..y = (json['y'] as num)?.toDouble()
-    ..z = json['z'] as int
-    ..width = (json['width'] as num)?.toDouble()
-    ..height = (json['height'] as num)?.toDouble()
-    ..rotation = (json['rotation'] as num)?.toDouble()
-    ..isPinned = json['is_pinned'] as int
-    ..isHidden = json['is_hidden'] as int
-    ..isSticker = json['is_sticker'] as int
-    ..quizSticker = json['quiz_sticker'] == null
-        ? null
-        : FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker.fromJson(
-            json['quiz_sticker'] as Map<String, dynamic>);
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemStoryQuizsItem()
+          ..x = (json['x'] as num?)?.toDouble()
+          ..y = (json['y'] as num?)?.toDouble()
+          ..z = json['z'] as int?
+          ..width = (json['width'] as num?)?.toDouble()
+          ..height = (json['height'] as num?)?.toDouble()
+          ..rotation = (json['rotation'] as num?)?.toDouble()
+          ..isPinned = json['is_pinned'] as int?
+          ..isHidden = json['is_hidden'] as int?
+          ..isSticker = json['is_sticker'] as int?
+          ..quizSticker = json['quiz_sticker'] == null
+              ? null
+              : FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker
+                  .fromJson(json['quiz_sticker'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemStoryQuizsItemToJson(
         FeedUserStoryResponseReelItemsItemStoryQuizsItem instance) =>
@@ -329,16 +318,15 @@ Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemStoryQuizsItemToJson(
 
 FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist
     _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtistFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..isVerified = json['is_verified'] as bool;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist()
+          ..pk = json['pk'] as int?
+          ..username = json['username'] as String?
+          ..fullName = json['full_name'] as String?
+          ..isPrivate = json['is_private'] as bool?
+          ..profilePicUrl = json['profile_pic_url'] as String?
+          ..profilePicId = json['profile_pic_id'] as String?
+          ..isVerified = json['is_verified'] as bool?;
 
 Map<String, dynamic>
     _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtistToJson(
@@ -356,32 +344,35 @@ Map<String, dynamic>
 
 FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo
     _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo()
-    ..id = json['id'] as String
-    ..title = json['title'] as String
-    ..subtitle = json['subtitle'] as String
-    ..displayArtist = json['display_artist'] as String
-    ..coverArtworkUri = json['cover_artwork_uri'] as String
-    ..coverArtworkThumbnailUri = json['cover_artwork_thumbnail_uri'] as String
-    ..progressiveDownloadUrl = json['progressive_download_url'] as String
-    ..highlightStartTimesInMs = (json['highlight_start_times_in_ms'] as List)
-        ?.map((e) => e as int)
-        ?.toList()
-    ..isExplicit = json['is_explicit'] as bool
-    ..dashManifest = json['dash_manifest'] as String
-    ..hasLyrics = json['has_lyrics'] as bool
-    ..audioAssetId = json['audio_asset_id'] as String
-    ..igArtist = json['ig_artist'] == null
-        ? null
-        : FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist
-            .fromJson(json['ig_artist'] as Map<String, dynamic>)
-    ..placeholderProfilePicUrl = json['placeholder_profile_pic_url'] as String
-    ..shouldMuteAudio = json['should_mute_audio'] as bool
-    ..shouldMuteAudioReason = json['should_mute_audio_reason'] as String
-    ..overlapDurationInMs = json['overlap_duration_in_ms'] as int
-    ..audioAssetStartTimeInMs = json['audio_asset_start_time_in_ms'] as int;
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo()
+          ..id = json['id'] as String?
+          ..title = json['title'] as String?
+          ..subtitle = json['subtitle'] as String?
+          ..displayArtist = json['display_artist'] as String?
+          ..coverArtworkUri = json['cover_artwork_uri'] as String?
+          ..coverArtworkThumbnailUri =
+              json['cover_artwork_thumbnail_uri'] as String?
+          ..progressiveDownloadUrl = json['progressive_download_url'] as String?
+          ..highlightStartTimesInMs =
+              (json['highlight_start_times_in_ms'] as List<dynamic>?)
+                  ?.map((e) => e as int)
+                  .toList()
+          ..isExplicit = json['is_explicit'] as bool?
+          ..dashManifest = json['dash_manifest'] as String?
+          ..hasLyrics = json['has_lyrics'] as bool?
+          ..audioAssetId = json['audio_asset_id'] as String?
+          ..igArtist = json['ig_artist'] == null
+              ? null
+              : FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist
+                  .fromJson(json['ig_artist'] as Map<String, dynamic>)
+          ..placeholderProfilePicUrl =
+              json['placeholder_profile_pic_url'] as String?
+          ..shouldMuteAudio = json['should_mute_audio'] as bool?
+          ..shouldMuteAudioReason = json['should_mute_audio_reason'] as String?
+          ..overlapDurationInMs = json['overlap_duration_in_ms'] as int?
+          ..audioAssetStartTimeInMs =
+              json['audio_asset_start_time_in_ms'] as int?;
 
 Map<String, dynamic>
     _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoToJson(
@@ -410,24 +401,23 @@ Map<String, dynamic>
 
 FeedUserStoryResponseReelItemsItemStoryMusicStickersItem
     _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemFromJson(
-        Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItemStoryMusicStickersItem()
-    ..x = (json['x'] as num)?.toDouble()
-    ..y = (json['y'] as num)?.toDouble()
-    ..z = json['z'] as int
-    ..width = (json['width'] as num)?.toDouble()
-    ..height = (json['height'] as num)?.toDouble()
-    ..rotation = (json['rotation'] as num)?.toDouble()
-    ..attribution = json['attribution'] as String
-    ..isPinned = json['is_pinned'] as int
-    ..isHidden = json['is_hidden'] as int
-    ..displayType = json['display_type'] as String
-    ..isSticker = json['is_sticker'] as int
-    ..musicAssetInfo = json['music_asset_info'] == null
-        ? null
-        : FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo
-            .fromJson(json['music_asset_info'] as Map<String, dynamic>);
-}
+            Map<String, dynamic> json) =>
+        FeedUserStoryResponseReelItemsItemStoryMusicStickersItem()
+          ..x = (json['x'] as num?)?.toDouble()
+          ..y = (json['y'] as num?)?.toDouble()
+          ..z = json['z'] as int?
+          ..width = (json['width'] as num?)?.toDouble()
+          ..height = (json['height'] as num?)?.toDouble()
+          ..rotation = (json['rotation'] as num?)?.toDouble()
+          ..attribution = json['attribution'] as String?
+          ..isPinned = json['is_pinned'] as int?
+          ..isHidden = json['is_hidden'] as int?
+          ..displayType = json['display_type'] as String?
+          ..isSticker = json['is_sticker'] as int?
+          ..musicAssetInfo = json['music_asset_info'] == null
+              ? null
+              : FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo
+                  .fromJson(json['music_asset_info'] as Map<String, dynamic>);
 
 Map<String,
     dynamic> _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemToJson(
@@ -448,64 +438,68 @@ Map<String,
     };
 
 FeedUserStoryResponseReelItemsItem _$FeedUserStoryResponseReelItemsItemFromJson(
-    Map<String, dynamic> json) {
-  return FeedUserStoryResponseReelItemsItem()
-    ..takenAt = json['taken_at'] as int
-    ..pk = json['pk'] as int
-    ..id = json['id'] as String
-    ..deviceTimestamp = json['device_timestamp'] as int
-    ..mediaType = json['media_type'] as int
-    ..code = json['code'] as String
-    ..clientCacheKey = json['client_cache_key'] as String
-    ..filterType = json['filter_type'] as int
-    ..imageVersions2 = json['image_versions2'] == null
-        ? null
-        : FeedUserStoryResponseReelItemsItemImageVersions2.fromJson(
-            json['image_versions2'] as Map<String, dynamic>)
-    ..originalWidth = json['original_width'] as int
-    ..originalHeight = json['original_height'] as int
-    ..user = json['user'] == null
-        ? null
-        : FeedUserStoryResponseReelItemsItemUser.fromJson(
-            json['user'] as Map<String, dynamic>)
-    ..captionIsEdited = json['caption_is_edited'] as bool
-    ..captionPosition = (json['caption_position'] as num)?.toDouble()
-    ..isReelMedia = json['is_reel_media'] as bool
-    ..photoOfYou = json['photo_of_you'] as bool
-    ..caption = json['caption']
-    ..canViewerSave = json['can_viewer_save'] as bool
-    ..organicTrackingToken = json['organic_tracking_token'] as String
-    ..expiringAt = json['expiring_at'] as int
-    ..importedTakenAt = json['imported_taken_at'] as int
-    ..canReshare = json['can_reshare'] as bool
-    ..canReply = json['can_reply'] as bool
-    ..isPrideMedia = json['is_pride_media'] as bool
-    ..reelMentions = (json['reel_mentions'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FeedUserStoryResponseReelItemsItemReelMentionsItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..supportsReelReactions = json['supports_reel_reactions'] as bool
-    ..showOneTapFbShareTooltip = json['show_one_tap_fb_share_tooltip'] as bool
-    ..hasSharedToFb = json['has_shared_to_fb'] as int
-    ..isDashEligible = json['is_dash_eligible'] as int
-    ..videoDashManifest = json['video_dash_manifest'] as String
-    ..videoCodec = json['video_codec'] as String
-    ..numberOfQualities = json['number_of_qualities'] as int
-    ..videoVersions = (json['video_versions'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FeedUserStoryResponseReelItemsItemVideoVersionsItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..hasAudio = json['has_audio'] as bool
-    ..videoDuration = (json['video_duration'] as num)?.toDouble()
-    ..storyQuizs = (json['story_quizs'] as List)
-        ?.map((e) => e == null ? null : FeedUserStoryResponseReelItemsItemStoryQuizsItem.fromJson(e as Map<String, dynamic>))
-        ?.toList()
-    ..storyMusicStickers = (json['story_music_stickers'] as List)?.map((e) => e == null ? null : FeedUserStoryResponseReelItemsItemStoryMusicStickersItem.fromJson(e as Map<String, dynamic>))?.toList();
-}
+        Map<String, dynamic> json) =>
+    FeedUserStoryResponseReelItemsItem()
+      ..takenAt = json['taken_at'] as int?
+      ..pk = json['pk'] as int?
+      ..id = json['id'] as String?
+      ..deviceTimestamp = json['device_timestamp'] as int?
+      ..mediaType = json['media_type'] as int?
+      ..code = json['code'] as String?
+      ..clientCacheKey = json['client_cache_key'] as String?
+      ..filterType = json['filter_type'] as int?
+      ..imageVersions2 = json['image_versions2'] == null
+          ? null
+          : FeedUserStoryResponseReelItemsItemImageVersions2.fromJson(
+              json['image_versions2'] as Map<String, dynamic>)
+      ..originalWidth = json['original_width'] as int?
+      ..originalHeight = json['original_height'] as int?
+      ..user = json['user'] == null
+          ? null
+          : FeedUserStoryResponseReelItemsItemUser.fromJson(
+              json['user'] as Map<String, dynamic>)
+      ..captionIsEdited = json['caption_is_edited'] as bool?
+      ..captionPosition = (json['caption_position'] as num?)?.toDouble()
+      ..isReelMedia = json['is_reel_media'] as bool?
+      ..photoOfYou = json['photo_of_you'] as bool?
+      ..caption = json['caption']
+      ..canViewerSave = json['can_viewer_save'] as bool?
+      ..organicTrackingToken = json['organic_tracking_token'] as String?
+      ..expiringAt = json['expiring_at'] as int?
+      ..importedTakenAt = json['imported_taken_at'] as int?
+      ..canReshare = json['can_reshare'] as bool?
+      ..canReply = json['can_reply'] as bool?
+      ..isPrideMedia = json['is_pride_media'] as bool?
+      ..reelMentions = (json['reel_mentions'] as List<dynamic>?)
+          ?.map((e) =>
+              FeedUserStoryResponseReelItemsItemReelMentionsItem.fromJson(
+                  e as Map<String, dynamic>))
+          .toList()
+      ..supportsReelReactions = json['supports_reel_reactions'] as bool?
+      ..showOneTapFbShareTooltip =
+          json['show_one_tap_fb_share_tooltip'] as bool?
+      ..hasSharedToFb = json['has_shared_to_fb'] as int?
+      ..isDashEligible = json['is_dash_eligible'] as int?
+      ..videoDashManifest = json['video_dash_manifest'] as String?
+      ..videoCodec = json['video_codec'] as String?
+      ..numberOfQualities = json['number_of_qualities'] as int?
+      ..videoVersions = (json['video_versions'] as List<dynamic>?)
+          ?.map((e) =>
+              FeedUserStoryResponseReelItemsItemVideoVersionsItem.fromJson(
+                  e as Map<String, dynamic>))
+          .toList()
+      ..hasAudio = json['has_audio'] as bool?
+      ..videoDuration = (json['video_duration'] as num?)?.toDouble()
+      ..storyQuizs = (json['story_quizs'] as List<dynamic>?)
+          ?.map((e) =>
+              FeedUserStoryResponseReelItemsItemStoryQuizsItem.fromJson(
+                  e as Map<String, dynamic>))
+          .toList()
+      ..storyMusicStickers = (json['story_music_stickers'] as List<dynamic>?)
+          ?.map((e) =>
+              FeedUserStoryResponseReelItemsItemStoryMusicStickersItem.fromJson(
+                  e as Map<String, dynamic>))
+          .toList();
 
 Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemToJson(
         FeedUserStoryResponseReelItemsItem instance) =>
@@ -550,30 +544,27 @@ Map<String, dynamic> _$FeedUserStoryResponseReelItemsItemToJson(
     };
 
 FeedUserStoryResponseReel _$FeedUserStoryResponseReelFromJson(
-    Map<String, dynamic> json) {
-  return FeedUserStoryResponseReel()
-    ..id = json['id'] as int
-    ..latestReelMedia = json['latest_reel_media'] as int
-    ..expiringAt = json['expiring_at'] as int
-    ..seen = json['seen'] as int
-    ..canReply = json['can_reply'] as bool
-    ..canReshare = json['can_reshare'] as bool
-    ..reelType = json['reel_type'] as String
-    ..user = json['user'] == null
-        ? null
-        : FeedUserStoryResponseReelUser.fromJson(
-            json['user'] as Map<String, dynamic>)
-    ..items = (json['items'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FeedUserStoryResponseReelItemsItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..prefetchCount = json['prefetch_count'] as int
-    ..hasBestiesMedia = json['has_besties_media'] as bool
-    ..mediaCount = json['media_count'] as int
-    ..hasPrideMedia = json['has_pride_media'] as bool;
-}
+        Map<String, dynamic> json) =>
+    FeedUserStoryResponseReel()
+      ..id = json['id'] as int?
+      ..latestReelMedia = json['latest_reel_media'] as int?
+      ..expiringAt = json['expiring_at'] as int?
+      ..seen = json['seen'] as int?
+      ..canReply = json['can_reply'] as bool?
+      ..canReshare = json['can_reshare'] as bool?
+      ..reelType = json['reel_type'] as String?
+      ..user = json['user'] == null
+          ? null
+          : FeedUserStoryResponseReelUser.fromJson(
+              json['user'] as Map<String, dynamic>)
+      ..items = (json['items'] as List<dynamic>?)
+          ?.map((e) => FeedUserStoryResponseReelItemsItem.fromJson(
+              e as Map<String, dynamic>))
+          .toList()
+      ..prefetchCount = json['prefetch_count'] as int?
+      ..hasBestiesMedia = json['has_besties_media'] as bool?
+      ..mediaCount = json['media_count'] as int?
+      ..hasPrideMedia = json['has_pride_media'] as bool?;
 
 Map<String, dynamic> _$FeedUserStoryResponseReelToJson(
         FeedUserStoryResponseReel instance) =>

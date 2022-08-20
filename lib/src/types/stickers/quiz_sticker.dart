@@ -10,9 +10,9 @@ class QuizSicker extends InstaSticker {
   String endBackgroundColor;
 
   QuizSicker(
-      {@required this.question,
-      @required this.options,
-      @required this.correctAnswer,
+      {required this.question,
+      required this.options,
+      required this.correctAnswer,
       this.textColor = '#ffffff',
       this.startBackgroundColor = '#262626',
       this.endBackgroundColor = '#262626'})

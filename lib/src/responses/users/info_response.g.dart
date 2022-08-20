@@ -6,13 +6,12 @@ part of 'info_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UsersInfoResponse _$UsersInfoResponseFromJson(Map<String, dynamic> json) {
-  return UsersInfoResponse()
-    ..user = json['user'] == null
-        ? null
-        : UsersInfoResponseUser.fromJson(json['user'] as Map<String, dynamic>)
-    ..status = json['status'] as String;
-}
+UsersInfoResponse _$UsersInfoResponseFromJson(Map<String, dynamic> json) =>
+    UsersInfoResponse()
+      ..user = json['user'] == null
+          ? null
+          : UsersInfoResponseUser.fromJson(json['user'] as Map<String, dynamic>)
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$UsersInfoResponseToJson(UsersInfoResponse instance) =>
     <String, dynamic>{
@@ -22,11 +21,10 @@ Map<String, dynamic> _$UsersInfoResponseToJson(UsersInfoResponse instance) =>
 
 UsersInfoResponseUserBiographyWithEntities
     _$UsersInfoResponseUserBiographyWithEntitiesFromJson(
-        Map<String, dynamic> json) {
-  return UsersInfoResponseUserBiographyWithEntities()
-    ..rawText = json['raw_text'] as String
-    ..entities = json['entities'] as List;
-}
+            Map<String, dynamic> json) =>
+        UsersInfoResponseUserBiographyWithEntities()
+          ..rawText = json['raw_text'] as String?
+          ..entities = json['entities'] as List<dynamic>?;
 
 Map<String, dynamic> _$UsersInfoResponseUserBiographyWithEntitiesToJson(
         UsersInfoResponseUserBiographyWithEntities instance) =>
@@ -37,12 +35,11 @@ Map<String, dynamic> _$UsersInfoResponseUserBiographyWithEntitiesToJson(
 
 UsersInfoResponseUserHdProfilePicUrlInfo
     _$UsersInfoResponseUserHdProfilePicUrlInfoFromJson(
-        Map<String, dynamic> json) {
-  return UsersInfoResponseUserHdProfilePicUrlInfo()
-    ..url = json['url'] as String
-    ..width = json['width'] as int
-    ..height = json['height'] as int;
-}
+            Map<String, dynamic> json) =>
+        UsersInfoResponseUserHdProfilePicUrlInfo()
+          ..url = json['url'] as String?
+          ..width = json['width'] as int?
+          ..height = json['height'] as int?;
 
 Map<String, dynamic> _$UsersInfoResponseUserHdProfilePicUrlInfoToJson(
         UsersInfoResponseUserHdProfilePicUrlInfo instance) =>
@@ -53,22 +50,20 @@ Map<String, dynamic> _$UsersInfoResponseUserHdProfilePicUrlInfoToJson(
     };
 
 UsersInfoResponseUserLinkedFbInfo _$UsersInfoResponseUserLinkedFbInfoFromJson(
-    Map<String, dynamic> json) {
-  return UsersInfoResponseUserLinkedFbInfo();
-}
+        Map<String, dynamic> json) =>
+    UsersInfoResponseUserLinkedFbInfo();
 
 Map<String, dynamic> _$UsersInfoResponseUserLinkedFbInfoToJson(
         UsersInfoResponseUserLinkedFbInfo instance) =>
     <String, dynamic>{};
 
 UsersInfoResponseUserNametag _$UsersInfoResponseUserNametagFromJson(
-    Map<String, dynamic> json) {
-  return UsersInfoResponseUserNametag()
-    ..mode = json['mode'] as int
-    ..gradient = json['gradient'] as int
-    ..emoji = json['emoji'] as String
-    ..selfieSticker = json['selfie_sticker'] as int;
-}
+        Map<String, dynamic> json) =>
+    UsersInfoResponseUserNametag()
+      ..mode = json['mode'] as int?
+      ..gradient = json['gradient'] as int?
+      ..emoji = json['emoji'] as String?
+      ..selfieSticker = json['selfie_sticker'] as int?;
 
 Map<String, dynamic> _$UsersInfoResponseUserNametagToJson(
         UsersInfoResponseUserNametag instance) =>
@@ -80,90 +75,91 @@ Map<String, dynamic> _$UsersInfoResponseUserNametagToJson(
     };
 
 UsersInfoResponseUser _$UsersInfoResponseUserFromJson(
-    Map<String, dynamic> json) {
-  return UsersInfoResponseUser()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..isVerified = json['is_verified'] as bool
-    ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
-    ..mediaCount = json['media_count'] as int
-    ..followerCount = json['follower_count'] as int
-    ..followingCount = json['following_count'] as int
-    ..followingTagCount = json['following_tag_count'] as int
-    ..biography = json['biography'] as String
-    ..canLinkEntitiesInBio = json['can_link_entities_in_bio'] as bool
-    ..biographyWithEntities = json['biography_with_entities'] == null
-        ? null
-        : UsersInfoResponseUserBiographyWithEntities.fromJson(
-            json['biography_with_entities'] as Map<String, dynamic>)
-    ..externalUrl = json['external_url'] as String
-    ..externalLynxUrl = json['external_lynx_url'] as String
-    ..hasBiographyTranslation = json['has_biography_translation'] as bool
-    ..canBoostPost = json['can_boost_post'] as bool
-    ..canSeeOrganicInsights = json['can_see_organic_insights'] as bool
-    ..showInsightsTerms = json['show_insights_terms'] as bool
-    ..canConvertToBusiness = json['can_convert_to_business'] as bool
-    ..canCreateSponsorTags = json['can_create_sponsor_tags'] as bool
-    ..canBeTaggedAsSponsor = json['can_be_tagged_as_sponsor'] as bool
-    ..totalIgtvVideos = json['total_igtv_videos'] as int
-    ..totalArEffects = json['total_ar_effects'] as int
-    ..reelAutoArchive = json['reel_auto_archive'] as String
-    ..isProfileActionNeeded = json['is_profile_action_needed'] as bool
-    ..usertagsCount = json['usertags_count'] as int
-    ..usertagReviewEnabled = json['usertag_review_enabled'] as bool
-    ..isNeedy = json['is_needy'] as bool
-    ..isInterestAccount = json['is_interest_account'] as bool
-    ..hasRecommendAccounts = json['has_recommend_accounts'] as bool
-    ..hasChaining = json['has_chaining'] as bool
-    ..hdProfilePicUrlInfo = json['hd_profile_pic_url_info'] == null
-        ? null
-        : UsersInfoResponseUserHdProfilePicUrlInfo.fromJson(
-            json['hd_profile_pic_url_info'] as Map<String, dynamic>)
-    ..hasPlacedOrders = json['has_placed_orders'] as bool
-    ..canTagProductsFromMerchants =
-        json['can_tag_products_from_merchants'] as bool
-    ..showConversionEditEntry = json['show_conversion_edit_entry'] as bool
-    ..aggregatePromoteEngagement = json['aggregate_promote_engagement'] as bool
-    ..allowedCommenterType = json['allowed_commenter_type'] as String
-    ..isVideoCreator = json['is_video_creator'] as bool
-    ..hasProfileVideoFeed = json['has_profile_video_feed'] as bool
-    ..hasHighlightReels = json['has_highlight_reels'] as bool
-    ..isEligibleToShowFbCrossSharingNux =
-        json['is_eligible_to_show_fb_cross_sharing_nux'] as bool
-    ..pageIdForNewSumaBizAccount = json['page_id_for_new_suma_biz_account']
-    ..eligibleShoppingSignupEntrypoints =
-        json['eligible_shopping_signup_entrypoints'] as List
-    ..canBeReportedAsFraud = json['can_be_reported_as_fraud'] as bool
-    ..isBusiness = json['is_business'] as bool
-    ..accountType = json['account_type'] as int
-    ..isCallToActionEnabled = json['is_call_to_action_enabled']
-    ..linkedFbInfo = json['linked_fb_info'] == null
-        ? null
-        : UsersInfoResponseUserLinkedFbInfo.fromJson(
-            json['linked_fb_info'] as Map<String, dynamic>)
-    ..includeDirectBlacklistStatus =
-        json['include_direct_blacklist_status'] as bool
-    ..canFollowHashtag = json['can_follow_hashtag'] as bool
-    ..isPotentialBusiness = json['is_potential_business'] as bool
-    ..feedPostReshareDisabled = json['feed_post_reshare_disabled'] as bool
-    ..bestiesCount = json['besties_count'] as int
-    ..showBestiesBadge = json['show_besties_badge'] as bool
-    ..recentlyBestiedByCount = json['recently_bestied_by_count'] as int
-    ..nametag = json['nametag'] == null
-        ? null
-        : UsersInfoResponseUserNametag.fromJson(
-            json['nametag'] as Map<String, dynamic>)
-    ..autoExpandChaining = json['auto_expand_chaining'] as bool
-    ..highlightReshareDisabled = json['highlight_reshare_disabled'] as bool
-    ..showPostInsightsEntryPoint =
-        json['show_post_insights_entry_point'] as bool
-    ..showPostInsightsSettingsEntryPoint =
-        json['show_post_insights_settings_entry_point'] as bool;
-}
+        Map<String, dynamic> json) =>
+    UsersInfoResponseUser()
+      ..pk = json['pk'] as int?
+      ..username = json['username'] as String?
+      ..fullName = json['full_name'] as String?
+      ..isPrivate = json['is_private'] as bool?
+      ..profilePicUrl = json['profile_pic_url'] as String?
+      ..profilePicId = json['profile_pic_id'] as String?
+      ..isVerified = json['is_verified'] as bool?
+      ..hasAnonymousProfilePicture =
+          json['has_anonymous_profile_picture'] as bool?
+      ..mediaCount = json['media_count'] as int?
+      ..followerCount = json['follower_count'] as int?
+      ..followingCount = json['following_count'] as int?
+      ..followingTagCount = json['following_tag_count'] as int?
+      ..biography = json['biography'] as String?
+      ..canLinkEntitiesInBio = json['can_link_entities_in_bio'] as bool?
+      ..biographyWithEntities = json['biography_with_entities'] == null
+          ? null
+          : UsersInfoResponseUserBiographyWithEntities.fromJson(
+              json['biography_with_entities'] as Map<String, dynamic>)
+      ..externalUrl = json['external_url'] as String?
+      ..externalLynxUrl = json['external_lynx_url'] as String?
+      ..hasBiographyTranslation = json['has_biography_translation'] as bool?
+      ..canBoostPost = json['can_boost_post'] as bool?
+      ..canSeeOrganicInsights = json['can_see_organic_insights'] as bool?
+      ..showInsightsTerms = json['show_insights_terms'] as bool?
+      ..canConvertToBusiness = json['can_convert_to_business'] as bool?
+      ..canCreateSponsorTags = json['can_create_sponsor_tags'] as bool?
+      ..canBeTaggedAsSponsor = json['can_be_tagged_as_sponsor'] as bool?
+      ..totalIgtvVideos = json['total_igtv_videos'] as int?
+      ..totalArEffects = json['total_ar_effects'] as int?
+      ..reelAutoArchive = json['reel_auto_archive'] as String?
+      ..isProfileActionNeeded = json['is_profile_action_needed'] as bool?
+      ..usertagsCount = json['usertags_count'] as int?
+      ..usertagReviewEnabled = json['usertag_review_enabled'] as bool?
+      ..isNeedy = json['is_needy'] as bool?
+      ..isInterestAccount = json['is_interest_account'] as bool?
+      ..hasRecommendAccounts = json['has_recommend_accounts'] as bool?
+      ..hasChaining = json['has_chaining'] as bool?
+      ..hdProfilePicUrlInfo = json['hd_profile_pic_url_info'] == null
+          ? null
+          : UsersInfoResponseUserHdProfilePicUrlInfo.fromJson(
+              json['hd_profile_pic_url_info'] as Map<String, dynamic>)
+      ..hasPlacedOrders = json['has_placed_orders'] as bool?
+      ..canTagProductsFromMerchants =
+          json['can_tag_products_from_merchants'] as bool?
+      ..showConversionEditEntry = json['show_conversion_edit_entry'] as bool?
+      ..aggregatePromoteEngagement =
+          json['aggregate_promote_engagement'] as bool?
+      ..allowedCommenterType = json['allowed_commenter_type'] as String?
+      ..isVideoCreator = json['is_video_creator'] as bool?
+      ..hasProfileVideoFeed = json['has_profile_video_feed'] as bool?
+      ..hasHighlightReels = json['has_highlight_reels'] as bool?
+      ..isEligibleToShowFbCrossSharingNux =
+          json['is_eligible_to_show_fb_cross_sharing_nux'] as bool?
+      ..pageIdForNewSumaBizAccount = json['page_id_for_new_suma_biz_account']
+      ..eligibleShoppingSignupEntrypoints =
+          json['eligible_shopping_signup_entrypoints'] as List<dynamic>?
+      ..canBeReportedAsFraud = json['can_be_reported_as_fraud'] as bool?
+      ..isBusiness = json['is_business'] as bool?
+      ..accountType = json['account_type'] as int?
+      ..isCallToActionEnabled = json['is_call_to_action_enabled']
+      ..linkedFbInfo = json['linked_fb_info'] == null
+          ? null
+          : UsersInfoResponseUserLinkedFbInfo.fromJson(
+              json['linked_fb_info'] as Map<String, dynamic>)
+      ..includeDirectBlacklistStatus =
+          json['include_direct_blacklist_status'] as bool?
+      ..canFollowHashtag = json['can_follow_hashtag'] as bool?
+      ..isPotentialBusiness = json['is_potential_business'] as bool?
+      ..feedPostReshareDisabled = json['feed_post_reshare_disabled'] as bool?
+      ..bestiesCount = json['besties_count'] as int?
+      ..showBestiesBadge = json['show_besties_badge'] as bool?
+      ..recentlyBestiedByCount = json['recently_bestied_by_count'] as int?
+      ..nametag = json['nametag'] == null
+          ? null
+          : UsersInfoResponseUserNametag.fromJson(
+              json['nametag'] as Map<String, dynamic>)
+      ..autoExpandChaining = json['auto_expand_chaining'] as bool?
+      ..highlightReshareDisabled = json['highlight_reshare_disabled'] as bool?
+      ..showPostInsightsEntryPoint =
+          json['show_post_insights_entry_point'] as bool?
+      ..showPostInsightsSettingsEntryPoint =
+          json['show_post_insights_settings_entry_point'] as bool?;
 
 Map<String, dynamic> _$UsersInfoResponseUserToJson(
         UsersInfoResponseUser instance) =>

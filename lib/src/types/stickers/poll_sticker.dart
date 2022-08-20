@@ -10,9 +10,9 @@ class PollSticker extends InstaSticker {
   String question;
 
   PollSticker(
-      {@required this.question,
-      @required this.leftOption,
-      @required this.rightOption,
+      {required this.question,
+      required this.leftOption,
+      required this.rightOption,
       this.leftFontSize = 28.0,
       this.rightFontSize = 28.0})
       : super(0.49934897, 0.1266892);

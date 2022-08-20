@@ -2,6 +2,7 @@ import 'package:instagram_private_api/src/core/insta_client.dart';
 import 'package:instagram_private_api/src/repositories/insta_repository.dart';
 import 'package:instagram_private_api/src/responses/qe/sync_response.dart';
 import 'package:instagram_private_api/src/utilities/json_utility.dart';
+import 'package:uuid/uuid.dart';
 
 class QeRepository extends InstaRepository {
   QeRepository(InstaClient client) : super(client);
@@ -16,7 +17,7 @@ class QeRepository extends InstaRepository {
       }));
 
   Future<QeSyncResponse> syncLoginExperiments() =>
-      _sync(client.state.device.uuid, client.state.loginExperiments);
+      _sync(client.state.device?.uuid ?? const Uuid().toString(), client.state.loginExperiments);
 
   Future<QeSyncResponse> syncExperiments() =>
       _sync(client.state.cookieUserId, client.state.experiments);

@@ -2,10 +2,10 @@ import '../../instagram_private_api.dart';
 
 abstract class InstaFeed<T, K> {
   InstaClient client;
-  InstaFeed(this.client);
+  InstaFeed({required this.client});
 
 
-  T _state;
+  late T _state;
 
   bool moreAvailable = false;
 

@@ -14,7 +14,7 @@ class CaseConvert {
 
     for (int i = 0; i < text.length; i++) {
       final String char = String.fromCharCode(text.codeUnitAt(i));
-      final String nextChar = i + 1 == text.length
+      final String? nextChar = i + 1 == text.length
           ? null
           : String.fromCharCode(text.codeUnitAt(i + 1));
 

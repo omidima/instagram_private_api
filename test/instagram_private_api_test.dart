@@ -10,8 +10,9 @@ Future<void> main() async {
   final env = Platform.environment;
   final username = env['IG_USERNAME'];
   final password = env['IG_PASSWORD'];
-  final storage =
-      FileStateStorage(stateFolder: Directory.current.path, username: username);
+  final storage = FileStateStorage(
+      stateFolder: Directory.current.path, username: username!);
+
 
   if (await storage.exists()) {
     final client = InstaClient(
@@ -27,7 +28,7 @@ Future<void> main() async {
       },
     ));
     client.state.init();
-    final user = client.account.login(username, password);
+    final user = client.account.login(username, password!);
     print('user $user');
   }
 }
@@ -43,9 +44,9 @@ mixin StateStorage {
 }
 
 class FileStateStorage with StateStorage {
-  File _stateFile;
+  late File _stateFile;
 
-  FileStateStorage({String username, String stateFolder = ''}) {
+  FileStateStorage({required String username,required String stateFolder}) {
     _stateFile = File('$stateFolder/state_$username.json');
   }
 
@@ -57,10 +58,11 @@ class FileStateStorage with StateStorage {
 
   @override
   Future<void> saveState(String encodedState) async =>
-      _stateFile.writeAsString(encodedState);
+       _stateFile.writeAsString(encodedState);
 
   @override
   Future<bool> exists() async => _stateFile.exists();
 }
+
 
 void jsonPrint(Object o) => print(jsonEncode(o));

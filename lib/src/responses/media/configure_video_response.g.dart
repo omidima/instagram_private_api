@@ -7,15 +7,14 @@ part of 'configure_video_response.dart';
 // **************************************************************************
 
 MediaConfigureVideoResponse _$MediaConfigureVideoResponseFromJson(
-    Map<String, dynamic> json) {
-  return MediaConfigureVideoResponse()
-    ..media = json['media'] == null
-        ? null
-        : MediaConfigureVideoResponseMedia.fromJson(
-            json['media'] as Map<String, dynamic>)
-    ..uploadId = json['upload_id'] as String
-    ..status = json['status'] as String;
-}
+        Map<String, dynamic> json) =>
+    MediaConfigureVideoResponse()
+      ..media = json['media'] == null
+          ? null
+          : MediaConfigureVideoResponseMedia.fromJson(
+              json['media'] as Map<String, dynamic>)
+      ..uploadId = json['upload_id'] as String?
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$MediaConfigureVideoResponseToJson(
         MediaConfigureVideoResponse instance) =>
@@ -27,14 +26,15 @@ Map<String, dynamic> _$MediaConfigureVideoResponseToJson(
 
 MediaConfigureVideoResponseMediaImageVersions2CandidatesItem
     _$MediaConfigureVideoResponseMediaImageVersions2CandidatesItemFromJson(
-        Map<String, dynamic> json) {
-  return MediaConfigureVideoResponseMediaImageVersions2CandidatesItem()
-    ..width = json['width'] as int
-    ..height = json['height'] as int
-    ..url = json['url'] as String
-    ..estimatedScansSizes =
-        (json['estimated_scans_sizes'] as List)?.map((e) => e as int)?.toList();
-}
+            Map<String, dynamic> json) =>
+        MediaConfigureVideoResponseMediaImageVersions2CandidatesItem()
+          ..width = json['width'] as int?
+          ..height = json['height'] as int?
+          ..url = json['url'] as String?
+          ..estimatedScansSizes =
+              (json['estimated_scans_sizes'] as List<dynamic>?)
+                  ?.map((e) => e as int)
+                  .toList();
 
 Map<String, dynamic>
     _$MediaConfigureVideoResponseMediaImageVersions2CandidatesItemToJson(
@@ -49,15 +49,13 @@ Map<String, dynamic>
 
 MediaConfigureVideoResponseMediaImageVersions2
     _$MediaConfigureVideoResponseMediaImageVersions2FromJson(
-        Map<String, dynamic> json) {
-  return MediaConfigureVideoResponseMediaImageVersions2()
-    ..candidates = (json['candidates'] as List)
-        ?.map((e) => e == null
-            ? null
-            : MediaConfigureVideoResponseMediaImageVersions2CandidatesItem
-                .fromJson(e as Map<String, dynamic>))
-        ?.toList();
-}
+            Map<String, dynamic> json) =>
+        MediaConfigureVideoResponseMediaImageVersions2()
+          ..candidates = (json['candidates'] as List<dynamic>?)
+              ?.map((e) =>
+                  MediaConfigureVideoResponseMediaImageVersions2CandidatesItem
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
 
 Map<String, dynamic> _$MediaConfigureVideoResponseMediaImageVersions2ToJson(
         MediaConfigureVideoResponseMediaImageVersions2 instance) =>
@@ -67,14 +65,13 @@ Map<String, dynamic> _$MediaConfigureVideoResponseMediaImageVersions2ToJson(
 
 MediaConfigureVideoResponseMediaVideoVersionsItem
     _$MediaConfigureVideoResponseMediaVideoVersionsItemFromJson(
-        Map<String, dynamic> json) {
-  return MediaConfigureVideoResponseMediaVideoVersionsItem()
-    ..type = json['type'] as int
-    ..width = json['width'] as int
-    ..height = json['height'] as int
-    ..url = json['url'] as String
-    ..id = json['id'] as String;
-}
+            Map<String, dynamic> json) =>
+        MediaConfigureVideoResponseMediaVideoVersionsItem()
+          ..type = json['type'] as int?
+          ..width = json['width'] as int?
+          ..height = json['height'] as int?
+          ..url = json['url'] as String?
+          ..id = json['id'] as String?;
 
 Map<String, dynamic> _$MediaConfigureVideoResponseMediaVideoVersionsItemToJson(
         MediaConfigureVideoResponseMediaVideoVersionsItem instance) =>
@@ -87,22 +84,22 @@ Map<String, dynamic> _$MediaConfigureVideoResponseMediaVideoVersionsItemToJson(
     };
 
 MediaConfigureVideoResponseMediaUser
-    _$MediaConfigureVideoResponseMediaUserFromJson(Map<String, dynamic> json) {
-  return MediaConfigureVideoResponseMediaUser()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
-    ..canBoostPost = json['can_boost_post'] as bool
-    ..canSeeOrganicInsights = json['can_see_organic_insights'] as bool
-    ..showInsightsTerms = json['show_insights_terms'] as bool
-    ..reelAutoArchive = json['reel_auto_archive'] as String
-    ..isUnpublished = json['is_unpublished'] as bool
-    ..allowedCommenterType = json['allowed_commenter_type'] as String;
-}
+    _$MediaConfigureVideoResponseMediaUserFromJson(Map<String, dynamic> json) =>
+        MediaConfigureVideoResponseMediaUser()
+          ..pk = json['pk'] as int?
+          ..username = json['username'] as String?
+          ..fullName = json['full_name'] as String?
+          ..isPrivate = json['is_private'] as bool?
+          ..profilePicUrl = json['profile_pic_url'] as String?
+          ..profilePicId = json['profile_pic_id'] as String?
+          ..hasAnonymousProfilePicture =
+              json['has_anonymous_profile_picture'] as bool?
+          ..canBoostPost = json['can_boost_post'] as bool?
+          ..canSeeOrganicInsights = json['can_see_organic_insights'] as bool?
+          ..showInsightsTerms = json['show_insights_terms'] as bool?
+          ..reelAutoArchive = json['reel_auto_archive'] as String?
+          ..isUnpublished = json['is_unpublished'] as bool?
+          ..allowedCommenterType = json['allowed_commenter_type'] as String?;
 
 Map<String, dynamic> _$MediaConfigureVideoResponseMediaUserToJson(
         MediaConfigureVideoResponseMediaUser instance) =>
@@ -124,22 +121,22 @@ Map<String, dynamic> _$MediaConfigureVideoResponseMediaUserToJson(
 
 MediaConfigureVideoResponseMediaCaptionUser
     _$MediaConfigureVideoResponseMediaCaptionUserFromJson(
-        Map<String, dynamic> json) {
-  return MediaConfigureVideoResponseMediaCaptionUser()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
-    ..canBoostPost = json['can_boost_post'] as bool
-    ..canSeeOrganicInsights = json['can_see_organic_insights'] as bool
-    ..showInsightsTerms = json['show_insights_terms'] as bool
-    ..reelAutoArchive = json['reel_auto_archive'] as String
-    ..isUnpublished = json['is_unpublished'] as bool
-    ..allowedCommenterType = json['allowed_commenter_type'] as String;
-}
+            Map<String, dynamic> json) =>
+        MediaConfigureVideoResponseMediaCaptionUser()
+          ..pk = json['pk'] as int?
+          ..username = json['username'] as String?
+          ..fullName = json['full_name'] as String?
+          ..isPrivate = json['is_private'] as bool?
+          ..profilePicUrl = json['profile_pic_url'] as String?
+          ..profilePicId = json['profile_pic_id'] as String?
+          ..hasAnonymousProfilePicture =
+              json['has_anonymous_profile_picture'] as bool?
+          ..canBoostPost = json['can_boost_post'] as bool?
+          ..canSeeOrganicInsights = json['can_see_organic_insights'] as bool?
+          ..showInsightsTerms = json['show_insights_terms'] as bool?
+          ..reelAutoArchive = json['reel_auto_archive'] as String?
+          ..isUnpublished = json['is_unpublished'] as bool?
+          ..allowedCommenterType = json['allowed_commenter_type'] as String?;
 
 Map<String, dynamic> _$MediaConfigureVideoResponseMediaCaptionUserToJson(
         MediaConfigureVideoResponseMediaCaptionUser instance) =>
@@ -161,26 +158,25 @@ Map<String, dynamic> _$MediaConfigureVideoResponseMediaCaptionUserToJson(
 
 MediaConfigureVideoResponseMediaCaption
     _$MediaConfigureVideoResponseMediaCaptionFromJson(
-        Map<String, dynamic> json) {
-  return MediaConfigureVideoResponseMediaCaption()
-    ..pk = json['pk'] as int
-    ..userId = json['user_id'] as int
-    ..text = json['text'] as String
-    ..type = json['type'] as int
-    ..createdAt = json['created_at'] as int
-    ..createdAtUtc = json['created_at_utc'] as int
-    ..contentType = json['content_type'] as String
-    ..status = json['status'] as String
-    ..bitFlags = json['bit_flags'] as int
-    ..user = json['user'] == null
-        ? null
-        : MediaConfigureVideoResponseMediaCaptionUser.fromJson(
-            json['user'] as Map<String, dynamic>)
-    ..didReportAsSpam = json['did_report_as_spam'] as bool
-    ..shareEnabled = json['share_enabled'] as bool
-    ..mediaId = json['media_id'] as int
-    ..hasTranslation = json['has_translation'] as bool;
-}
+            Map<String, dynamic> json) =>
+        MediaConfigureVideoResponseMediaCaption()
+          ..pk = json['pk'] as int?
+          ..userId = json['user_id'] as int?
+          ..text = json['text'] as String?
+          ..type = json['type'] as int?
+          ..createdAt = json['created_at'] as int?
+          ..createdAtUtc = json['created_at_utc'] as int?
+          ..contentType = json['content_type'] as String?
+          ..status = json['status'] as String?
+          ..bitFlags = json['bit_flags'] as int?
+          ..user = json['user'] == null
+              ? null
+              : MediaConfigureVideoResponseMediaCaptionUser.fromJson(
+                  json['user'] as Map<String, dynamic>)
+          ..didReportAsSpam = json['did_report_as_spam'] as bool?
+          ..shareEnabled = json['share_enabled'] as bool?
+          ..mediaId = json['media_id'] as int?
+          ..hasTranslation = json['has_translation'] as bool?;
 
 Map<String, dynamic> _$MediaConfigureVideoResponseMediaCaptionToJson(
         MediaConfigureVideoResponseMediaCaption instance) =>
@@ -202,57 +198,55 @@ Map<String, dynamic> _$MediaConfigureVideoResponseMediaCaptionToJson(
     };
 
 MediaConfigureVideoResponseMedia _$MediaConfigureVideoResponseMediaFromJson(
-    Map<String, dynamic> json) {
-  return MediaConfigureVideoResponseMedia()
-    ..takenAt = json['taken_at'] as int
-    ..pk = json['pk'] as int
-    ..id = json['id'] as String
-    ..deviceTimestamp = json['device_timestamp'] as int
-    ..mediaType = json['media_type'] as int
-    ..code = json['code'] as String
-    ..clientCacheKey = json['client_cache_key'] as String
-    ..filterType = json['filter_type'] as int
-    ..imageVersions2 = json['image_versions2'] == null
-        ? null
-        : MediaConfigureVideoResponseMediaImageVersions2.fromJson(
-            json['image_versions2'] as Map<String, dynamic>)
-    ..originalWidth = json['original_width'] as int
-    ..originalHeight = json['original_height'] as int
-    ..isDashEligible = json['is_dash_eligible'] as int
-    ..videoDashManifest = json['video_dash_manifest'] as String
-    ..videoCodec = json['video_codec'] as String
-    ..numberOfQualities = json['number_of_qualities'] as int
-    ..videoVersions = (json['video_versions'] as List)
-        ?.map((e) => e == null
-            ? null
-            : MediaConfigureVideoResponseMediaVideoVersionsItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..hasAudio = json['has_audio'] as bool
-    ..videoDuration = (json['video_duration'] as num)?.toDouble()
-    ..user = json['user'] == null
-        ? null
-        : MediaConfigureVideoResponseMediaUser.fromJson(
-            json['user'] as Map<String, dynamic>)
-    ..canViewerReshare = json['can_viewer_reshare'] as bool
-    ..captionIsEdited = json['caption_is_edited'] as bool
-    ..commentLikesEnabled = json['comment_likes_enabled'] as bool
-    ..commentThreadingEnabled = json['comment_threading_enabled'] as bool
-    ..hasMoreComments = json['has_more_comments'] as bool
-    ..maxNumVisiblePreviewComments =
-        json['max_num_visible_preview_comments'] as int
-    ..previewComments = json['preview_comments'] as List
-    ..canViewMorePreviewComments =
-        json['can_view_more_preview_comments'] as bool
-    ..commentCount = json['comment_count'] as int
-    ..photoOfYou = json['photo_of_you'] as bool
-    ..caption = json['caption'] == null
-        ? null
-        : MediaConfigureVideoResponseMediaCaption.fromJson(
-            json['caption'] as Map<String, dynamic>)
-    ..canViewerSave = json['can_viewer_save'] as bool
-    ..organicTrackingToken = json['organic_tracking_token'] as String;
-}
+        Map<String, dynamic> json) =>
+    MediaConfigureVideoResponseMedia()
+      ..takenAt = json['taken_at'] as int?
+      ..pk = json['pk'] as int?
+      ..id = json['id'] as String?
+      ..deviceTimestamp = json['device_timestamp'] as int?
+      ..mediaType = json['media_type'] as int?
+      ..code = json['code'] as String?
+      ..clientCacheKey = json['client_cache_key'] as String?
+      ..filterType = json['filter_type'] as int?
+      ..imageVersions2 = json['image_versions2'] == null
+          ? null
+          : MediaConfigureVideoResponseMediaImageVersions2.fromJson(
+              json['image_versions2'] as Map<String, dynamic>)
+      ..originalWidth = json['original_width'] as int?
+      ..originalHeight = json['original_height'] as int?
+      ..isDashEligible = json['is_dash_eligible'] as int?
+      ..videoDashManifest = json['video_dash_manifest'] as String?
+      ..videoCodec = json['video_codec'] as String?
+      ..numberOfQualities = json['number_of_qualities'] as int?
+      ..videoVersions = (json['video_versions'] as List<dynamic>?)
+          ?.map((e) =>
+              MediaConfigureVideoResponseMediaVideoVersionsItem.fromJson(
+                  e as Map<String, dynamic>))
+          .toList()
+      ..hasAudio = json['has_audio'] as bool?
+      ..videoDuration = (json['video_duration'] as num?)?.toDouble()
+      ..user = json['user'] == null
+          ? null
+          : MediaConfigureVideoResponseMediaUser.fromJson(
+              json['user'] as Map<String, dynamic>)
+      ..canViewerReshare = json['can_viewer_reshare'] as bool?
+      ..captionIsEdited = json['caption_is_edited'] as bool?
+      ..commentLikesEnabled = json['comment_likes_enabled'] as bool?
+      ..commentThreadingEnabled = json['comment_threading_enabled'] as bool?
+      ..hasMoreComments = json['has_more_comments'] as bool?
+      ..maxNumVisiblePreviewComments =
+          json['max_num_visible_preview_comments'] as int?
+      ..previewComments = json['preview_comments'] as List<dynamic>?
+      ..canViewMorePreviewComments =
+          json['can_view_more_preview_comments'] as bool?
+      ..commentCount = json['comment_count'] as int?
+      ..photoOfYou = json['photo_of_you'] as bool?
+      ..caption = json['caption'] == null
+          ? null
+          : MediaConfigureVideoResponseMediaCaption.fromJson(
+              json['caption'] as Map<String, dynamic>)
+      ..canViewerSave = json['can_viewer_save'] as bool?
+      ..organicTrackingToken = json['organic_tracking_token'] as String?;
 
 Map<String, dynamic> _$MediaConfigureVideoResponseMediaToJson(
         MediaConfigureVideoResponseMedia instance) =>

@@ -12,7 +12,7 @@ class UsersRepository extends InstaRepository {
           '/api/v1/users/arlink_download_info/',
           query: {'version_override': '2.2.1'}));
 
-  Future<UsersInfoResponseUser> info(dynamic id) async =>
+  Future<UsersInfoResponseUser?> info(dynamic id) async =>
       UsersInfoResponse.fromJson(
               await client.request.get('/api/v1/users/$id/info/'))
           .user;
@@ -26,12 +26,11 @@ class UsersRepository extends InstaRepository {
         'count': count.toString()
       }));
 
-  Future<UsersSearchResponseUsersItem> searchExact(String username) async {
+  Future<UsersSearchResponseUsersItem?> searchExact(String username) async {
     final result = await search(username, username.length > 10 ? 5 : 10);
-    return result.users
-        .firstWhere((x) => x.username == username, orElse: () => null);
+    return result.users?.firstWhere((x) => x.username == username, orElse: null);
   }
 
   Future<int> idFromUsername(String username) async =>
-      (await searchExact(username)).pk;
+      ((await searchExact(username))?.pk) ?? 0;
 }

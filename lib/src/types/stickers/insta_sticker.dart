@@ -60,15 +60,15 @@ abstract class InstaSticker {
 }
 
 class InstaStickerConfiguration {
-  List<HashtagSticker> hashtags;
-  List<MentionSticker> mentions;
-  List<LocationSticker> locations;
-  CountdownSticker countdownSticker;
-  ChatSticker chatSticker;
-  PollSticker pollSticker;
-  QuestionSticker questionSticker;
-  QuizSicker quizSicker;
-  SliderSticker sliderSticker;
+  List<HashtagSticker>? hashtags;
+  List<MentionSticker>? mentions;
+  List<LocationSticker>? locations;
+  CountdownSticker ?countdownSticker;
+  ChatSticker? chatSticker;
+  PollSticker? pollSticker;
+  QuestionSticker? questionSticker;
+  QuizSicker? quizSicker;
+  SliderSticker? sliderSticker;
 
   InstaStickerConfiguration({
     this.hashtags,
@@ -95,38 +95,38 @@ class InstaStickerConfiguration {
       map[key] = jsonEncode(stickers);
     }
 
-    if (hashtags != null && hashtags.isNotEmpty) {
+    if (hashtags != null && hashtags!.isNotEmpty) {
       addMultipleStickers('hashtag_sticker_vibrant', 'story_hashtags',
-          hashtags.map((x) => x.place()).toList());
+          hashtags?.map((x) => x.place()).toList());
     }
-    if (mentions != null && mentions.isNotEmpty) {
+    if (mentions != null && mentions!.isNotEmpty) {
       addMultipleStickers('mention_sticker_vibrant', 'reel_mentions',
-          mentions.map((x) => x.place()).toList());
+          mentions!.map((x) => x.place()).toList());
     }
-    if (locations != null && locations.isNotEmpty) {
+    if (locations != null && locations!.isNotEmpty) {
       addMultipleStickers('location_sticker_vibrant', 'story_locations',
-          locations.map((x) => x.place()).toList());
+          locations!.map((x) => x.place()).toList());
     }
     if (countdownSticker != null) {
       addSingleSticker(
-          'countdown_sticker_time', 'story_countdowns', countdownSticker);
+          'countdown_sticker_time', 'story_countdowns', countdownSticker!);
     }
     if (chatSticker != null) {
-      addSingleSticker('chat_sticker_id', 'story_chats', chatSticker);
+      addSingleSticker('chat_sticker_id', 'story_chats', chatSticker!);
     }
     if (pollSticker != null) {
-      addSingleSticker('polling_sticker_vibrant', 'story_polls', pollSticker);
+      addSingleSticker('polling_sticker_vibrant', 'story_polls', pollSticker!);
     }
     if (questionSticker != null) {
       addSingleSticker(
-          'question_sticker_ama', 'story_questions', questionSticker);
+          'question_sticker_ama', 'story_questions', questionSticker!);
     }
     if (quizSicker != null) {
-      addSingleSticker('quiz_story_sticker_default', 'story_quizs', quizSicker);
+      addSingleSticker('quiz_story_sticker_default', 'story_quizs', quizSicker!);
     }
     if (sliderSticker != null) {
-      addSingleSticker('emoji_slider_${sliderSticker.emoji}', 'story_sliders',
-          sliderSticker);
+      addSingleSticker('emoji_slider_${sliderSticker!.emoji}', 'story_sliders',
+          sliderSticker!);
     }
 
     map['story_sticker_ids'] = ids.join(',');

@@ -15,10 +15,10 @@ class MediaExample {
     final reels = (await ig.feed.reelsTray().stream().toList())[0];
     await ig.media.seen(
       /// map the items to Key-Value-Pairs
-        reels: Map.fromEntries(reels.items.map((reel) => MapEntry(
+        reels: Map.fromEntries(reels.items?.map((reel) => MapEntry(
           /// the key will contain the user-pk twice
-            '${reel.id}_${reel.user.pk}',
+            '${reel.id}_${reel.user?.pk}',
             /// the value contains the time-info
-            ['${reel.takenAt}_${(utcNow() - 40).floor()}']))));
+            ['${reel.takenAt}_${(utcNow() - 40).floor()}'])) ?? []));
   }
 }

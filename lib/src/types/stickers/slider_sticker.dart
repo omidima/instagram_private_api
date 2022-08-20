@@ -8,8 +8,8 @@ class SliderSticker extends InstaSticker {
   String emoji;
 
   SliderSticker({
-    @required this.question,
-    @required this.emoji,
+    required this.question,
+    required this.emoji,
     this.textColor = '#000000',
     this.backgroundColor = '#ffffff',
   }) : super(0.7291667, 0.22212838);

@@ -7,18 +7,15 @@ part of 'get_presence_response.dart';
 // **************************************************************************
 
 DirectGetPresenceResponse _$DirectGetPresenceResponseFromJson(
-    Map<String, dynamic> json) {
-  return DirectGetPresenceResponse()
-    ..userPresence = (json['user_presence'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k,
-          e == null
-              ? null
-              : DirectGetPresenceResponseUserPresenceMapItem.fromJson(
-                  e as Map<String, dynamic>)),
-    )
-    ..status = json['status'] as String;
-}
+        Map<String, dynamic> json) =>
+    DirectGetPresenceResponse()
+      ..userPresence = (json['user_presence'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(
+            k,
+            DirectGetPresenceResponseUserPresenceMapItem.fromJson(
+                e as Map<String, dynamic>)),
+      )
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$DirectGetPresenceResponseToJson(
         DirectGetPresenceResponse instance) =>
@@ -29,11 +26,10 @@ Map<String, dynamic> _$DirectGetPresenceResponseToJson(
 
 DirectGetPresenceResponseUserPresenceMapItem
     _$DirectGetPresenceResponseUserPresenceMapItemFromJson(
-        Map<String, dynamic> json) {
-  return DirectGetPresenceResponseUserPresenceMapItem()
-    ..isActive = json['is_active'] as bool
-    ..lastActivityAtMs = json['last_activity_at_ms'] as int;
-}
+            Map<String, dynamic> json) =>
+        DirectGetPresenceResponseUserPresenceMapItem()
+          ..isActive = json['is_active'] as bool?
+          ..lastActivityAtMs = json['last_activity_at_ms'] as int?;
 
 Map<String, dynamic> _$DirectGetPresenceResponseUserPresenceMapItemToJson(
         DirectGetPresenceResponseUserPresenceMapItem instance) =>

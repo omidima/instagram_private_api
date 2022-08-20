@@ -5,7 +5,7 @@ import 'package:instagram_private_api/src/repositories/insta_repository.dart';
 import 'package:instagram_private_api/src/responses/direct/get_presence_response.dart';
 
 class DirectRepository extends InstaRepository {
-  DirectThreadsRepository threads;
+  late DirectThreadsRepository threads;
 
   DirectRepository(InstaClient client) : super(client) {
     threads = DirectThreadsRepository(client);

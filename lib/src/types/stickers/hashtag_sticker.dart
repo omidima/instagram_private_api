@@ -5,7 +5,7 @@ class HashtagSticker extends InstaSticker {
   String tagName;
 
   HashtagSticker(
-      {@required this.tagName, double width = 0.47, double height = 0.11})
+      {required this.tagName, double width = 0.47, double height = 0.11})
       : super(width, height);
 
   @override

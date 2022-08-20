@@ -35,7 +35,7 @@ class InstaCookieManager extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    final cookies = cookieJar.loadForRequest(Uri.parse('instagram.com'));
+    final cookies = cookieJar.loadForRequest(Uri.parse("instagram.com"));
     final cookie = getCookies(cookies);
     if (cookie.isNotEmpty) options.headers[HttpHeaders.cookieHeader] = cookie;
     super.onRequest(options, handler);
@@ -43,7 +43,6 @@ class InstaCookieManager extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    print(response.data);
     _saveCookies(response);
     super.onResponse(response, handler);
   }
@@ -53,7 +52,7 @@ class InstaCookieManager extends Interceptor {
     DioError err,
     ErrorInterceptorHandler handler,
   ) {
-    _saveCookies(err.response);
+    _saveCookies(err.response!);
     super.onError(err, handler);
   }
 
@@ -83,7 +82,7 @@ class InstaCookieManager extends Interceptor {
       const expires = ' Expires=Thu, 01 Jan 1970 00:00:00 GMT';
       return cookies.map((cookie) {
         final _cookie = cookie.split(';');
-        final kv = _cookie.first?.split('=');
+        final kv = _cookie.first.split('=');
         if (kv != null && kv[1].isEmpty) {
           kv[1] = invalidCookieValue;
           _cookie[0] = kv.join('=');

@@ -8,25 +8,22 @@ part of 'story_charities_nullstate_response.dart';
 
 FundraiserStoryCharitiesNullstateResponse
     _$FundraiserStoryCharitiesNullstateResponseFromJson(
-        Map<String, dynamic> json) {
-  return FundraiserStoryCharitiesNullstateResponse()
-    ..followedCharities = json['followed_charities'] as List
-    ..suggestedCharities = (json['suggested_charities'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem
-                .fromJson(e as Map<String, dynamic>))
-        ?.toList()
-    ..searchedCharities = (json['searched_charities'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem
-                .fromJson(e as Map<String, dynamic>))
-        ?.toList()
-    ..maxId = json['max_id'] as String
-    ..moreAvailable = json['more_available'] as bool
-    ..status = json['status'] as String;
-}
+            Map<String, dynamic> json) =>
+        FundraiserStoryCharitiesNullstateResponse()
+          ..followedCharities = json['followed_charities'] as List<dynamic>?
+          ..suggestedCharities = (json['suggested_charities'] as List<dynamic>?)
+              ?.map((e) =>
+                  FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..searchedCharities = (json['searched_charities'] as List<dynamic>?)
+              ?.map((e) =>
+                  FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..maxId = json['max_id'] as String?
+          ..moreAvailable = json['more_available'] as bool?
+          ..status = json['status'] as String?;
 
 Map<String, dynamic> _$FundraiserStoryCharitiesNullstateResponseToJson(
         FundraiserStoryCharitiesNullstateResponse instance) =>
@@ -41,18 +38,18 @@ Map<String, dynamic> _$FundraiserStoryCharitiesNullstateResponseToJson(
 
 FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem
     _$FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItemFromJson(
-        Map<String, dynamic> json) {
-  return FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..isVerified = json['is_verified'] as bool
-    ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
-    ..mutualFollowersCount = json['mutual_followers_count'] as int;
-}
+            Map<String, dynamic> json) =>
+        FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem()
+          ..pk = json['pk'] as int?
+          ..username = json['username'] as String?
+          ..fullName = json['full_name'] as String?
+          ..isPrivate = json['is_private'] as bool?
+          ..profilePicUrl = json['profile_pic_url'] as String?
+          ..profilePicId = json['profile_pic_id'] as String?
+          ..isVerified = json['is_verified'] as bool?
+          ..hasAnonymousProfilePicture =
+              json['has_anonymous_profile_picture'] as bool?
+          ..mutualFollowersCount = json['mutual_followers_count'] as int?;
 
 Map<String, dynamic>
     _$FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItemToJson(
@@ -72,18 +69,18 @@ Map<String, dynamic>
 
 FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem
     _$FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItemFromJson(
-        Map<String, dynamic> json) {
-  return FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..isVerified = json['is_verified'] as bool
-    ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
-    ..mutualFollowersCount = json['mutual_followers_count'] as int
-    ..profilePicId = json['profile_pic_id'] as String;
-}
+            Map<String, dynamic> json) =>
+        FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem()
+          ..pk = json['pk'] as int?
+          ..username = json['username'] as String?
+          ..fullName = json['full_name'] as String?
+          ..isPrivate = json['is_private'] as bool?
+          ..profilePicUrl = json['profile_pic_url'] as String?
+          ..isVerified = json['is_verified'] as bool?
+          ..hasAnonymousProfilePicture =
+              json['has_anonymous_profile_picture'] as bool?
+          ..mutualFollowersCount = json['mutual_followers_count'] as int?
+          ..profilePicId = json['profile_pic_id'] as String?;
 
 Map<String, dynamic>
     _$FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItemToJson(

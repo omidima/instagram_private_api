@@ -8,12 +8,12 @@ class VideoData {
   static const int stbl = 0x7374626c;
   static const int avc1 = 0x61766331;
 
-  int timescale;
-  int length;
-  int width;
-  int height;
+  int? timescale;
+  int? length;
+  int? width;
+  int? height;
 
-  double get duration => length / timescale * 1000.0;
+  double get duration => (length ?? 1) / (timescale ?? 1) * 1000.0;
 
   VideoData(Uint8List video) {
     final ByteDataViewer viewer =

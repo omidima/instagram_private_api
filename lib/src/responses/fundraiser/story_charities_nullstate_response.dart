@@ -4,14 +4,14 @@ part 'story_charities_nullstate_response.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FundraiserStoryCharitiesNullstateResponse {
-  List followedCharities;
-  List<FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem>
+  List? followedCharities;
+  List<FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem>?
       suggestedCharities;
-  List<FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem>
+  List<FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem>?
       searchedCharities;
-  String maxId;
-  bool moreAvailable;
-  String status;
+  String ?maxId;
+  bool ?moreAvailable;
+  String ?status;
 
   FundraiserStoryCharitiesNullstateResponse();
 
@@ -25,15 +25,15 @@ class FundraiserStoryCharitiesNullstateResponse {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  String profilePicId;
-  bool isVerified;
-  bool hasAnonymousProfilePicture;
-  int mutualFollowersCount;
+  int? pk;
+  String? username;
+  String? fullName;
+  bool ?isPrivate;
+  String? profilePicUrl;
+  String? profilePicId;
+  bool ?isVerified;
+  bool? hasAnonymousProfilePicture;
+  int ?mutualFollowersCount;
 
   FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem();
 
@@ -49,15 +49,15 @@ class FundraiserStoryCharitiesNullstateResponseSuggestedCharitiesItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  bool isVerified;
-  bool hasAnonymousProfilePicture;
-  int mutualFollowersCount;
-  String profilePicId;
+  int? pk;
+  String? username;
+  String ?fullName;
+  bool? isPrivate;
+  String? profilePicUrl;
+  bool ?isVerified;
+  bool? hasAnonymousProfilePicture;
+  int? mutualFollowersCount;
+  String? profilePicId;
 
   FundraiserStoryCharitiesNullstateResponseSearchedCharitiesItem();
 

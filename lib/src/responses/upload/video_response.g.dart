@@ -6,14 +6,13 @@ part of 'video_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UploadVideoResponse _$UploadVideoResponseFromJson(Map<String, dynamic> json) {
-  return UploadVideoResponse()
-    ..xsharingNonces = json['xsharing_nonces'] == null
-        ? null
-        : UploadVideoResponseXsharingNonces.fromJson(
-            json['xsharing_nonces'] as Map<String, dynamic>)
-    ..status = json['status'] as String;
-}
+UploadVideoResponse _$UploadVideoResponseFromJson(Map<String, dynamic> json) =>
+    UploadVideoResponse()
+      ..xsharingNonces = json['xsharing_nonces'] == null
+          ? null
+          : UploadVideoResponseXsharingNonces.fromJson(
+              json['xsharing_nonces'] as Map<String, dynamic>)
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$UploadVideoResponseToJson(
         UploadVideoResponse instance) =>
@@ -23,9 +22,8 @@ Map<String, dynamic> _$UploadVideoResponseToJson(
     };
 
 UploadVideoResponseXsharingNonces _$UploadVideoResponseXsharingNoncesFromJson(
-    Map<String, dynamic> json) {
-  return UploadVideoResponseXsharingNonces();
-}
+        Map<String, dynamic> json) =>
+    UploadVideoResponseXsharingNonces();
 
 Map<String, dynamic> _$UploadVideoResponseXsharingNoncesToJson(
         UploadVideoResponseXsharingNonces instance) =>

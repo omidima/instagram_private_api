@@ -13,11 +13,11 @@ class UploadRepository extends InstaRepository {
   UploadRepository(InstaClient client) : super(client);
 
   Future<UploadPhotoResponse> photo(Uint8List photo,
-      {String id,
+      {String? id,
       bool isSidecar = false,
       int numReupload = 0,
       int quality = 80,
-      List<String> sharingUserIds,
+      List<String>? sharingUserIds,
       int offset = 0}) async {
     final String uploadId = id ?? utcNow().floor().toString();
     final String entityName =
@@ -58,11 +58,11 @@ class UploadRepository extends InstaRepository {
 
   Future<UploadVideoResponse> video(
       Uint8List video, int width, int height, int durationMs,
-      {String id,
+      {String? id,
       bool isSidecar = false,
       bool forAlbum = false,
       int numReupload = 0,
-      List<String> sharingUserIds,
+      List<String>? sharingUserIds,
       int offset = 0}) async {
     final String uploadId = id ?? utcNow().floor().toString();
     final String entityName =

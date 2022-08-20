@@ -20,34 +20,33 @@ import 'insta_state.dart';
 
 class InstaClient {
   InstaState state;
-  InstaRequest request;
-  InstaCookieJar jar;
+  late InstaRequest request;
+  late InstaCookieJar jar;
 
-  InstaFeedFactory feed;
+  late InstaFeedFactory feed;
 
   /// repositories - endpoint-collections
-  AccountRepository account;
-  LauncherRepository launcher;
-  QeRepository qe;
-  MediaRepository media;
-  NewsRepository news;
-  UsersRepository users;
-  FriendshipsRepository friendships;
-  HighlightsRepository highlights;
-  UploadRepository upload;
-  LocationRepository location;
-  FundraiserRepository fundraiser;
-  DirectRepository direct;
+  late AccountRepository account;
+  late LauncherRepository launcher;
+  late QeRepository qe;
+  late MediaRepository media;
+  late NewsRepository news;
+  late UsersRepository users;
+  late FriendshipsRepository friendships;
+  late HighlightsRepository highlights;
+  late UploadRepository upload;
+  late LocationRepository location;
+  late FundraiserRepository fundraiser;
+  late DirectRepository direct;
 
   /// services
-  PublishService publish;
+  late PublishService publish;
 
-  InstaClient({this.state}) {
-    state ??= InstaState();
-    request = InstaRequest(this);
+  InstaClient({InstaState? state}) : this.state = state ?? InstaState() {
+    request = InstaRequest(client: this);
     jar = InstaCookieJar();
     request.httpClient.interceptors.add(InstaCookieManager(jar));
-    
+
     feed = InstaFeedFactory(this);
     account = AccountRepository(this);
     launcher = LauncherRepository(this);

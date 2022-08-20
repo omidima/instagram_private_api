@@ -6,36 +6,32 @@ part of 'inbox_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NewsInboxResponse _$NewsInboxResponseFromJson(Map<String, dynamic> json) {
-  return NewsInboxResponse()
-    ..aymf = json['aymf'] == null
-        ? null
-        : NewsInboxResponseAymf.fromJson(json['aymf'] as Map<String, dynamic>)
-    ..counts = json['counts'] == null
-        ? null
-        : NewsInboxResponseCounts.fromJson(
-            json['counts'] as Map<String, dynamic>)
-    ..friendRequestStories = (json['friend_request_stories'] as List)
-        ?.map((e) => e == null
-            ? null
-            : NewsInboxResponseFriendRequestStoriesItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..newStories = json['new_stories'] as List
-    ..oldStories = (json['old_stories'] as List)
-        ?.map((e) => e == null
-            ? null
-            : NewsInboxResponseOldStoriesItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..continuationToken = json['continuation_token'] as int
-    ..subscription = json['subscription']
-    ..partition = json['partition'] == null
-        ? null
-        : NewsInboxResponsePartition.fromJson(
-            json['partition'] as Map<String, dynamic>)
-    ..status = json['status'] as String;
-}
+NewsInboxResponse _$NewsInboxResponseFromJson(Map<String, dynamic> json) =>
+    NewsInboxResponse()
+      ..aymf = json['aymf'] == null
+          ? null
+          : NewsInboxResponseAymf.fromJson(json['aymf'] as Map<String, dynamic>)
+      ..counts = json['counts'] == null
+          ? null
+          : NewsInboxResponseCounts.fromJson(
+              json['counts'] as Map<String, dynamic>)
+      ..friendRequestStories =
+          (json['friend_request_stories'] as List<dynamic>?)
+              ?.map((e) => NewsInboxResponseFriendRequestStoriesItem.fromJson(
+                  e as Map<String, dynamic>))
+              .toList()
+      ..newStories = json['new_stories'] as List<dynamic>?
+      ..oldStories = (json['old_stories'] as List<dynamic>?)
+          ?.map((e) => NewsInboxResponseOldStoriesItem.fromJson(
+              e as Map<String, dynamic>))
+          .toList()
+      ..continuationToken = json['continuation_token'] as int?
+      ..subscription = json['subscription']
+      ..partition = json['partition'] == null
+          ? null
+          : NewsInboxResponsePartition.fromJson(
+              json['partition'] as Map<String, dynamic>)
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$NewsInboxResponseToJson(NewsInboxResponse instance) =>
     <String, dynamic>{
@@ -51,18 +47,17 @@ Map<String, dynamic> _$NewsInboxResponseToJson(NewsInboxResponse instance) =>
     };
 
 NewsInboxResponseAymfItemsItemUser _$NewsInboxResponseAymfItemsItemUserFromJson(
-    Map<String, dynamic> json) {
-  return NewsInboxResponseAymfItemsItemUser()
-    ..pk = json['pk'] as String
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..isVerified = json['is_verified'] as bool
-    ..hasAnonymousProfilePicture =
-        json['has_anonymous_profile_picture'] as bool;
-}
+        Map<String, dynamic> json) =>
+    NewsInboxResponseAymfItemsItemUser()
+      ..pk = json['pk'] as String?
+      ..username = json['username'] as String?
+      ..fullName = json['full_name'] as String?
+      ..isPrivate = json['is_private'] as bool?
+      ..profilePicUrl = json['profile_pic_url'] as String?
+      ..profilePicId = json['profile_pic_id'] as String?
+      ..isVerified = json['is_verified'] as bool?
+      ..hasAnonymousProfilePicture =
+          json['has_anonymous_profile_picture'] as bool?;
 
 Map<String, dynamic> _$NewsInboxResponseAymfItemsItemUserToJson(
         NewsInboxResponseAymfItemsItemUser instance) =>
@@ -78,25 +73,24 @@ Map<String, dynamic> _$NewsInboxResponseAymfItemsItemUserToJson(
     };
 
 NewsInboxResponseAymfItemsItem _$NewsInboxResponseAymfItemsItemFromJson(
-    Map<String, dynamic> json) {
-  return NewsInboxResponseAymfItemsItem()
-    ..user = json['user'] == null
-        ? null
-        : NewsInboxResponseAymfItemsItemUser.fromJson(
-            json['user'] as Map<String, dynamic>)
-    ..algorithm = json['algorithm'] as String
-    ..socialContext = json['social_context'] as String
-    ..icon = json['icon'] as String
-    ..caption = json['caption'] as String
-    ..mediaIds = json['media_ids'] as List
-    ..thumbnailUrls = json['thumbnail_urls'] as List
-    ..largeUrls = json['large_urls'] as List
-    ..mediaInfos = json['media_infos'] as List
-    ..value = (json['value'] as num)?.toDouble()
-    ..followedBy = json['followed_by'] as bool
-    ..isNewSuggestion = json['is_new_suggestion'] as bool
-    ..uuid = json['uuid'] as String;
-}
+        Map<String, dynamic> json) =>
+    NewsInboxResponseAymfItemsItem()
+      ..user = json['user'] == null
+          ? null
+          : NewsInboxResponseAymfItemsItemUser.fromJson(
+              json['user'] as Map<String, dynamic>)
+      ..algorithm = json['algorithm'] as String?
+      ..socialContext = json['social_context'] as String?
+      ..icon = json['icon'] as String?
+      ..caption = json['caption'] as String?
+      ..mediaIds = json['media_ids'] as List<dynamic>?
+      ..thumbnailUrls = json['thumbnail_urls'] as List<dynamic>?
+      ..largeUrls = json['large_urls'] as List<dynamic>?
+      ..mediaInfos = json['media_infos'] as List<dynamic>?
+      ..value = (json['value'] as num?)?.toDouble()
+      ..followedBy = json['followed_by'] as bool?
+      ..isNewSuggestion = json['is_new_suggestion'] as bool?
+      ..uuid = json['uuid'] as String?;
 
 Map<String, dynamic> _$NewsInboxResponseAymfItemsItemToJson(
         NewsInboxResponseAymfItemsItem instance) =>
@@ -117,16 +111,13 @@ Map<String, dynamic> _$NewsInboxResponseAymfItemsItemToJson(
     };
 
 NewsInboxResponseAymf _$NewsInboxResponseAymfFromJson(
-    Map<String, dynamic> json) {
-  return NewsInboxResponseAymf()
-    ..items = (json['items'] as List)
-        ?.map((e) => e == null
-            ? null
-            : NewsInboxResponseAymfItemsItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..moreAvailable = json['more_available'] as bool;
-}
+        Map<String, dynamic> json) =>
+    NewsInboxResponseAymf()
+      ..items = (json['items'] as List<dynamic>?)
+          ?.map((e) => NewsInboxResponseAymfItemsItem.fromJson(
+              e as Map<String, dynamic>))
+          .toList()
+      ..moreAvailable = json['more_available'] as bool?;
 
 Map<String, dynamic> _$NewsInboxResponseAymfToJson(
         NewsInboxResponseAymf instance) =>
@@ -136,17 +127,16 @@ Map<String, dynamic> _$NewsInboxResponseAymfToJson(
     };
 
 NewsInboxResponseCounts _$NewsInboxResponseCountsFromJson(
-    Map<String, dynamic> json) {
-  return NewsInboxResponseCounts()
-    ..campaignNotification = json['campaign_notification'] as int
-    ..usertags = json['usertags'] as int
-    ..commentLikes = json['comment_likes'] as int
-    ..likes = json['likes'] as int
-    ..comments = json['comments'] as int
-    ..relationships = json['relationships'] as int
-    ..photosOfYou = json['photos_of_you'] as int
-    ..requests = json['requests'] as int;
-}
+        Map<String, dynamic> json) =>
+    NewsInboxResponseCounts()
+      ..campaignNotification = json['campaign_notification'] as int?
+      ..usertags = json['usertags'] as int?
+      ..commentLikes = json['comment_likes'] as int?
+      ..likes = json['likes'] as int?
+      ..comments = json['comments'] as int?
+      ..relationships = json['relationships'] as int?
+      ..photosOfYou = json['photos_of_you'] as int?
+      ..requests = json['requests'] as int?;
 
 Map<String, dynamic> _$NewsInboxResponseCountsToJson(
         NewsInboxResponseCounts instance) =>
@@ -163,11 +153,10 @@ Map<String, dynamic> _$NewsInboxResponseCountsToJson(
 
 NewsInboxResponseFriendRequestStoriesItemArgs
     _$NewsInboxResponseFriendRequestStoriesItemArgsFromJson(
-        Map<String, dynamic> json) {
-  return NewsInboxResponseFriendRequestStoriesItemArgs()
-    ..requestCount = json['request_count'] as int
-    ..clicked = json['clicked'] as bool;
-}
+            Map<String, dynamic> json) =>
+        NewsInboxResponseFriendRequestStoriesItemArgs()
+          ..requestCount = json['request_count'] as int?
+          ..clicked = json['clicked'] as bool?;
 
 Map<String, dynamic> _$NewsInboxResponseFriendRequestStoriesItemArgsToJson(
         NewsInboxResponseFriendRequestStoriesItemArgs instance) =>
@@ -178,9 +167,8 @@ Map<String, dynamic> _$NewsInboxResponseFriendRequestStoriesItemArgsToJson(
 
 NewsInboxResponseFriendRequestStoriesItemCounts
     _$NewsInboxResponseFriendRequestStoriesItemCountsFromJson(
-        Map<String, dynamic> json) {
-  return NewsInboxResponseFriendRequestStoriesItemCounts();
-}
+            Map<String, dynamic> json) =>
+        NewsInboxResponseFriendRequestStoriesItemCounts();
 
 Map<String, dynamic> _$NewsInboxResponseFriendRequestStoriesItemCountsToJson(
         NewsInboxResponseFriendRequestStoriesItemCounts instance) =>
@@ -188,18 +176,17 @@ Map<String, dynamic> _$NewsInboxResponseFriendRequestStoriesItemCountsToJson(
 
 NewsInboxResponseFriendRequestStoriesItem
     _$NewsInboxResponseFriendRequestStoriesItemFromJson(
-        Map<String, dynamic> json) {
-  return NewsInboxResponseFriendRequestStoriesItem()
-    ..type = json['type'] as int
-    ..args = json['args'] == null
-        ? null
-        : NewsInboxResponseFriendRequestStoriesItemArgs.fromJson(
-            json['args'] as Map<String, dynamic>)
-    ..counts = json['counts'] == null
-        ? null
-        : NewsInboxResponseFriendRequestStoriesItemCounts.fromJson(
-            json['counts'] as Map<String, dynamic>);
-}
+            Map<String, dynamic> json) =>
+        NewsInboxResponseFriendRequestStoriesItem()
+          ..type = json['type'] as int?
+          ..args = json['args'] == null
+              ? null
+              : NewsInboxResponseFriendRequestStoriesItemArgs.fromJson(
+                  json['args'] as Map<String, dynamic>)
+          ..counts = json['counts'] == null
+              ? null
+              : NewsInboxResponseFriendRequestStoriesItemCounts.fromJson(
+                  json['counts'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$NewsInboxResponseFriendRequestStoriesItemToJson(
         NewsInboxResponseFriendRequestStoriesItem instance) =>
@@ -211,13 +198,12 @@ Map<String, dynamic> _$NewsInboxResponseFriendRequestStoriesItemToJson(
 
 NewsInboxResponseOldStoriesItemArgsLinksItem
     _$NewsInboxResponseOldStoriesItemArgsLinksItemFromJson(
-        Map<String, dynamic> json) {
-  return NewsInboxResponseOldStoriesItemArgsLinksItem()
-    ..start = json['start'] as int
-    ..end = json['end'] as int
-    ..type = json['type'] as String
-    ..id = json['id'] as String;
-}
+            Map<String, dynamic> json) =>
+        NewsInboxResponseOldStoriesItemArgsLinksItem()
+          ..start = json['start'] as int?
+          ..end = json['end'] as int?
+          ..type = json['type'] as String?
+          ..id = json['id'] as String?;
 
 Map<String, dynamic> _$NewsInboxResponseOldStoriesItemArgsLinksItemToJson(
         NewsInboxResponseOldStoriesItemArgsLinksItem instance) =>
@@ -229,24 +215,24 @@ Map<String, dynamic> _$NewsInboxResponseOldStoriesItemArgsLinksItemToJson(
     };
 
 NewsInboxResponseOldStoriesItemArgs
-    _$NewsInboxResponseOldStoriesItemArgsFromJson(Map<String, dynamic> json) {
-  return NewsInboxResponseOldStoriesItemArgs()
-    ..text = json['text'] as String
-    ..links = (json['links'] as List)
-        ?.map((e) => e == null
-            ? null
-            : NewsInboxResponseOldStoriesItemArgsLinksItem.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList()
-    ..profileId = json['profile_id'] as int
-    ..profileImage = json['profile_image'] as String
-    ..actions = (json['actions'] as List)?.map((e) => e as String)?.toList()
-    ..destination = json['destination'] as String
-    ..timestamp = (json['timestamp'] as num)?.toDouble()
-    ..tuuid = json['tuuid'] as String
-    ..clicked = json['clicked'] as bool
-    ..profileName = json['profile_name'] as String;
-}
+    _$NewsInboxResponseOldStoriesItemArgsFromJson(Map<String, dynamic> json) =>
+        NewsInboxResponseOldStoriesItemArgs()
+          ..text = json['text'] as String?
+          ..links = (json['links'] as List<dynamic>?)
+              ?.map((e) =>
+                  NewsInboxResponseOldStoriesItemArgsLinksItem.fromJson(
+                      e as Map<String, dynamic>))
+              .toList()
+          ..profileId = json['profile_id'] as int?
+          ..profileImage = json['profile_image'] as String?
+          ..actions = (json['actions'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList()
+          ..destination = json['destination'] as String?
+          ..timestamp = (json['timestamp'] as num?)?.toDouble()
+          ..tuuid = json['tuuid'] as String?
+          ..clicked = json['clicked'] as bool?
+          ..profileName = json['profile_name'] as String?;
 
 Map<String, dynamic> _$NewsInboxResponseOldStoriesItemArgsToJson(
         NewsInboxResponseOldStoriesItemArgs instance) =>
@@ -264,29 +250,28 @@ Map<String, dynamic> _$NewsInboxResponseOldStoriesItemArgsToJson(
     };
 
 NewsInboxResponseOldStoriesItemCounts
-    _$NewsInboxResponseOldStoriesItemCountsFromJson(Map<String, dynamic> json) {
-  return NewsInboxResponseOldStoriesItemCounts();
-}
+    _$NewsInboxResponseOldStoriesItemCountsFromJson(
+            Map<String, dynamic> json) =>
+        NewsInboxResponseOldStoriesItemCounts();
 
 Map<String, dynamic> _$NewsInboxResponseOldStoriesItemCountsToJson(
         NewsInboxResponseOldStoriesItemCounts instance) =>
     <String, dynamic>{};
 
 NewsInboxResponseOldStoriesItem _$NewsInboxResponseOldStoriesItemFromJson(
-    Map<String, dynamic> json) {
-  return NewsInboxResponseOldStoriesItem()
-    ..type = json['type'] as int
-    ..storyType = json['story_type'] as int
-    ..args = json['args'] == null
-        ? null
-        : NewsInboxResponseOldStoriesItemArgs.fromJson(
-            json['args'] as Map<String, dynamic>)
-    ..counts = json['counts'] == null
-        ? null
-        : NewsInboxResponseOldStoriesItemCounts.fromJson(
-            json['counts'] as Map<String, dynamic>)
-    ..pk = json['pk'] as String;
-}
+        Map<String, dynamic> json) =>
+    NewsInboxResponseOldStoriesItem()
+      ..type = json['type'] as int?
+      ..storyType = json['story_type'] as int?
+      ..args = json['args'] == null
+          ? null
+          : NewsInboxResponseOldStoriesItemArgs.fromJson(
+              json['args'] as Map<String, dynamic>)
+      ..counts = json['counts'] == null
+          ? null
+          : NewsInboxResponseOldStoriesItemCounts.fromJson(
+              json['counts'] as Map<String, dynamic>)
+      ..pk = json['pk'] as String?;
 
 Map<String, dynamic> _$NewsInboxResponseOldStoriesItemToJson(
         NewsInboxResponseOldStoriesItem instance) =>
@@ -299,11 +284,14 @@ Map<String, dynamic> _$NewsInboxResponseOldStoriesItemToJson(
     };
 
 NewsInboxResponsePartitionTimeBucket
-    _$NewsInboxResponsePartitionTimeBucketFromJson(Map<String, dynamic> json) {
-  return NewsInboxResponsePartitionTimeBucket()
-    ..headers = (json['headers'] as List)?.map((e) => e as String)?.toList()
-    ..indices = (json['indices'] as List)?.map((e) => e as int)?.toList();
-}
+    _$NewsInboxResponsePartitionTimeBucketFromJson(Map<String, dynamic> json) =>
+        NewsInboxResponsePartitionTimeBucket()
+          ..headers = (json['headers'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList()
+          ..indices = (json['indices'] as List<dynamic>?)
+              ?.map((e) => e as int)
+              .toList();
 
 Map<String, dynamic> _$NewsInboxResponsePartitionTimeBucketToJson(
         NewsInboxResponsePartitionTimeBucket instance) =>
@@ -313,13 +301,12 @@ Map<String, dynamic> _$NewsInboxResponsePartitionTimeBucketToJson(
     };
 
 NewsInboxResponsePartition _$NewsInboxResponsePartitionFromJson(
-    Map<String, dynamic> json) {
-  return NewsInboxResponsePartition()
-    ..timeBucket = json['time_bucket'] == null
-        ? null
-        : NewsInboxResponsePartitionTimeBucket.fromJson(
-            json['time_bucket'] as Map<String, dynamic>);
-}
+        Map<String, dynamic> json) =>
+    NewsInboxResponsePartition()
+      ..timeBucket = json['time_bucket'] == null
+          ? null
+          : NewsInboxResponsePartitionTimeBucket.fromJson(
+              json['time_bucket'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$NewsInboxResponsePartitionToJson(
         NewsInboxResponsePartition instance) =>

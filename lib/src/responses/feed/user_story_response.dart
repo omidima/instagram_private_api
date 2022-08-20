@@ -3,8 +3,8 @@ part 'user_story_response.g.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponse {
 	dynamic broadcast;
-	FeedUserStoryResponseReel reel;
-	String status;
+	FeedUserStoryResponseReel? reel;
+	String ?status;
 	FeedUserStoryResponse();
 	factory FeedUserStoryResponse.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseToJson(this);
@@ -13,15 +13,15 @@ class FeedUserStoryResponse {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelUserFriendshipStatus {
-	bool following;
-	bool followedBy;
-	bool blocking;
-	bool muting;
-	bool isPrivate;
-	bool incomingRequest;
-	bool outgoingRequest;
-	bool isBestie;
-	bool isRestricted;
+	bool ?following;
+	bool ?followedBy;
+	bool ?blocking;
+	bool ?muting;
+	bool ?isPrivate;
+	bool ?incomingRequest;
+	bool ?outgoingRequest;
+	bool ?isBestie;
+	bool ?isRestricted;
 	FeedUserStoryResponseReelUserFriendshipStatus();
 	factory FeedUserStoryResponseReelUserFriendshipStatus.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelUserFriendshipStatusFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelUserFriendshipStatusToJson(this);
@@ -29,14 +29,14 @@ class FeedUserStoryResponseReelUserFriendshipStatus {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelUser {
-	int pk;
-	String username;
-	String fullName;
-	bool isPrivate;
-	String profilePicUrl;
-	String profilePicId;
-	FeedUserStoryResponseReelUserFriendshipStatus friendshipStatus;
-	bool isVerified;
+	int ?pk;
+	String? username;
+	String? fullName;
+	bool? isPrivate;
+	String? profilePicUrl;
+	String? profilePicId;
+	FeedUserStoryResponseReelUserFriendshipStatus ?friendshipStatus;
+	bool ?isVerified;
 	FeedUserStoryResponseReelUser();
 	factory FeedUserStoryResponseReelUser.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelUserFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelUserToJson(this);
@@ -44,10 +44,10 @@ class FeedUserStoryResponseReelUser {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem {
-	int width;
-	int height;
-	String url;
-	List<int> estimatedScansSizes;
+	int? width;
+	int? height;
+	String ?url;
+	List<int> ?estimatedScansSizes;
 	FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem();
 	factory FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItemFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItemToJson(this);
@@ -55,7 +55,7 @@ class FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemImageVersions2 {
-	List<FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem> candidates;
+	List<FeedUserStoryResponseReelItemsItemImageVersions2CandidatesItem> ?candidates;
 	FeedUserStoryResponseReelItemsItemImageVersions2();
 	factory FeedUserStoryResponseReelItemsItemImageVersions2.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemImageVersions2FromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemImageVersions2ToJson(this);
@@ -63,16 +63,16 @@ class FeedUserStoryResponseReelItemsItemImageVersions2 {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemUser {
-	int pk;
-	String username;
-	String fullName;
-	bool isPrivate;
-	String profilePicUrl;
-	String profilePicId;
-	bool isVerified;
-	bool hasAnonymousProfilePicture;
-	bool isUnpublished;
-	bool isFavorite;
+	int? pk;
+	String? username;
+	String? fullName;
+	bool ?isPrivate;
+	String ?profilePicUrl;
+	String ?profilePicId;
+	bool? isVerified;
+	bool? hasAnonymousProfilePicture;
+	bool? isUnpublished;
+	bool? isFavorite;
 	FeedUserStoryResponseReelItemsItemUser();
 	factory FeedUserStoryResponseReelItemsItemUser.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemUserFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemUserToJson(this);
@@ -80,13 +80,13 @@ class FeedUserStoryResponseReelItemsItemUser {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemReelMentionsItemUser {
-	int pk;
-	String username;
-	String fullName;
-	bool isPrivate;
-	String profilePicUrl;
-	String profilePicId;
-	bool isVerified;
+	int? pk;
+	String? username;
+	String? fullName;
+	bool? isPrivate;
+	String? profilePicUrl;
+	String? profilePicId;
+	bool? isVerified;
 	FeedUserStoryResponseReelItemsItemReelMentionsItemUser();
 	factory FeedUserStoryResponseReelItemsItemReelMentionsItemUser.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemReelMentionsItemUserFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemReelMentionsItemUserToJson(this);
@@ -94,17 +94,17 @@ class FeedUserStoryResponseReelItemsItemReelMentionsItemUser {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemReelMentionsItem {
-	double x;
-	double y;
-	int z;
-	double width;
-	double height;
-	double rotation;
-	int isPinned;
-	int isHidden;
-	String displayType;
-	int isSticker;
-	FeedUserStoryResponseReelItemsItemReelMentionsItemUser user;
+	double ?x;
+	double ?y;
+	int? z;
+	double? width;
+	double? height;
+	double? rotation;
+	int ?isPinned;
+	int ?isHidden;
+	String ?displayType;
+	int? isSticker;
+	FeedUserStoryResponseReelItemsItemReelMentionsItemUser ?user;
 	FeedUserStoryResponseReelItemsItemReelMentionsItem();
 	factory FeedUserStoryResponseReelItemsItemReelMentionsItem.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemReelMentionsItemFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemReelMentionsItemToJson(this);
@@ -112,11 +112,11 @@ class FeedUserStoryResponseReelItemsItemReelMentionsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemVideoVersionsItem {
-	int type;
-	int width;
-	int height;
-	String url;
-	String id;
+	int? type;
+	int? width;
+	int? height;
+	String? url;
+	String? id;
 	FeedUserStoryResponseReelItemsItemVideoVersionsItem();
 	factory FeedUserStoryResponseReelItemsItemVideoVersionsItem.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemVideoVersionsItemFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemVideoVersionsItemToJson(this);
@@ -124,8 +124,8 @@ class FeedUserStoryResponseReelItemsItemVideoVersionsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem {
-	String text;
-	int count;
+	String ?text;
+	int ?count;
 	FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem();
 	factory FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItemFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItemToJson(this);
@@ -133,16 +133,16 @@ class FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker {
-	String id;
-	int quizId;
-	String question;
-	List<FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem> tallies;
-	int correctAnswer;
-	bool viewerCanAnswer;
-	bool finished;
-	String textColor;
-	String startBackgroundColor;
-	String endBackgroundColor;
+	String ?id;
+	int ?quizId;
+	String? question;
+	List<FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerTalliesItem> ?tallies;
+	int ?correctAnswer;
+	bool? viewerCanAnswer;
+	bool? finished;
+	String? textColor;
+	String? startBackgroundColor;
+	String? endBackgroundColor;
 	FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker();
 	factory FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizStickerToJson(this);
@@ -150,16 +150,16 @@ class FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemStoryQuizsItem {
-	double x;
-	double y;
-	int z;
-	double width;
-	double height;
-	double rotation;
-	int isPinned;
-	int isHidden;
-	int isSticker;
-	FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker quizSticker;
+	double? x;
+	double? y;
+	int ?z;
+	double? width;
+	double? height;
+	double? rotation;
+	int? isPinned;
+	int? isHidden;
+	int? isSticker;
+	FeedUserStoryResponseReelItemsItemStoryQuizsItemQuizSticker? quizSticker;
 	FeedUserStoryResponseReelItemsItemStoryQuizsItem();
 	factory FeedUserStoryResponseReelItemsItemStoryQuizsItem.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemStoryQuizsItemFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemStoryQuizsItemToJson(this);
@@ -167,13 +167,13 @@ class FeedUserStoryResponseReelItemsItemStoryQuizsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist {
-	int pk;
-	String username;
-	String fullName;
-	bool isPrivate;
-	String profilePicUrl;
-	String profilePicId;
-	bool isVerified;
+	int? pk;
+	String? username;
+	String ?fullName;
+	bool? isPrivate;
+	String? profilePicUrl;
+	String ?profilePicId;
+	bool ?isVerified;
 	FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist();
 	factory FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtistFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtistToJson(this);
@@ -181,24 +181,24 @@ class FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgAr
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo {
-	String id;
-	String title;
-	String subtitle;
-	String displayArtist;
-	String coverArtworkUri;
-	String coverArtworkThumbnailUri;
-	String progressiveDownloadUrl;
-	List<int> highlightStartTimesInMs;
-	bool isExplicit;
-	String dashManifest;
-	bool hasLyrics;
-	String audioAssetId;
-	FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist igArtist;
-	String placeholderProfilePicUrl;
-	bool shouldMuteAudio;
-	String shouldMuteAudioReason;
-	int overlapDurationInMs;
-	int audioAssetStartTimeInMs;
+	String ?id;
+	String ?title;
+	String ?subtitle;
+	String ?displayArtist;
+	String ?coverArtworkUri;
+	String ?coverArtworkThumbnailUri;
+	String ?progressiveDownloadUrl;
+	List<int>? highlightStartTimesInMs;
+	bool ?isExplicit;
+	String? dashManifest;
+	bool ?hasLyrics;
+	String? audioAssetId;
+	FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoIgArtist? igArtist;
+	String?placeholderProfilePicUrl;
+	bool? shouldMuteAudio;
+	String? shouldMuteAudioReason;
+	int? overlapDurationInMs;
+	int? audioAssetStartTimeInMs;
 	FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo();
 	factory FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfoToJson(this);
@@ -206,18 +206,18 @@ class FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItemStoryMusicStickersItem {
-	double x;
-	double y;
-	int z;
-	double width;
-	double height;
-	double rotation;
-	String attribution;
-	int isPinned;
-	int isHidden;
-	String displayType;
-	int isSticker;
-	FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo musicAssetInfo;
+	double? x;
+	double? y;
+	int ?z;
+	double? width;
+	double? height;
+	double? rotation;
+	String? attribution;
+	int ?isPinned;
+	int ?isHidden;
+	String? displayType;
+	int? isSticker;
+	FeedUserStoryResponseReelItemsItemStoryMusicStickersItemMusicAssetInfo? musicAssetInfo;
 	FeedUserStoryResponseReelItemsItemStoryMusicStickersItem();
 	factory FeedUserStoryResponseReelItemsItemStoryMusicStickersItem.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemStoryMusicStickersItemToJson(this);
@@ -225,43 +225,43 @@ class FeedUserStoryResponseReelItemsItemStoryMusicStickersItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReelItemsItem {
-	int takenAt;
-	int pk;
-	String id;
-	int deviceTimestamp;
-	int mediaType;
-	String code;
-	String clientCacheKey;
-	int filterType;
-	FeedUserStoryResponseReelItemsItemImageVersions2 imageVersions2;
-	int originalWidth;
-	int originalHeight;
-	FeedUserStoryResponseReelItemsItemUser user;
-	bool captionIsEdited;
-	double captionPosition;
-	bool isReelMedia;
-	bool photoOfYou;
-	dynamic caption;
-	bool canViewerSave;
-	String organicTrackingToken;
-	int expiringAt;
-	int importedTakenAt;
-	bool canReshare;
-	bool canReply;
-	bool isPrideMedia;
-	List<FeedUserStoryResponseReelItemsItemReelMentionsItem> reelMentions;
-	bool supportsReelReactions;
-	bool showOneTapFbShareTooltip;
-	int hasSharedToFb;
-	int isDashEligible;
-	String videoDashManifest;
-	String videoCodec;
-	int numberOfQualities;
-	List<FeedUserStoryResponseReelItemsItemVideoVersionsItem> videoVersions;
-	bool hasAudio;
-	double videoDuration;
-	List<FeedUserStoryResponseReelItemsItemStoryQuizsItem> storyQuizs;
-	List<FeedUserStoryResponseReelItemsItemStoryMusicStickersItem> storyMusicStickers;
+	int? takenAt;
+  int? pk;
+  String? id;
+  int? deviceTimestamp;
+  int? mediaType;
+  String? code;
+  String? clientCacheKey;
+  int? filterType;
+  FeedUserStoryResponseReelItemsItemImageVersions2? imageVersions2;
+  int? originalWidth;
+  int? originalHeight;
+  FeedUserStoryResponseReelItemsItemUser? user;
+	bool? captionIsEdited;
+	double? captionPosition;
+	bool? isReelMedia;
+	bool? photoOfYou;
+	dynamic? caption;
+	bool? canViewerSave;
+	String ?organicTrackingToken;
+	int? expiringAt;
+	int? importedTakenAt;
+	bool? canReshare;
+	bool? canReply;
+	bool? isPrideMedia;
+	List<FeedUserStoryResponseReelItemsItemReelMentionsItem>? reelMentions;
+	bool? supportsReelReactions;
+	bool ?showOneTapFbShareTooltip;
+	int ?hasSharedToFb;
+	int ?isDashEligible;
+	String? videoDashManifest;
+	String? videoCodec;
+	int ?numberOfQualities;
+	List<FeedUserStoryResponseReelItemsItemVideoVersionsItem>? videoVersions;
+	bool ?hasAudio;
+	double? videoDuration;
+	List<FeedUserStoryResponseReelItemsItemStoryQuizsItem> ?storyQuizs;
+	List<FeedUserStoryResponseReelItemsItemStoryMusicStickersItem>? storyMusicStickers;
 	FeedUserStoryResponseReelItemsItem();
 	factory FeedUserStoryResponseReelItemsItem.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelItemsItemFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelItemsItemToJson(this);
@@ -269,19 +269,19 @@ class FeedUserStoryResponseReelItemsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedUserStoryResponseReel {
-	int id;
-	int latestReelMedia;
-	int expiringAt;
-	int seen;
-	bool canReply;
-	bool canReshare;
-	String reelType;
-	FeedUserStoryResponseReelUser user;
-	List<FeedUserStoryResponseReelItemsItem> items;
-	int prefetchCount;
-	bool hasBestiesMedia;
-	int mediaCount;
-	bool hasPrideMedia;
+	int? id;
+	int ?latestReelMedia;
+	int ?expiringAt;
+	int ?seen;
+	bool ?canReply;
+	bool ?canReshare;
+	String? reelType;
+	FeedUserStoryResponseReelUser? user;
+	List<FeedUserStoryResponseReelItemsItem>? items;
+	int? prefetchCount;
+	bool? hasBestiesMedia;
+	int ?mediaCount;
+	bool? hasPrideMedia;
 	FeedUserStoryResponseReel();
 	factory FeedUserStoryResponseReel.fromJson(Map<String, dynamic> json) => _$FeedUserStoryResponseReelFromJson(json);
 	Map<String, dynamic> toJson() => _$FeedUserStoryResponseReelToJson(this);

@@ -3,13 +3,13 @@ import 'package:meta/meta.dart';
 
 class CountdownSticker extends InstaSticker {
 
-  DateTime end;
-  String text;
-  String textColor;
-  String startBackgroundColor;
-  String endBackgroundColor;
-  String digitColor;
-  String digitCardColor;
+  DateTime? end;
+  String? text;
+  String? textColor;
+  String? startBackgroundColor;
+  String? endBackgroundColor;
+  String? digitColor;
+  String? digitCardColor;
 
   CountdownSticker({
     @required this.text,
@@ -30,7 +30,7 @@ class CountdownSticker extends InstaSticker {
     'end_background_color': endBackgroundColor,
     'digit_color': digitColor,
     'digit_card_color': digitCardColor,
-    'end_ts': (end.toUtc().millisecondsSinceEpoch / 1000.0).floor(),
+    'end_ts': ((end?.toUtc().millisecondsSinceEpoch ?? 1) / 1000.0).floor(),
     'following_enabled': true,
   };
 

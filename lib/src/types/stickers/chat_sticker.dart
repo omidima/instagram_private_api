@@ -3,9 +3,9 @@ import 'package:meta/meta.dart';
 import 'insta_sticker.dart';
 
 class ChatSticker extends InstaSticker {
-  String text;
-  String startBackgroundColor;
-  String endBackgroundColor;
+  String? text;
+  String? startBackgroundColor;
+  String? endBackgroundColor;
 
   ChatSticker({
     @required this.text,

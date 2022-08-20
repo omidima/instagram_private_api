@@ -6,18 +6,16 @@ part of 'search_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UsersSearchResponse _$UsersSearchResponseFromJson(Map<String, dynamic> json) {
-  return UsersSearchResponse()
-    ..numResults = json['num_results'] as int
-    ..users = (json['users'] as List)
-        ?.map((e) => e == null
-            ? null
-            : UsersSearchResponseUsersItem.fromJson(e as Map<String, dynamic>))
-        ?.toList()
-    ..hasMore = json['has_more'] as bool
-    ..rankToken = json['rank_token'] as String
-    ..status = json['status'] as String;
-}
+UsersSearchResponse _$UsersSearchResponseFromJson(Map<String, dynamic> json) =>
+    UsersSearchResponse()
+      ..numResults = json['num_results'] as int?
+      ..users = (json['users'] as List<dynamic>?)
+          ?.map((e) =>
+              UsersSearchResponseUsersItem.fromJson(e as Map<String, dynamic>))
+          .toList()
+      ..hasMore = json['has_more'] as bool?
+      ..rankToken = json['rank_token'] as String?
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$UsersSearchResponseToJson(
         UsersSearchResponse instance) =>
@@ -31,15 +29,14 @@ Map<String, dynamic> _$UsersSearchResponseToJson(
 
 UsersSearchResponseUsersItemFriendshipStatus
     _$UsersSearchResponseUsersItemFriendshipStatusFromJson(
-        Map<String, dynamic> json) {
-  return UsersSearchResponseUsersItemFriendshipStatus()
-    ..following = json['following'] as bool
-    ..isPrivate = json['is_private'] as bool
-    ..incomingRequest = json['incoming_request'] as bool
-    ..outgoingRequest = json['outgoing_request'] as bool
-    ..isBestie = json['is_bestie'] as bool
-    ..isRestricted = json['is_restricted'] as bool;
-}
+            Map<String, dynamic> json) =>
+        UsersSearchResponseUsersItemFriendshipStatus()
+          ..following = json['following'] as bool?
+          ..isPrivate = json['is_private'] as bool?
+          ..incomingRequest = json['incoming_request'] as bool?
+          ..outgoingRequest = json['outgoing_request'] as bool?
+          ..isBestie = json['is_bestie'] as bool?
+          ..isRestricted = json['is_restricted'] as bool?;
 
 Map<String, dynamic> _$UsersSearchResponseUsersItemFriendshipStatusToJson(
         UsersSearchResponseUsersItemFriendshipStatus instance) =>
@@ -53,28 +50,28 @@ Map<String, dynamic> _$UsersSearchResponseUsersItemFriendshipStatusToJson(
     };
 
 UsersSearchResponseUsersItem _$UsersSearchResponseUsersItemFromJson(
-    Map<String, dynamic> json) {
-  return UsersSearchResponseUsersItem()
-    ..pk = json['pk'] as int
-    ..username = json['username'] as String
-    ..fullName = json['full_name'] as String
-    ..isPrivate = json['is_private'] as bool
-    ..profilePicUrl = json['profile_pic_url'] as String
-    ..profilePicId = json['profile_pic_id'] as String
-    ..friendshipStatus = json['friendship_status'] == null
-        ? null
-        : UsersSearchResponseUsersItemFriendshipStatus.fromJson(
-            json['friendship_status'] as Map<String, dynamic>)
-    ..isVerified = json['is_verified'] as bool
-    ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
-    ..followerCount = json['follower_count'] as int
-    ..byline = json['byline'] as String
-    ..socialContext = json['social_context'] as String
-    ..searchSocialContext = json['search_social_context'] as String
-    ..mutualFollowersCount = json['mutual_followers_count'] as int
-    ..latestReelMedia = json['latest_reel_media'] as int
-    ..unseenCount = json['unseen_count'] as int;
-}
+        Map<String, dynamic> json) =>
+    UsersSearchResponseUsersItem()
+      ..pk = json['pk'] as int?
+      ..username = json['username'] as String?
+      ..fullName = json['full_name'] as String?
+      ..isPrivate = json['is_private'] as bool?
+      ..profilePicUrl = json['profile_pic_url'] as String?
+      ..profilePicId = json['profile_pic_id'] as String?
+      ..friendshipStatus = json['friendship_status'] == null
+          ? null
+          : UsersSearchResponseUsersItemFriendshipStatus.fromJson(
+              json['friendship_status'] as Map<String, dynamic>)
+      ..isVerified = json['is_verified'] as bool?
+      ..hasAnonymousProfilePicture =
+          json['has_anonymous_profile_picture'] as bool?
+      ..followerCount = json['follower_count'] as int?
+      ..byline = json['byline'] as String?
+      ..socialContext = json['social_context'] as String?
+      ..searchSocialContext = json['search_social_context'] as String?
+      ..mutualFollowersCount = json['mutual_followers_count'] as int?
+      ..latestReelMedia = json['latest_reel_media'] as int?
+      ..unseenCount = json['unseen_count'] as int?;
 
 Map<String, dynamic> _$UsersSearchResponseUsersItemToJson(
         UsersSearchResponseUsersItem instance) =>

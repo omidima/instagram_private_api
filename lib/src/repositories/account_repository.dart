@@ -9,10 +9,10 @@ class AccountRepository extends InstaRepository {
           form: client.request.sign({
             'username': user,
             'password': password,
-            'guid': client.state.device.uuid,
-            'phone_id': client.state.device.phoneId,
-            'device_id': client.state.device.deviceId,
-            'adid': client.state.device.adid,
+            'guid': client.state.device?.uuid,
+            'phone_id': client.state.device?.phoneId,
+            'device_id': client.state.device?.deviceId,
+            'adid': client.state.device?.adid,
             '_csrftoken': client.state.cookieCsrfToken,
             'google_tokens': '[]',
             'login_attempt_count': 0,
@@ -24,10 +24,10 @@ class AccountRepository extends InstaRepository {
       client.request.post('/api/v1/accounts/read_msisdn_header/',
           form: client.request.sign({
             'mobile_subno_usage': usage,
-            'device_id': client.state.device.deviceId,
+            'device_id': client.state.device?.deviceId,
           }),
           headers: {
-            'X-DEVICE-ID': client.state.device.deviceId,
+            'X-DEVICE-ID': client.state.device?.deviceId,
           });
 
   Future<dynamic> currentUser() async => client.request
