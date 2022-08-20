@@ -40,7 +40,7 @@ class JsonToClass {
       ..writeln('@JsonSerializable(fieldRename: FieldRename.snake)')
       ..writeln('class ${object.name} {')
       ..writeAll(
-          object.keys!.map((key) => '\t${key.value} ${_assertKey(key.key)};\n'))
+          object.keys.map((key) => '\t${key.value} ${_assertKey(key.key)};\n'))
       ..writeln('\t${object.name}();')
       ..writeln(
           '\tfactory ${object.name}.fromJson(Map<String, dynamic> json) => _\$${object.name}FromJson(json);')
@@ -58,9 +58,9 @@ class JsonToClass {
   }
 
   JsonObject _mapRoot() {
-    final JsonObject object = JsonObject(name!);
+    final object = JsonObject(name!);
     _json?.forEach((key, value) {
-      object.keys?.add(JsonKey(CaseConvert.camelCase(key),
+      object.keys.add(JsonKey(CaseConvert.camelCase(key),
           _mapItem(value, '$name${CaseConvert.pascalCase(key)}')));
     });
     return object;
@@ -70,7 +70,7 @@ class JsonToClass {
     if (item == null || item.runtimeType == null) {
       return 'dynamic';
     }
-    final Type runtimeType = item.runtimeType;
+    final runtimeType = item.runtimeType;
     if (runtimeType == String) {
       return 'String';
     }
@@ -97,8 +97,8 @@ class JsonToClass {
           return 'List<List>';
         } else {
           final name = '${level}Item';
-          final JsonObject object = JsonObject(name);
-          final List<String> keys = [];
+          final object = JsonObject(name);
+          final keys = <String>[];
           for (final element in item) {
             element.keys.forEach((key) {
               if (!keys.contains(key)) {
@@ -113,11 +113,11 @@ class JsonToClass {
             final elementType = elements[0].runtimeType;
             for (final element in elements) {
               if (elementType != element.runtimeType) {
-                object.keys?.add(JsonKey(CaseConvert.camelCase(key), 'dynamic'));
+                object.keys.add(JsonKey(CaseConvert.camelCase(key), 'dynamic'));
                 continue outer;
               }
             }
-            object.keys?.add(JsonKey(
+            object.keys.add(JsonKey(
                 CaseConvert.camelCase(key),
                 _mapItem(
                     elements[0][key], '$name${CaseConvert.pascalCase(key)}')));
@@ -143,7 +143,7 @@ class JsonToClass {
         /// all keys are fine
         final JsonObject object = JsonObject(level);
         item.forEach((key, value) {
-          object.keys?.add(JsonKey(CaseConvert.camelCase(key),
+          object.keys.add(JsonKey(CaseConvert.camelCase(key),
               _mapItem(value, '$level${CaseConvert.pascalCase(key)}')));
         });
         _objects?.add(object);
@@ -155,7 +155,6 @@ class JsonToClass {
 
   static bool footType(dynamic item) =>
       item == null ||
-      item.runtimeType == null ||
       item.runtimeType == String ||
       item.runtimeType == int ||
       item.runtimeType == double;
@@ -163,9 +162,9 @@ class JsonToClass {
 
 class JsonObject {
   String name;
-  List<JsonKey>? keys;
+  late List<JsonKey> keys;
 
-  JsonObject(this.name, [this.keys]) {
+  JsonObject(this.name, [List<JsonKey>? keys]) {
     keys ??= [];
   }
 }

@@ -12,8 +12,8 @@ class CountdownSticker extends InstaSticker {
   String? digitCardColor;
 
   CountdownSticker({
-    @required this.text,
-    @required this.end,
+    required this.text,
+    required this.end,
     this.textColor = '#ffffff',
     this.startBackgroundColor = '#ca2ee1',
     this.endBackgroundColor = '#5eb1ff',

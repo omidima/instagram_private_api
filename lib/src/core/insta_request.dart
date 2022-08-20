@@ -1,8 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
-
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:hex/hex.dart';
@@ -18,7 +15,7 @@ class InstaRequest {
   late InstaClient _client;
 
   InstaRequest({required InstaClient client}) {
-    this._client = client;
+    _client = client;
     _httpClient = Dio(BaseOptions(baseUrl: _client.state.igBaseUrl));
     _httpClient.interceptors.add(InstaCookieManager(_client.state.cookies));
   }

@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:cookie_jar/cookie_jar.dart';
 import 'package:hex/hex.dart';
 import 'package:instagram_private_api/src/core/constants.dart';
 import 'package:instagram_private_api/src/utilities/insta_cookie_jar.dart';

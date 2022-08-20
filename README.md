@@ -1,12 +1,15 @@
-# instagram_api
+# instagram_private_api
 
-new package of [instagram-private-api](https://github.com/Nerixyz/instagram_private_api) update and fix reported bugs.
-for using and read documents can visit this repository [instagram-private-api](https://github.com/Nerixyz/instagram_private_api).
+*there's currently no pub-package, so you'll have to build it yourself*
+**Current version: 0.0.1 (somewhat early alpha)**
+
+This library is heavily influenced by dilame's [instagram-private-api](https://github.com/dilame/instagram-private-api).
+The basic structure is very similar to it.
 
 # Table of Contents
 
 - [Installing](#Installing)
-- [Getting Started](#"Getting_Started")
+- [Getting Started](#Getting_Started)
     - [sample storage model](##sample_storage_model)
     - [sample storage model](##sample_of_hive_model)
 - [Document](#Document)
@@ -23,12 +26,12 @@ dependencies:
       ref: master # publish version branch 
 ```
 
-# Getting Started
+# Getting_Started
 
 when login user to instagram account for login back without using user/pass and use cookie data, you should save
 cookies to file or a database. (** for using database recommended hive database **)
 
-## sample storage model
+## sample_storage_model
 > sample of storage class -> storage.dart
 ```dart
 mixin StateStorage {
@@ -99,7 +102,7 @@ class FileStateStorage with StateStorage {
 }
 ```
 
-## sample of hive model
+## sample_of_hive_model
 > main.dart
 ```dart
 const String storageName = 'instagram-cookies';
@@ -145,17 +148,8 @@ class ClassName {
 ```
 
 
-
-
 # Document
 for read document and learn more how about use to this package visit here [instagram-private-api](https://github.com/Nerixyz/instagram_private_api).
 
 # More
 for learn more about classes read here. [index class docs](https://github.com/Nerixyz/instagram-private-api/blob/b3351b902b5c186e850cc39c39cb734a370af32d/docs/modules/index.md)
-
-# Social Media
-Thanks for you. for following other activity and packages follow instagram and github pages.
-
-[![logo](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/64px-Instagram_logo_2016.svg.png)](https://instagram.com/p_o.h.hadidy)
-
-[![Telegram Chat](https://img.shields.io/badge/telegram-join%20chat-informational.svg)](https://t.me/igpapi)

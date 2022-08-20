@@ -42,7 +42,7 @@ class InstaClient {
   /// services
   late PublishService publish;
 
-  InstaClient({InstaState? state}) : this.state = state ?? InstaState() {
+  InstaClient({InstaState? state}) : state = state ?? InstaState() {
     request = InstaRequest(client: this);
     jar = InstaCookieJar();
     request.httpClient.interceptors.add(InstaCookieManager(jar));

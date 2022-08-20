@@ -7,10 +7,8 @@ import 'package:instagram_private_api/src/feeds/timeline_feed.dart';
 import 'package:instagram_private_api/src/feeds/user_feed.dart';
 import 'package:instagram_private_api/src/feeds/user_story_feed.dart';
 import 'package:instagram_private_api/src/responses/feed/direct_inbox_response.dart';
-import 'package:meta/meta.dart';
-
 class InstaFeedFactory {
-  InstaClient _client;
+  final InstaClient _client;
 
   InstaFeedFactory(this._client);
 
@@ -36,11 +34,13 @@ class InstaFeedFactory {
 
   DirectThreadFeed directThread(
           {required String id, String? cursor, int? seqId}) =>
-      DirectThreadFeed(_client, id, cursor?? "", seqId);
+      DirectThreadFeed(_client, id, cursor?? '', seqId);
 
   DirectThreadFeed directThreadFromInbox(
           DirectInboxFeedResponseThreadsItem thread,
           [int seqId = 0]) =>
       directThread(
-          id: thread.threadId ?? "0", cursor: thread.oldestCursor, seqId: seqId);
+          id: thread.threadId ?? '0',
+          cursor: thread.oldestCursor,
+          seqId: seqId);
 }

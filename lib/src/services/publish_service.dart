@@ -18,10 +18,10 @@ class PublishService extends InstaService {
   PublishService(InstaClient client) : super(client);
 
   Future<MediaConfigureResponse> photo({
-    @required Uint8List? photo,
+    required Uint8List photo,
 
     /// for ig.upload
-    String ?id,
+    required String id,
     int uploadTries = 1,
     int quality = 80,
     List<String> ?sharingUserIds,
@@ -34,9 +34,9 @@ class PublishService extends InstaService {
     MediaLocation? location,
     List<Usertag>? usertags, // only as List<>, as only 'in' is supported
   }) async {
-    final jpegData = JpegData()..read(photo!);
+    final jpegData = JpegData()..read(photo);
 
-    final uploadId = id ?? utcNow().floor().toString();
+    final uploadId = id;
     await _retryUntil(
         (tried) => client.upload.photo(photo,
             id: uploadId,
@@ -61,7 +61,7 @@ class PublishService extends InstaService {
       required Uint8List posterFrame,
 
       /// for ig.upload
-      String? id,
+      required String id,
       List<String>? sharingUserIds,
       int uploadTries = 1,
       Duration ?transcodeDelay,
@@ -73,7 +73,7 @@ class PublishService extends InstaService {
       bool audioMuted = false,
       int posterFrameIndex = 0}) async {
     final videoInfo = VideoData(video);
-    final uploadId = id ?? utcNow().floor().toString();
+    final uploadId = id;
     await _retryUntil(
         (tried) => client.upload.video(video, videoInfo.width!, videoInfo.height!,
             videoInfo.duration.floor(),
@@ -112,7 +112,7 @@ class PublishService extends InstaService {
     List<String>? threadIds,
 
     /// for ig.upload
-    String? id,
+    required String id,
     int uploadTries = 1,
     int quality = 80,
     List<String>? sharingUserIds,
@@ -125,7 +125,7 @@ class PublishService extends InstaService {
     String captureType = 'normal',
     InstaStickerConfiguration? stickerConfiguration,
   }) async {
-    final String uploadId = id ?? utcNow().floor().toString();
+    final String uploadId = id;
     final JpegData jpegData = JpegData()..read(photo);
     await _retryUntil(
         (tried) => client.upload.photo(photo,
