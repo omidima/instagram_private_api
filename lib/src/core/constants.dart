@@ -43,6 +43,8 @@ class Constants {
   /// base URL for every request
   static const String igBaseUrl = 'https://i.instagram.com/';
 
+  static const String igHostUrl = 'instagram.com';
+
   /// supportedCapabilities
   static const String supportedCapabilities =
       // ignore: lines_longer_than_80_chars

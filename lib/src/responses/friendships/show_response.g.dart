@@ -7,21 +7,20 @@ part of 'show_response.dart';
 // **************************************************************************
 
 FriendshipsShowResponse _$FriendshipsShowResponseFromJson(
-    Map<String, dynamic> json) {
-  return FriendshipsShowResponse()
-    ..following = json['following'] as bool
-    ..followedBy = json['followed_by'] as bool
-    ..blocking = json['blocking'] as bool
-    ..muting = json['muting'] as bool
-    ..isPrivate = json['is_private'] as bool
-    ..incomingRequest = json['incoming_request'] as bool
-    ..outgoingRequest = json['outgoing_request'] as bool
-    ..isBlockingReel = json['is_blocking_reel'] as bool
-    ..isMutingReel = json['is_muting_reel'] as bool
-    ..isBestie = json['is_bestie'] as bool
-    ..isRestricted = json['is_restricted'] as bool
-    ..status = json['status'] as String;
-}
+        Map<String, dynamic> json) =>
+    FriendshipsShowResponse()
+      ..following = json['following'] as bool?
+      ..followedBy = json['followed_by'] as bool?
+      ..blocking = json['blocking'] as bool?
+      ..muting = json['muting'] as bool?
+      ..isPrivate = json['is_private'] as bool?
+      ..incomingRequest = json['incoming_request'] as bool?
+      ..outgoingRequest = json['outgoing_request'] as bool?
+      ..isBlockingReel = json['is_blocking_reel'] as bool?
+      ..isMutingReel = json['is_muting_reel'] as bool?
+      ..isBestie = json['is_bestie'] as bool?
+      ..isRestricted = json['is_restricted'] as bool?
+      ..status = json['status'] as String?;
 
 Map<String, dynamic> _$FriendshipsShowResponseToJson(
         FriendshipsShowResponse instance) =>

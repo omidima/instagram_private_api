@@ -4,12 +4,12 @@ part 'direct_inbox_response.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedDirectInboxResponse {
-  DirectInboxFeedResponseInbox inbox;
-  int seqId;
-  num snapshotAtMs;
-  int pendingRequestsTotal;
-  DirectInboxFeedResponseMostRecentInviter mostRecentInviter;
-  String status;
+  DirectInboxFeedResponseInbox? inbox;
+  int? seqId;
+  num? snapshotAtMs;
+  int? pendingRequestsTotal;
+  DirectInboxFeedResponseMostRecentInviter? mostRecentInviter;
+  String? status;
 
   FeedDirectInboxResponse();
 
@@ -21,12 +21,12 @@ class FeedDirectInboxResponse {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseInbox {
-  List<DirectInboxFeedResponseThreadsItem> threads;
-  bool hasOlder;
-  int unseenCount;
-  String unseenCountTs;
-  String oldestCursor;
-  bool blendedInboxEnabled;
+  List<DirectInboxFeedResponseThreadsItem>? threads;
+  bool? hasOlder;
+  int? unseenCount;
+  int? unseenCountTs;
+  String? oldestCursor;
+  bool? blendedInboxEnabled;
 
   DirectInboxFeedResponseInbox();
 
@@ -38,14 +38,14 @@ class DirectInboxFeedResponseInbox {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseMostRecentInviter {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  String profilePicId;
-  bool isVerified;
-  bool hasAnonymousProfilePicture;
+  int? pk;
+  String? username;
+  String? fullName;
+  bool? isPrivate;
+  String? profilePicUrl;
+  String? profilePicId;
+  bool? isVerified;
+  bool? hasAnonymousProfilePicture;
 
   DirectInboxFeedResponseMostRecentInviter();
 
@@ -59,36 +59,36 @@ class DirectInboxFeedResponseMostRecentInviter {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseThreadsItem {
-  String threadId;
-  String threadV2Id;
-  List<DirectInboxFeedResponseUsersItem> users;
-  List<dynamic> leftUsers;
-  List<dynamic> adminUserIds;
-  List<DirectInboxFeedResponseItemsItem> items;
-  String lastActivityAt;
-  bool muted;
-  bool isPin;
-  bool named;
-  bool canonical;
-  bool pending;
-  bool archived;
-  bool valuedRequest;
-  String threadType;
-  int viewerId;
-  String threadTitle;
-  String pendingScore;
-  num folder;
-  bool vcMuted;
-  bool isGroup;
-  bool mentionsMuted;
-  DirectInboxFeedResponseInviter inviter;
-  bool hasOlder;
-  bool hasNewer;
-  dynamic lastSeenAt;
-  String newestCursor;
-  String oldestCursor;
-  bool isSpam;
-  DirectInboxFeedResponseLastPermanentItem lastPermanentItem;
+  String? threadId;
+  String? threadV2Id;
+  List<DirectInboxFeedResponseUsersItem>? users;
+  List<dynamic>? leftUsers;
+  List<dynamic>? adminUserIds;
+  List<DirectInboxFeedResponseItemsItem> ?items;
+  String? lastActivityAt;
+  bool? muted;
+  bool? isPin;
+  bool? named;
+  bool? canonical;
+  bool? pending;
+  bool? archived;
+  bool? valuedRequest;
+  String? threadType;
+  int? viewerId;
+  String? threadTitle;
+  String? pendingScore;
+  num? folder;
+  bool? vcMuted;
+  bool? isGroup;
+  bool? mentionsMuted;
+  DirectInboxFeedResponseInviter? inviter;
+  bool? hasOlder;
+  bool? hasNewer;
+  dynamic? lastSeenAt;
+  String? newestCursor;
+  String? oldestCursor;
+  bool? isSpam;
+  DirectInboxFeedResponseLastPermanentItem? lastPermanentItem;
 
   DirectInboxFeedResponseThreadsItem();
 
@@ -102,16 +102,16 @@ class DirectInboxFeedResponseThreadsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseUsersItem {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  String profilePicId;
-  DirectInboxFeedResponseFriendshipStatus friendshipStatus;
-  bool isVerified;
-  bool hasAnonymousProfilePicture;
-  bool isDirectappInstalled;
+  int? pk;
+  String? username;
+  String? fullName;
+  bool? isPrivate;
+  String? profilePicUrl;
+  String? profilePicId;
+  DirectInboxFeedResponseFriendshipStatus? friendshipStatus;
+  bool? isVerified;
+  bool? hasAnonymousProfilePicture;
+  bool? isDirectappInstalled;
 
   DirectInboxFeedResponseUsersItem();
 
@@ -125,16 +125,16 @@ class DirectInboxFeedResponseUsersItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseItemsItem {
-  String itemId;
-  int userId;
-  String timestamp;
-  String itemType;
-  String text;
-  DirectInboxFeedResponseLink link;
-  String clientContext;
-  DirectInboxFeedResponseReelShare reelShare;
-  DirectInboxFeedResponseProfile profile;
-  DirectInboxFeedResponsePlaceholder placeholder;
+  String? itemId;
+  int? userId;
+  String? timestamp;
+  String? itemType;
+  String? text;
+  DirectInboxFeedResponseLink? link;
+  String? clientContext;
+  DirectInboxFeedResponseReelShare? reelShare;
+  DirectInboxFeedResponseProfile? profile;
+  DirectInboxFeedResponsePlaceholder? placeholder;
 
   DirectInboxFeedResponseItemsItem();
 
@@ -148,16 +148,16 @@ class DirectInboxFeedResponseItemsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseInviter {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  String profilePicId;
-  bool isVerified;
-  bool hasAnonymousProfilePicture;
-  String reelAutoArchive;
-  String allowedCommenterType;
+  int? pk;
+  String? username;
+  String? fullName;
+  bool? isPrivate;
+  String? profilePicUrl;
+  String? profilePicId;
+  bool? isVerified;
+  bool? hasAnonymousProfilePicture;
+  String? reelAutoArchive;
+  String? allowedCommenterType;
 
   DirectInboxFeedResponseInviter();
 
@@ -169,16 +169,16 @@ class DirectInboxFeedResponseInviter {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseLastPermanentItem {
-  String itemId;
-  int userId;
-  String timestamp;
-  String itemType;
-  String text;
-  DirectInboxFeedResponseLink link;
-  String clientContext;
-  DirectInboxFeedResponseReelShare reelShare;
-  DirectInboxFeedResponseProfile profile;
-  DirectInboxFeedResponsePlaceholder placeholder;
+  String? itemId;
+  int? userId;
+  String? timestamp;
+  String? itemType;
+  String? text;
+  DirectInboxFeedResponseLink? link;
+  String? clientContext;
+  DirectInboxFeedResponseReelShare? reelShare;
+  DirectInboxFeedResponseProfile? profile;
+  DirectInboxFeedResponsePlaceholder? placeholder;
 
   DirectInboxFeedResponseLastPermanentItem();
 
@@ -192,12 +192,12 @@ class DirectInboxFeedResponseLastPermanentItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseFriendshipStatus {
-  bool following;
-  bool blocking;
-  bool isPrivate;
-  bool incomingRequest;
-  bool outgoingRequest;
-  bool isBestie;
+  bool? following;
+  bool? blocking;
+  bool? isPrivate;
+  bool? incomingRequest;
+  bool? outgoingRequest;
+  bool? isBestie;
 
   DirectInboxFeedResponseFriendshipStatus();
 
@@ -211,10 +211,10 @@ class DirectInboxFeedResponseFriendshipStatus {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseLink {
-  String text;
-  DirectInboxFeedResponseLinkContext linkContext;
-  String clientContext;
-  String mutationToken;
+  String? text;
+  DirectInboxFeedResponseLinkContext? linkContext;
+  String? clientContext;
+  String? mutationToken;
 
   DirectInboxFeedResponseLink();
 
@@ -226,12 +226,12 @@ class DirectInboxFeedResponseLink {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseReelShare {
-  String text;
-  String type;
-  int reelOwnerId;
-  bool isReelPersisted;
-  String reelType;
-  DirectInboxFeedResponseMedia media;
+  String? text;
+  String? type;
+  int? reelOwnerId;
+  bool? isReelPersisted;
+  String? reelType;
+  DirectInboxFeedResponseMedia? media;
 
   DirectInboxFeedResponseReelShare();
 
@@ -245,14 +245,14 @@ class DirectInboxFeedResponseReelShare {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseProfile {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  String profilePicId;
-  bool isVerified;
-  bool hasAnonymousProfilePicture;
+  int? pk;
+  String? username;
+  String? fullName;
+  bool? isPrivate;
+  String? profilePicUrl;
+  String? profilePicId;
+  bool? isVerified;
+  bool? hasAnonymousProfilePicture;
 
   DirectInboxFeedResponseProfile();
 
@@ -264,9 +264,9 @@ class DirectInboxFeedResponseProfile {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponsePlaceholder {
-  bool isLinked;
-  String title;
-  String message;
+  bool? isLinked;
+  String? title;
+  String? message;
 
   DirectInboxFeedResponsePlaceholder();
 
@@ -280,10 +280,10 @@ class DirectInboxFeedResponsePlaceholder {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseLinkContext {
-  String linkUrl;
-  String linkTitle;
-  String linkSummary;
-  String linkImageUrl;
+  String? linkUrl;
+  String? linkTitle;
+  String? linkSummary;
+  String? linkImageUrl;
 
   DirectInboxFeedResponseLinkContext();
 
@@ -297,8 +297,8 @@ class DirectInboxFeedResponseLinkContext {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseMedia {
-  DirectInboxFeedResponseUser user;
-  num expiringAt;
+  DirectInboxFeedResponseUser? user;
+  num? expiringAt;
 
   DirectInboxFeedResponseMedia();
 
@@ -310,14 +310,14 @@ class DirectInboxFeedResponseMedia {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DirectInboxFeedResponseUser {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  String profilePicId;
-  bool isVerified;
-  bool hasAnonymousProfilePicture;
+  int? pk;
+  String? username;
+  String? fullName;
+  bool? isPrivate;
+  String? profilePicUrl;
+  String? profilePicId;
+  bool? isVerified;
+  bool? hasAnonymousProfilePicture;
 
   DirectInboxFeedResponseUser();
 

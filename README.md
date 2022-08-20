@@ -6,34 +6,22 @@
 This library is heavily influenced by dilame's [instagram-private-api](https://github.com/dilame/instagram-private-api).
 The basic structure is very similar to it.
 
-# Usage
- ```dart
- Future<void> main() async {
-  /// get username and password from the environment-variables
-  final env = Platform.environment;
-  final username = env['IG_USERNAME'];
-  final password = env['IG_PASSWORD'];
+# Installing
+This package isn't published on pub.dev, to use it, add a git dependency to your `pubspec.yaml`:
+```yaml
+dependencies:
+...
 
-  final StateStorage storage = /* create the storage */;
-  final InstaClient ig = InstaClient();
-  /// this will ensure, the state is saved after each request
-  ig.request.httpClient.interceptors.add(
-      ResponseInterceptor(ig, (json) => storage.saveState(jsonEncode(json))));
+  instagram_private_api: any # publish version branch 
+```
 
-  if (!await storage.exists()) {
-    /// generate default values for the state
-    ig.state.init();
-    await storage.createState();
-    await ig.account.login(username, password);
-  } else {
-    /// load the state, and you're good to go
-    ig.state = InstaState.fromJson(jsonDecode(await storage.loadState()));
-  }
+# Getting Started
 
-  print('logged in!');
-}
+You should store the state (cookies, device, authorization...) of the client in a file or a database to avoid having to relogin.
 
-/// An example state-storage
+## Storage Example
+> storage.dart
+```dart
 mixin StateStorage {
   FutureOr<bool> exists();
 
@@ -43,4 +31,65 @@ mixin StateStorage {
 
   FutureOr<void> saveState(String encodedState);
 }
+
+/// An example state-storage
+class FileStateStorage with StateStorage {
+  File _stateFile;
+
+  FileStateStorage({String username, String stateFolder = ''}) {
+    _stateFile = File('$stateFolder/state_$username.json');
+  }
+
+  @override
+  Future<void> createState() async => _stateFile.create(recursive: true);
+
+  @override
+  Future<String> loadState() async => _stateFile.readAsString();
+
+  @override
+  Future<void> saveState(String encodedState) async =>
+      _stateFile.writeAsString(encodedState);
+
+  @override
+  Future<bool> exists() async => _stateFile.exists();
+}
 ```
+
+> main.dart
+ ```dart
+ Future<void> main() async {
+  final env = Platform.environment;
+  final username = env['IG_USERNAME'];
+  final password = env['IG_PASSWORD'];
+
+  final storage = 
+      FileStateStorage(stateFolder: Directory.current.path, username: username);
+
+  if (await storage.exists()) {
+    final client = InstaClient(
+        state: InstaState.fromJson(jsonDecode(await storage.loadState())));
+
+    final user = client.account.currentUser();
+    print('user $user');
+
+  } else {
+    final client = InstaClient();
+
+    client.request.httpClient.interceptors.add(ResponseInterceptor(
+      client,
+      (p0) {
+        storage.saveState(jsonEncode(p0));
+      },
+    ));
+    client.state.init();
+
+    final user = client.account.login(username, password);
+    print('user $user');
+
+  }
+}
+```
+
+
+# Document
+for read document and learn more how about use to this package visit here [instagram-private-api](https://github.com/Nerixyz/instagram_private_api).

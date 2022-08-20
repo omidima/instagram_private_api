@@ -9,24 +9,27 @@ class AccountRepository extends InstaRepository {
           form: client.request.sign({
             'username': user,
             'password': password,
-            'guid': client.state.device.uuid,
-            'phone_id': client.state.device.phoneId,
-            'device_id': client.state.device.deviceId,
-            'adid': client.state.device.adid,
+            'guid': client.state.device?.uuid,
+            'phone_id': client.state.device?.phoneId,
+            'device_id': client.state.device?.deviceId,
+            'adid': client.state.device?.adid,
             '_csrftoken': client.state.cookieCsrfToken,
             'google_tokens': '[]',
             'login_attempt_count': 0,
             'country_codes':
-              '[{\"country_code\":\"1\",\"source\":[\"default\"]}]',
+                '[{\"country_code\":\"1\",\"source\":[\"default\"]}]',
           }));
 
   Future<dynamic> readMsisdnHeader({String usage = 'default'}) =>
       client.request.post('/api/v1/accounts/read_msisdn_header/',
           form: client.request.sign({
             'mobile_subno_usage': usage,
-            'device_id': client.state.device.deviceId,
+            'device_id': client.state.device?.deviceId,
           }),
           headers: {
-            'X-DEVICE-ID': client.state.device.deviceId,
+            'X-DEVICE-ID': client.state.device?.deviceId,
           });
+
+  Future<dynamic> currentUser() async => client.request
+      .get('/api/v1/accounts/current_user/', query: {'edit': 'true'});
 }

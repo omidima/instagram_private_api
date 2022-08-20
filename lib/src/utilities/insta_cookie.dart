@@ -4,28 +4,28 @@ class InstaCookie implements Cookie {
   // using this implementation, because Instagram
   // sets a cookie with a backslash, that is not supported by http.dart
   @override
-  String domain;
+  String? domain;
 
   @override
-  DateTime expires;
+  DateTime? expires;
 
   @override
-  bool httpOnly;
+  bool httpOnly = false;
 
   @override
-  int maxAge;
+  int? maxAge;
 
   @override
-  String name;
+  late String name;
 
   @override
-  String path;
+  String? path;
 
   @override
-  bool secure;
+  bool secure = true;
 
   @override
-  String value;
+  late String value;
 
   InstaCookie.fromSetCookieValue(String value) {
     // Parse the 'set-cookie' header value.
@@ -119,7 +119,7 @@ class InstaCookie implements Cookie {
   String toString() {
     final sb = StringBuffer()..write(name)..write('=')..write(value);
     if (expires != null) {
-      sb..write('; Expires=')..write(HttpDate.format(expires));
+      sb..write('; Expires=')..write(HttpDate.format(expires!));
     }
     if (maxAge != null) {
       sb..write('; Max-Age=')..write(maxAge);
@@ -131,11 +131,11 @@ class InstaCookie implements Cookie {
       sb..write('; Path=')..write(path);
     }
 
-    if (secure ?? false) {
+    if (secure) {
       sb.write('; Secure');
     }
 
-    if (httpOnly ?? false) {
+    if (httpOnly) {
       sb.write('; HttpOnly');
     }
 
@@ -274,10 +274,10 @@ class InstaCookie implements Cookie {
       }
     }
 
-    String timeStr;
-    String dayOfMonthStr;
-    String monthStr;
-    String yearStr;
+    String? timeStr;
+    String? dayOfMonthStr;
+    String? monthStr;
+    String? yearStr;
 
     for (int i = 0; i < tokens.length; i++) {
       final token = tokens[i];
@@ -306,7 +306,7 @@ class InstaCookie implements Cookie {
       error();
     }
 
-    int year = toInt(yearStr);
+    int year = toInt(yearStr?? "0");
     if (year >= 70 && year <= 99) {
       year += 1900;
     } else if (year >= 0 && year <= 69) {
@@ -316,20 +316,20 @@ class InstaCookie implements Cookie {
       error();
     }
 
-    final int dayOfMonth = toInt(dayOfMonthStr);
+    final int dayOfMonth = toInt(dayOfMonthStr ?? "0");
     if (dayOfMonth < 1 || dayOfMonth > 31) {
       error();
     }
 
-    final int month = getMonth(monthStr) + 1;
+    final int month = getMonth(monthStr ?? "0") + 1;
 
-    final timeList = timeStr.split(':');
-    if (timeList.length != 3) {
+    final timeList = timeStr?.split(':');
+    if (timeList != null && timeList.length != 3) {
       error();
     }
-    final int hour = toInt(timeList[0]);
-    final int minute = toInt(timeList[1]);
-    final int second = toInt(timeList[2]);
+    final int hour = toInt(timeList?[0] ?? "0");
+    final int minute = toInt(timeList?[1] ?? "0");
+    final int second = toInt(timeList?[2] ?? "0");
     if (hour > 23) {
       error();
     }
@@ -361,18 +361,18 @@ class SerializableInstaCookie {
 
   bool isExpired() {
     final DateTime t = DateTime.now();
-    return (cookie.maxAge != null && cookie.maxAge < 1) ||
-        (cookie.maxAge != null &&
+    return (cookie?.maxAge != null && cookie!.maxAge! < 1) ||
+        (cookie?.maxAge != null &&
             (t.millisecondsSinceEpoch ~/ 1000).toInt() - createTimeStamp >=
-                cookie.maxAge) ||
-        (cookie.expires != null && !cookie.expires.isAfter(t));
+                cookie!.maxAge!) ||
+        (cookie!.expires != null && !cookie!.expires!.isAfter(t));
   }
 
   /// Serialize the Json string.
 
   String toJson()=> toString();
 
-  Cookie cookie;
+  Cookie? cookie;
   int createTimeStamp = 0;
 
   @override

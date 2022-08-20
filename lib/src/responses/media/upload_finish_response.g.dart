@@ -7,9 +7,8 @@ part of 'upload_finish_response.dart';
 // **************************************************************************
 
 MediaUploadFinishResponse _$MediaUploadFinishResponseFromJson(
-    Map<String, dynamic> json) {
-  return MediaUploadFinishResponse()..status = json['status'] as String;
-}
+        Map<String, dynamic> json) =>
+    MediaUploadFinishResponse()..status = json['status'] as String?;
 
 Map<String, dynamic> _$MediaUploadFinishResponseToJson(
         MediaUploadFinishResponse instance) =>

@@ -11,19 +11,20 @@ import 'package:instagram_private_api/src/utilities/insta_cookie_manager.dart';
 import 'package:instagram_private_api/src/utilities/time.dart';
 
 class InstaRequest {
-  Dio _httpClient;
+  late Dio _httpClient;
 
   Dio get httpClient => _httpClient;
 
-  InstaClient _client;
+  late InstaClient _client;
 
-  InstaRequest(this._client) {
+  InstaRequest({required InstaClient client}) {
+    this._client = client;
     _httpClient = Dio(BaseOptions(baseUrl: _client.state.igBaseUrl));
     _httpClient.interceptors.add(InstaCookieManager(_client.state.cookies));
   }
 
   Future<dynamic> get(String path,
-      {Map<String, String> query, Map<String, dynamic> headers}) async {
+      {Map<String, String>? query, Map<String, dynamic>? headers}) async {
     final response = await httpClient.get(path,
         queryParameters: query,
         options: Options(
@@ -34,31 +35,30 @@ class InstaRequest {
   }
 
   Future<dynamic> post(String path,
-      {Map<String, String> query,
-      Map<String, dynamic> form,
-      Map<String, dynamic> headers}) async {
+      {Map<String, String>? query,
+      Map<String, dynamic>? form,
+      Map<String, dynamic>? headers}) async {
     final response = await httpClient.post(path,
         queryParameters: query,
         data: form,
         options: Options(
-            contentType: ContentType('application', 'x-www-form-urlencoded',
-                charset: 'UTF-8'),
+            contentType: 'application/x-www-form-urlencoded',
             headers: headers ?? getDefaultHeaders(),
             responseType: ResponseType.json));
-    return response.data;
+    return response;
   }
 
   Future<dynamic> postData(String path,
-      {Map<String, String> query,
-      Stream<List<int>> data,
-      Map<String, dynamic> headers}) async {
+      {Map<String, String>? query,
+      Stream<List<int>>? data,
+      Map<String, dynamic>? headers}) async {
     final response = await httpClient.post(path,
         queryParameters: query,
         data: data,
         options: Options(
-            contentType: ContentType.binary,
-            responseType: ResponseType.json,
-            headers: headers ?? getDefaultHeaders(),
+          contentType: 'application/x-www-form-urlencoded',
+          responseType: ResponseType.json,
+          headers: headers ?? getDefaultHeaders(),
         ));
     return jsonDecode(response.data);
   }

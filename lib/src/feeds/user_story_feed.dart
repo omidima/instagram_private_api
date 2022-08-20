@@ -6,7 +6,7 @@ class UserStoryFeed extends InstaFeed<FeedUserStoryResponse,
     FeedUserStoryResponseReelItemsItem> {
   dynamic userId;
 
-  UserStoryFeed(InstaClient client, this.userId) : super(client);
+  UserStoryFeed(InstaClient client, this.userId) : super(client: client);
 
   @override
   Future<FeedUserStoryResponse> request() async =>
@@ -23,5 +23,5 @@ class UserStoryFeed extends InstaFeed<FeedUserStoryResponse,
   @override
   List<FeedUserStoryResponseReelItemsItem> transform(
           FeedUserStoryResponse state) =>
-      state.reel.items ?? [];
+      state.reel?.items ?? [];
 }

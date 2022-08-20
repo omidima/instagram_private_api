@@ -7,7 +7,7 @@ class HighlightsRepository extends InstaRepository {
 
   Future<HighlightsHighlightsTrayResponse> highlightsTray(dynamic userId) async => HighlightsHighlightsTrayResponse.fromJson(await client.request.get('/api/v1/highlights/$userId/highlights_tray/', query: {
     'supported_capabilities_new': client.state.supportedCapabilities,
-    'phone_id': client.state.device.phoneId,
+    'phone_id': client.state.device?.phoneId ?? "",
     // TODO: global battery
     'battery_level': 100.toString(),
     'is_charging': '1',

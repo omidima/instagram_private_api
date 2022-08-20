@@ -4,13 +4,13 @@ import 'package:instagram_private_api/src/core/insta_client.dart';
 import 'package:instagram_private_api/src/core/insta_feed.dart';
 
 class DirectThreadFeed extends InstaFeed {
-  String id;
-  int seqId;
+  String? id;
+  int? seqId;
 
   String cursor;
 
   DirectThreadFeed(InstaClient client, this.id, this.cursor, this.seqId)
-      : super(client);
+      : super(client: client);
 
   @override
   Future<Map<String, dynamic>> request() async =>
@@ -30,6 +30,6 @@ class DirectThreadFeed extends InstaFeed {
   @override
   List transform(state) {
     // TODO: implement transform
-    return null;
+    return [];
   }
 }

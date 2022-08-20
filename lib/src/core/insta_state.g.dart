@@ -6,16 +6,14 @@ part of 'insta_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-InstaDevice _$InstaDeviceFromJson(Map<String, dynamic> json) {
-  return InstaDevice(
-    json['deviceString'] as String,
-    json['build'] as String,
-    json['uuid'] as String,
-    json['phoneId'] as String,
-    json['adid'] as String,
-    json['deviceId'] as String,
-  );
-}
+InstaDevice _$InstaDeviceFromJson(Map<String, dynamic> json) => InstaDevice(
+      deviceString: json['deviceString'] as String?,
+      build: json['build'] as String?,
+      uuid: json['uuid'] as String?,
+      phoneId: json['phoneId'] as String?,
+      adid: json['adid'] as String?,
+      deviceId: json['deviceId'] as String?,
+    );
 
 Map<String, dynamic> _$InstaDeviceToJson(InstaDevice instance) =>
     <String, dynamic>{

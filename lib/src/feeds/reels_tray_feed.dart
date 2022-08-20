@@ -9,7 +9,7 @@ class ReelsTrayFeed
   RequestReason _reason;
 
   // TODO: add broadcasts
-  ReelsTrayFeed(InstaClient client, this._reason) : super(client);
+  ReelsTrayFeed(InstaClient client, this._reason) : super(client: client);
 
   @override
   Future<FeedReelsTrayResponse> request() async =>
@@ -18,7 +18,7 @@ class ReelsTrayFeed
         'supported_capabilities_new': client.state.supportedCapabilities,
         'reason': CaseConvert.snakeCase(_reason.toString()),
         '_csrftoken': client.state.cookieCsrfToken,
-        '_uuid': client.state.device.uuid,
+        '_uuid': client.state.device?.uuid,
       }));
 
   @override
@@ -28,5 +28,5 @@ class ReelsTrayFeed
 
   @override
   List<FeedReelsTrayResponseTrayItem> transform(FeedReelsTrayResponse state) =>
-      state.tray;
+      state.tray ?? [];
 }

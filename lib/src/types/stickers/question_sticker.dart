@@ -11,7 +11,7 @@ class QuestionSticker extends InstaSticker {
   String profilePicUrl;
 
   QuestionSticker({
-    @required this.question,
+    required this.question,
     this.type = QuestionStickerType.text,
     this.backgroundColor = '#ffffff',
     this.textColor = '#000000',

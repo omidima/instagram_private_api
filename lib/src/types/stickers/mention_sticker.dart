@@ -5,7 +5,7 @@ class MentionSticker extends InstaSticker {
   String userId;
 
   MentionSticker(
-      {@required this.userId, double width = 0.64, double height = 0.125})
+      {required this.userId, double width = 0.64, double height = 0.125})
       : super(width, height);
 
   @override

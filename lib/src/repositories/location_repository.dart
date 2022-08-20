@@ -6,7 +6,7 @@ class LocationRepository extends InstaRepository {
   LocationRepository(InstaClient client) : super(client);
 
   Future<LocationSearchResponse> search(double latitude, double longitude,
-          {String searchQuery, String rankToken}) async =>
+          {String? searchQuery, String? rankToken}) async =>
       LocationSearchResponse.fromJson(await client.request.get('/api/v1/location_search/', query: {
         'latitude': latitude.toString(),
         'longitude': longitude.toString(),

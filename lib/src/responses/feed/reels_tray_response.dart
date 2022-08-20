@@ -4,13 +4,13 @@ part 'reels_tray_response.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponse {
-  List<FeedReelsTrayResponseTrayItem> tray;
-  String storyRankingToken;
-  List broadcasts;
-  int faceFilterNuxVersion;
-  bool storiesViewerGesturesNuxEligible;
-  bool hasNewNuxStory;
-  String status;
+  List<FeedReelsTrayResponseTrayItem>? tray;
+  String? storyRankingToken;
+  List? broadcasts;
+  int? faceFilterNuxVersion;
+  bool? storiesViewerGesturesNuxEligible;
+  bool? hasNewNuxStory;
+  String? status;
 
   FeedReelsTrayResponse();
 
@@ -22,10 +22,10 @@ class FeedReelsTrayResponse {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemUserFriendshipStatus {
-  bool muting;
-  bool isMutingReel;
-  bool following;
-  bool outgoingRequest;
+  bool? muting;
+  bool? isMutingReel;
+  bool? following;
+  bool? outgoingRequest;
 
   FeedReelsTrayResponseTrayItemUserFriendshipStatus();
 
@@ -39,14 +39,14 @@ class FeedReelsTrayResponseTrayItemUserFriendshipStatus {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemUser {
-  int pk;
-  String username;
-  String fullName;
-  bool isPrivate;
-  String profilePicUrl;
-  String profilePicId;
-  bool isVerified;
-  FeedReelsTrayResponseTrayItemUserFriendshipStatus friendshipStatus;
+  int? pk;
+  String? username;
+  String? fullName;
+  bool ?isPrivate;
+  String ?profilePicUrl;
+  String ?profilePicId;
+  bool ?isVerified;
+  FeedReelsTrayResponseTrayItemUserFriendshipStatus? friendshipStatus;
 
   FeedReelsTrayResponseTrayItemUser();
 
@@ -60,10 +60,10 @@ class FeedReelsTrayResponseTrayItemUser {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItemImageVersions2CandidatesItem {
-  int width;
-  int height;
-  String url;
-  List<int> estimatedScansSizes;
+  int ?width;
+  int ?height;
+  String ?url;
+  List<int> ?estimatedScansSizes;
 
   FeedReelsTrayResponseTrayItemItemsItemImageVersions2CandidatesItem();
 
@@ -79,7 +79,7 @@ class FeedReelsTrayResponseTrayItemItemsItemImageVersions2CandidatesItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItemImageVersions2 {
-  List<FeedReelsTrayResponseTrayItemItemsItemImageVersions2CandidatesItem>
+  List<FeedReelsTrayResponseTrayItemItemsItemImageVersions2CandidatesItem>?
       candidates;
 
   FeedReelsTrayResponseTrayItemItemsItemImageVersions2();
@@ -94,11 +94,11 @@ class FeedReelsTrayResponseTrayItemItemsItemImageVersions2 {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItemVideoVersionsItem {
-  int type;
-  int width;
-  int height;
-  String url;
-  String id;
+  int? type;
+  int? width;
+  int? height;
+  String? url;
+  String? id;
 
   FeedReelsTrayResponseTrayItemItemsItemVideoVersionsItem();
 
@@ -112,7 +112,7 @@ class FeedReelsTrayResponseTrayItemItemsItemVideoVersionsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItemUser {
-  int pk;
+  int? pk;
 
   FeedReelsTrayResponseTrayItemItemsItemUser();
 
@@ -126,24 +126,24 @@ class FeedReelsTrayResponseTrayItemItemsItemUser {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItemMusicAssetInfo {
-  String id;
-  String title;
-  String subtitle;
-  String displayArtist;
-  String coverArtworkUri;
-  String coverArtworkThumbnailUri;
-  String progressiveDownloadUrl;
-  List<int> highlightStartTimesInMs;
-  bool isExplicit;
-  String dashManifest;
-  bool hasLyrics;
-  String audioAssetId;
-  dynamic igArtist;
-  String placeholderProfilePicUrl;
-  bool shouldMuteAudio;
-  String shouldMuteAudioReason;
-  int overlapDurationInMs;
-  int audioAssetStartTimeInMs;
+  String ?id;
+  String ?title;
+  String ?subtitle;
+  String ?displayArtist;
+  String ?coverArtworkUri;
+  String ?coverArtworkThumbnailUri;
+  String ?progressiveDownloadUrl;
+  List<int> ?highlightStartTimesInMs;
+  bool? isExplicit;
+  String? dashManifest;
+  bool? hasLyrics;
+  String? audioAssetId;
+  dynamic ?igArtist;
+  String ?placeholderProfilePicUrl;
+  bool ?shouldMuteAudio;
+  String ?shouldMuteAudioReason;
+  int ?overlapDurationInMs;
+  int ?audioAssetStartTimeInMs;
 
   FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItemMusicAssetInfo();
 
@@ -159,18 +159,18 @@ class FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItemMusicAssetInfo
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItem {
-  double x;
-  double y;
-  int z;
-  double width;
-  double height;
-  double rotation;
-  String attribution;
-  int isPinned;
-  int isHidden;
-  String displayType;
-  int isSticker;
-  FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItemMusicAssetInfo
+  double ?x;
+  double ?y;
+  int ?z;
+  double? width;
+  double? height;
+  double ?rotation;
+  String ?attribution;
+  int? isPinned;
+  int ?isHidden;
+  String? displayType;
+  int ?isSticker;
+  FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItemMusicAssetInfo?
       musicAssetInfo;
 
   FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItem();
@@ -187,17 +187,17 @@ class FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItemStoryFeedMediaItem {
-  double x;
-  double y;
-  int z;
-  double width;
-  double height;
-  double rotation;
-  int isPinned;
-  int isHidden;
-  int isSticker;
-  String mediaId;
-  String productType;
+  double ?x;
+  double ?y;
+  int? z;
+  double ?width;
+  double ?height;
+  double ?rotation;
+  int ?isPinned;
+  int ?isHidden;
+  int ?isSticker;
+  String ?mediaId;
+  String ?productType;
 
   FeedReelsTrayResponseTrayItemItemsItemStoryFeedMediaItem();
 
@@ -211,42 +211,42 @@ class FeedReelsTrayResponseTrayItemItemsItemStoryFeedMediaItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItemItemsItem {
-  int takenAt;
-  int pk;
-  String id;
-  int deviceTimestamp;
-  int mediaType;
-  String code;
-  String clientCacheKey;
-  int filterType;
-  FeedReelsTrayResponseTrayItemItemsItemImageVersions2 imageVersions2;
-  int originalWidth;
-  int originalHeight;
-  int isDashEligible;
-  String videoDashManifest;
-  String videoCodec;
-  int numberOfQualities;
-  List<FeedReelsTrayResponseTrayItemItemsItemVideoVersionsItem> videoVersions;
-  bool hasAudio;
-  double videoDuration;
-  FeedReelsTrayResponseTrayItemItemsItemUser user;
-  bool captionIsEdited;
-  double captionPosition;
-  bool isReelMedia;
-  bool photoOfYou;
+  int? takenAt;
+  int? pk;
+  String? id;
+  int? deviceTimestamp;
+  int? mediaType;
+  String ?code;
+  String ?clientCacheKey;
+  int ?filterType;
+  FeedReelsTrayResponseTrayItemItemsItemImageVersions2 ?imageVersions2;
+  int? originalWidth;
+  int? originalHeight;
+  int?isDashEligible;
+  String ?videoDashManifest;
+  String ?videoCodec;
+  int? numberOfQualities;
+  List<FeedReelsTrayResponseTrayItemItemsItemVideoVersionsItem>? videoVersions;
+  bool? hasAudio;
+  double? videoDuration;
+  FeedReelsTrayResponseTrayItemItemsItemUser? user;
+  bool? captionIsEdited;
+  double? captionPosition;
+  bool? isReelMedia;
+  bool? photoOfYou;
   dynamic caption;
-  bool canViewerSave;
-  String organicTrackingToken;
-  int expiringAt;
-  bool canReshare;
-  bool canReply;
-  bool isPrideMedia;
-  List<FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItem>
+  bool ?canViewerSave;
+  String? organicTrackingToken;
+  int ?expiringAt;
+  bool ?canReshare;
+  bool ?canReply;
+  bool ?isPrideMedia;
+  List<FeedReelsTrayResponseTrayItemItemsItemStoryMusicStickersItem>?
       storyMusicStickers;
-  bool supportsReelReactions;
-  bool showOneTapFbShareTooltip;
-  int hasSharedToFb;
-  List<FeedReelsTrayResponseTrayItemItemsItemStoryFeedMediaItem> storyFeedMedia;
+  bool ?supportsReelReactions;
+  bool ?showOneTapFbShareTooltip;
+  int ?hasSharedToFb;
+  List<FeedReelsTrayResponseTrayItemItemsItemStoryFeedMediaItem> ?storyFeedMedia;
 
   FeedReelsTrayResponseTrayItemItemsItem();
 
@@ -260,23 +260,23 @@ class FeedReelsTrayResponseTrayItemItemsItem {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class FeedReelsTrayResponseTrayItem {
-  int id;
-  int latestReelMedia;
-  int expiringAt;
-  int seen;
-  bool canReply;
-  bool canReshare;
-  String reelType;
-  FeedReelsTrayResponseTrayItemUser user;
-  int rankedPosition;
-  int seenRankedPosition;
-  bool muted;
-  int prefetchCount;
-  bool hasBestiesMedia;
-  int mediaCount;
-  List<int> mediaIds;
-  bool hasPrideMedia;
-  List<FeedReelsTrayResponseTrayItemItemsItem> items;
+  int? id;
+  int? latestReelMedia;
+  int? expiringAt;
+  int? seen;
+  bool? canReply;
+  bool? canReshare;
+  String ?reelType;
+  FeedReelsTrayResponseTrayItemUser ?user;
+  int ?rankedPosition;
+  int ?seenRankedPosition;
+  bool ?muted;
+  int ?prefetchCount;
+  bool? hasBestiesMedia;
+  int? mediaCount;
+  List<int> ?mediaIds;
+  bool? hasPrideMedia;
+  List<FeedReelsTrayResponseTrayItemItemsItem>?items;
 
   FeedReelsTrayResponseTrayItem();
 

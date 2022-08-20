@@ -16,8 +16,8 @@ class Usertag {
 }
 
 class Usertags {
-  List<Usertag> usertagsIn;
-  List<Usertag> usertagsOut;
+  List<Usertag>? usertagsIn;
+  List<Usertag>? usertagsOut;
 
   Usertags();
 
@@ -40,12 +40,12 @@ class Usertags {
 }
 
 class MediaLocation {
-  String name;
-  double lat;
-  double lng;
-  String address;
-  String externalSource;
-  String id;
+  String ?name;
+  double ?lat;
+  double ?lng;
+  String ?address;
+  String ?externalSource;
+  String? id;
 
   MediaLocation(this.name, this.lat, this.lng, this.address,
       this.externalSource, this.id);

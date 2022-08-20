@@ -16,9 +16,9 @@ class JsonToClass {
           .split(' ')
           .toList();
 
-  Map<String, dynamic> _json;
-  List<JsonObject> _objects;
-  String name;
+  Map<String, dynamic>? _json;
+  List<JsonObject>? _objects;
+  String? name;
 
   JsonToClass(this._json, this.name) {
     _objects = [];
@@ -29,7 +29,7 @@ class JsonToClass {
       ..writeln('import \'package:json_annotation/json_annotation.dart\';')
       ..writeln(head)
       ..writeln(_convertObjectToClass(_mapRoot()));
-    for (final obj in _objects) {
+    for (final obj in _objects?? []) {
       sb.write('\n${_convertObjectToClass(obj)}');
     }
     return sb.toString();
@@ -58,8 +58,8 @@ class JsonToClass {
   }
 
   JsonObject _mapRoot() {
-    final JsonObject object = JsonObject(name);
-    _json.forEach((key, value) {
+    final JsonObject object = JsonObject(name!);
+    _json?.forEach((key, value) {
       object.keys.add(JsonKey(CaseConvert.camelCase(key),
           _mapItem(value, '$name${CaseConvert.pascalCase(key)}')));
     });
@@ -122,7 +122,7 @@ class JsonToClass {
                 _mapItem(
                     elements[0][key], '$name${CaseConvert.pascalCase(key)}')));
           }
-          _objects.add(object);
+          _objects?.add(object);
           return 'List<$name>';
         }
       }
@@ -146,7 +146,7 @@ class JsonToClass {
           object.keys.add(JsonKey(CaseConvert.camelCase(key),
               _mapItem(value, '$level${CaseConvert.pascalCase(key)}')));
         });
-        _objects.add(object);
+        _objects?.add(object);
       }
       return level;
     }
@@ -163,9 +163,9 @@ class JsonToClass {
 
 class JsonObject {
   String name;
-  List<JsonKey> keys;
+  late List<JsonKey> keys;
 
-  JsonObject(this.name, [this.keys]) {
+  JsonObject(this.name, [List<JsonKey>? keys]) {
     keys ??= [];
   }
 }

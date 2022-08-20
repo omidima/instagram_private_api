@@ -1,9 +1,12 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cookie_jar/cookie_jar.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:instagram_private_api/src/core/constants.dart';
 import 'package:instagram_private_api/src/utilities/insta_cookie.dart';
 
-class InstaCookieJar implements CookieJar {
+class InstaCookieJar {
   /// using this to avoid the validation
 
   /// [ignoreExpires]: save/load even cookies that have expired.
@@ -27,83 +30,65 @@ class InstaCookieJar implements CookieJar {
   /// These cookies are private for each host name.
   ///
   List<
-      Map<
-          String, //domain
           Map<
-              String, //path
+              String, //domain
               Map<
-                  String, //cookie name
-                  SerializableInstaCookie //cookie
-              >>>> _domains =
-  <Map<String, Map<String, Map<String, SerializableInstaCookie>>>>[
+                  String, //path
+                  Map<
+                      String, //cookie name
+                      SerializableInstaCookie //cookie
+                      >>>> _domains =
+      <Map<String, Map<String, Map<String, SerializableInstaCookie>>>>[
     <String, Map<String, Map<String, SerializableInstaCookie>>>{},
     <String, Map<String, Map<String, SerializableInstaCookie>>>{}
   ];
 
-  factory InstaCookieJar.fromJson(Map<String, dynamic> json) =>
-      InstaCookieJar(
-          ignoreExpires: json['ignoreExpires'] ?? false,
-          initialCookies: json['domains'].map((
-              domain) =>
-              domain.map(
-                      (key1, map1) =>
-                      MapEntry(
-                          key1,
-                          map1.map(
-                                  (key2, map2) =>
-                                  MapEntry(key2,
-                                      map2.map(
-                                              (key3, value) =>
-                                              MapEntry(
-                                                  key3, SerializableInstaCookie
-                                                  .fromJson(
-                                                  value))).cast<String, SerializableInstaCookie>())).cast<String, Map<String, SerializableInstaCookie>>())).cast<String, Map<String, Map<String, SerializableInstaCookie>>>()).toList().cast<Map<String, Map<String, Map<String, SerializableInstaCookie>>>>()); // ignore: lines_longer_than_80_chars
+  factory InstaCookieJar.fromJson(Map<String, dynamic> json) => InstaCookieJar(
+      ignoreExpires: json['ignoreExpires'] ?? false,
+      initialCookies: json['domains']
+          .map((domain) => domain
+              .map((key1, map1) => MapEntry(
+                  key1,
+                  map1
+                      .map((key2, map2) => MapEntry(
+                          key2,
+                          map2
+                              .map((key3, value) => MapEntry(key3,
+                                  SerializableInstaCookie.fromJson(value)))
+                              .cast<String, SerializableInstaCookie>()))
+                      .cast<String, Map<String, SerializableInstaCookie>>()))
+              .cast<String, Map<String, Map<String, SerializableInstaCookie>>>())
+          .toList()
+          .cast<Map<String, Map<String, Map<String, SerializableInstaCookie>>>>()); // ignore: lines_longer_than_80_chars
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         'ignoreExpires': ignoreExpires,
         'domains': _domains,
       };
 
   List<Map<String, Map<String, Map<String, SerializableInstaCookie>>>>
-  get domains => _domains;
+      get domains => _domains;
 
   @override
   List<Cookie> loadForRequest(Uri uri) {
     final List<Cookie> list = <Cookie>[];
-    final String urlPath = uri.path.isEmpty ? '/' : uri.path;
     // Load cookies without "domain" attribute, include port.
-    final String hostname = uri.host;
-    for (final String domain in domains[1].keys) {
-      if (hostname == domain) {
-        final Map<String, Map<String, dynamic>> cookies =
-        domains[1][domain].cast<String, Map<String, dynamic>>();
-        final keys = cookies.keys.toList()
-          ..sort((a, b) => b.length.compareTo(a.length));
-        for (final String path in keys) {
-          if (urlPath.toLowerCase().contains(path)) {
-            final Map<String, dynamic> values = cookies[path];
-            for (final String key in values.keys) {
-              final SerializableInstaCookie cookie = values[key];
-              if (_check(uri.scheme, cookie)) {
-                if (list.indexWhere((e) => e.name == cookie.cookie.name) ==
-                    -1) {
-                  list.add(cookie.cookie);
-                }
-              }
-            }
-          }
-        }
+    for (final String domain in domains[0].keys) {
+      if (Constants.igHostUrl == domain) {
+        var cookies = domains[0][Constants.igHostUrl]?['/'];
+        cookies?.forEach((key, value) {
+          list.add(value.cookie!);
+        });
       }
     }
     // Load cookies with "domain" attribute, Ignore port.
     domains[0].forEach((domain, cookies) {
       if (uri.host.contains(domain)) {
         cookies.forEach((path, values) {
-          if (urlPath.toLowerCase().contains(path)) {
+          if (Constants.igHostUrl.toLowerCase().contains(path)) {
             values.forEach((key, v) {
               if (_check(uri.scheme, v)) {
-                list.add(v.cookie);
+                list.add(v.cookie!);
               }
             });
           }
@@ -116,7 +101,7 @@ class InstaCookieJar implements CookieJar {
   @override
   void saveFromResponse(Uri uri, List<Cookie> cookies) {
     for (final Cookie cookie in cookies) {
-      String domain = cookie.domain;
+      String domain = cookie.domain?? Constants.igHostUrl;
       String path;
       int index = 0;
       // Save cookies with "domain" attribute
@@ -169,7 +154,7 @@ class InstaCookieJar implements CookieJar {
       ignoreExpires ? false : cookie.isExpired();
 
   bool _check(String scheme, SerializableInstaCookie cookie) =>
-      cookie.cookie.secure && scheme == 'https' || !_isExpired(cookie);
+      cookie.cookie!.secure && scheme == 'https' || !_isExpired(cookie);
 
   @override
   final bool ignoreExpires;

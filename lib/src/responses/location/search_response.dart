@@ -5,10 +5,10 @@ part 'search_response.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class LocationSearchResponse {
-  List<LocationSearchResponseVenuesItem> venues;
-  String requestId;
-  String rankToken;
-  String status;
+  List<LocationSearchResponseVenuesItem>? venues;
+  String? requestId;
+  String? rankToken;
+  String? status;
 
   LocationSearchResponse();
 
@@ -20,13 +20,13 @@ class LocationSearchResponse {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class LocationSearchResponseVenuesItem {
-  String name;
-  String externalId;
-  String externalIdSource;
-  double lat;
-  double lng;
-  String address;
-  int minimumAge;
+  String?name;
+  String? externalId;
+  String ?externalIdSource;
+  double ?lat;
+  double ?lng;
+  String ?address;
+  int ?minimumAge;
 
   LocationSearchResponseVenuesItem();
 

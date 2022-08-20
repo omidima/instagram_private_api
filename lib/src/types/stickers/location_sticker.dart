@@ -5,7 +5,7 @@ class LocationSticker extends InstaSticker {
   String locationId;
 
   LocationSticker(
-      {@required this.locationId, double width = 0.47, double height = 0.111})
+      {required this.locationId, double width = 0.47, double height = 0.111})
       : super(width, height);
 
   @override

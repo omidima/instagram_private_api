@@ -4,11 +4,11 @@ import 'package:instagram_private_api/src/responses/feed/direct_inbox_response.d
 
 class DirectInboxFeed extends InstaFeed<FeedDirectInboxResponse,
     DirectInboxFeedResponseThreadsItem> {
-  String cursor;
-  int seqId;
+  String? cursor;
+  int? seqId;
   String path;
 
-  DirectInboxFeed(InstaClient client, {this.path = '/api/v1/direct_v2/inbox/'}) : super(client);
+  DirectInboxFeed(InstaClient client, {this.path = '/api/v1/direct_v2/inbox/'}) : super(client: client);
 
   @override
   Future<FeedDirectInboxResponse> request() async =>
@@ -16,7 +16,7 @@ class DirectInboxFeed extends InstaFeed<FeedDirectInboxResponse,
           await client.request.get('/api/v1/direct_v2/inbox/', query: {
         'visual_message_return_type': 'unseen',
         if (cursor != null && seqId != null) ...{
-          'cursor': cursor,
+          'cursor': cursor?? "",
           'seq_id': seqId.toString(),
           'dircetion': 'older'
         },
@@ -27,13 +27,13 @@ class DirectInboxFeed extends InstaFeed<FeedDirectInboxResponse,
 
   @override
   void setState(FeedDirectInboxResponse state) {
-    moreAvailable = state.inbox.hasOlder;
-    cursor = state.inbox.oldestCursor;
+    moreAvailable = state.inbox?.hasOlder ?? false;
+    cursor = state.inbox?.oldestCursor;
     seqId = state.seqId;
   }
 
   @override
   List<DirectInboxFeedResponseThreadsItem> transform(
           FeedDirectInboxResponse state) =>
-      state.inbox.threads;
+      state.inbox?.threads ?? [];
 }
