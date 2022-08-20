@@ -3,16 +3,16 @@ import 'dart:io';
 
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
+import 'package:instagram_private_api/src/utilities/insta_cookie_jar.dart';
 
 import 'insta_cookie.dart';
 
-class InstaCookieManager implements Interceptor {
-
+class InstaCookieManager extends Interceptor {
   /// Using this implementation, because Instagram sets a non-standard cookie
 
   /// Cookie manager for http requests。Learn more details about
   /// CookieJar please refer to [cookie_jar](https://github.com/flutterchina/cookie_jar)
-  final CookieJar cookieJar;
+  final InstaCookieJar cookieJar;
 
   static const invalidCookieValue = '_invalid_';
 
@@ -34,22 +34,28 @@ class InstaCookieManager implements Interceptor {
   }
 
   @override
-  FutureOr<dynamic> onRequest(RequestOptions options) {
-    final cookies = cookieJar.loadForRequest(options.uri)
-      ..removeWhere((cookie) =>
-          cookie.value == invalidCookieValue &&
-          cookie.expires.isBefore(DateTime.now()))
-      ..addAll(options.cookies);
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    final cookies = cookieJar.loadForRequest(Uri.parse('instagram.com'));
     final cookie = getCookies(cookies);
-
     if (cookie.isNotEmpty) options.headers[HttpHeaders.cookieHeader] = cookie;
+    super.onRequest(options, handler);
   }
 
   @override
-  FutureOr<dynamic> onResponse(Response response) => _saveCookies(response);
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    print(response.data);
+    _saveCookies(response);
+    super.onResponse(response, handler);
+  }
 
   @override
-  FutureOr<dynamic> onError(DioError err) => _saveCookies(err.response);
+  onError(
+    DioError err,
+    ErrorInterceptorHandler handler,
+  ) {
+    _saveCookies(err.response);
+    super.onError(err, handler);
+  }
 
   FutureOr<dynamic> _saveCookies(Response response) {
     if (response != null && response.headers != null) {
@@ -62,7 +68,7 @@ class InstaCookieManager implements Interceptor {
             ..addAll(_cookies);
         }
         cookieJar.saveFromResponse(
-          response.request.uri,
+          response.realUri,
           cookies.map((str) => InstaCookie.fromSetCookieValue(str)).toList(),
         );
       }

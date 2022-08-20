@@ -13,12 +13,15 @@ import 'package:instagram_private_api/src/repositories/upload_repository.dart';
 import 'package:instagram_private_api/src/repositories/users_repository.dart';
 import 'package:instagram_private_api/src/services/publish_service.dart';
 
+import '../utilities/insta_cookie_jar.dart';
+import '../utilities/insta_cookie_manager.dart';
 import 'insta_feed_factory.dart';
 import 'insta_state.dart';
 
 class InstaClient {
   InstaState state;
   InstaRequest request;
+  InstaCookieJar jar;
 
   InstaFeedFactory feed;
 
@@ -39,10 +42,12 @@ class InstaClient {
   /// services
   PublishService publish;
 
-  InstaClient({this.state}){
+  InstaClient({this.state}) {
     state ??= InstaState();
     request = InstaRequest(this);
-
+    jar = InstaCookieJar();
+    request.httpClient.interceptors.add(InstaCookieManager(jar));
+    
     feed = InstaFeedFactory(this);
     account = AccountRepository(this);
     launcher = LauncherRepository(this);
@@ -59,5 +64,4 @@ class InstaClient {
 
     publish = PublishService(this);
   }
-
 }

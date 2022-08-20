@@ -41,11 +41,10 @@ class InstaRequest {
         queryParameters: query,
         data: form,
         options: Options(
-            contentType: ContentType('application', 'x-www-form-urlencoded',
-                charset: 'UTF-8'),
+            contentType: 'application/x-www-form-urlencoded',
             headers: headers ?? getDefaultHeaders(),
             responseType: ResponseType.json));
-    return response.data;
+    return response;
   }
 
   Future<dynamic> postData(String path,
@@ -56,7 +55,7 @@ class InstaRequest {
         queryParameters: query,
         data: data,
         options: Options(
-            contentType: ContentType.binary,
+            contentType: 'application/x-www-form-urlencoded',
             responseType: ResponseType.json,
             headers: headers ?? getDefaultHeaders(),
         ));

@@ -10,12 +10,12 @@ dependencies:
   uuid: ^2.0.1
   json_annotation: ^3.0.0
   cookie_jar: ^1.0.0
-  dio: ^2.1.13
   crypto: ^2.1.0
   hex: ^0.1.2
   image: ^2.1.4
   intl: ^0.15.8
   meta: ^1.1.7
+  dio: ^4.0.6
 
 dev_dependencies:
   pedantic: ^1.0.0

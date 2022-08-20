@@ -17,7 +17,7 @@ class AccountRepository extends InstaRepository {
             'google_tokens': '[]',
             'login_attempt_count': 0,
             'country_codes':
-              '[{\"country_code\":\"1\",\"source\":[\"default\"]}]',
+                '[{\"country_code\":\"1\",\"source\":[\"default\"]}]',
           }));
 
   Future<dynamic> readMsisdnHeader({String usage = 'default'}) =>
@@ -29,4 +29,7 @@ class AccountRepository extends InstaRepository {
           headers: {
             'X-DEVICE-ID': client.state.device.deviceId,
           });
+
+  Future<dynamic> currentUser() async => client.request
+      .get('/api/v1/accounts/current_user/', query: {'edit': 'true'});
 }

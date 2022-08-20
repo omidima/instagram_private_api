@@ -11,8 +11,8 @@ class ResponseInterceptor extends Interceptor {
   ResponseInterceptor(this._client, this._saveCallback);
 
   @override
-  FutureOr onResponse(Response response) async {
+  void onResponse(Response response, ResponseInterceptorHandler handler) async{
     await _saveCallback(_client.state.toJson());
-    return response;
+    super.onResponse(response, handler);
   }
 }
