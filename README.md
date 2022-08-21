@@ -93,5 +93,5 @@ class FileStateStorage with StateStorage {
 ```
 
 
-# Document
+# Documentation
 For documentation visit the GitHub repository [instagram-private-api](https://github.com/Nerixyz/instagram_private_api).
