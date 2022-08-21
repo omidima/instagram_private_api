@@ -12,7 +12,9 @@ This package isn't published on pub.dev, to use it, add a git dependency to your
 dependencies:
 ...
 
-  instagram_private_api: any # publish version branch 
+  instagram_private_api: 
+    git:
+      url: https://github.com/Nerixyz/instagram_private_api.git # master branch
 ```
 
 # Getting Started
