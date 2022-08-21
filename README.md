@@ -94,4 +94,4 @@ class FileStateStorage with StateStorage {
 
 
 # Document
-for read document and learn more how about use to this package visit here [instagram-private-api](https://github.com/Nerixyz/instagram_private_api).
+For documentation visit the GitHub repository [instagram-private-api](https://github.com/Nerixyz/instagram_private_api).
