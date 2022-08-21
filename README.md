@@ -15,6 +15,7 @@ dependencies:
   instagram_private_api: 
     git:
       url: https://github.com/Nerixyz/instagram_private_api.git
+      ref: 123ab5f # (optional) branch, tag or commit
 ```
 
 # Getting Started
