@@ -14,7 +14,7 @@ dependencies:
 
   instagram_private_api: 
     git:
-      url: https://github.com/Nerixyz/instagram_private_api.git # master branch
+      url: https://github.com/Nerixyz/instagram_private_api.git
 ```
 
 # Getting Started
